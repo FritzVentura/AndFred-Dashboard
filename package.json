@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FritzVentura/customersupport.git"
+    "url": "git+https://github.com/FritzVentura/AndFred-Dashboard.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/FritzVentura/customersupport/issues"
+    "url": "https://github.com/FritzVentura/AndFred-Dashboard/issues"
   },
-  "homepage": "https://github.com/FritzVentura/customersupport#readme",
+  "homepage": "https://github.com/FritzVentura/AndFred-Dashboard#readme",
   "devDependencies": {
     "cssnano": "^3.10.0",
     "node-sass": "^4.9.0",
