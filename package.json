@@ -1,0 +1,31 @@
+{
+  "name": "Customersupport",
+  "version": "1.0.0",
+  "description": "Fork this repo, then clone it to your computer",
+  "main": "index.js",
+  "scripts": {
+    "my-sass": "node-sass -w source/css/style.scss build/css/style.css",
+    "autoprefix": "postcss build/css/style.css --use autoprefixer -d build/css/",
+    "minifycss": "postcss build/css/style.css --use cssnano -d build/css/minify",
+    "allcss": "npm run my-sass && npm run autoprefix && npm run minifycss",
+    "watch": "watch \"npm run allcss\" source/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FritzVentura/customersupport.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FritzVentura/customersupport/issues"
+  },
+  "homepage": "https://github.com/FritzVentura/customersupport#readme",
+  "devDependencies": {
+    "cssnano": "^3.10.0",
+    "node-sass": "^4.9.0",
+    "postcss-cli": "^5.0.0",
+    "watch": "^1.0.2",
+    "autoprefixer": "^8.5.0"
+  },
+  "dependencies": {}
+}
