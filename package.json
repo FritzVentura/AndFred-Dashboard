@@ -21,11 +21,11 @@
   },
   "homepage": "https://github.com/FritzVentura/AndFred-Dashboard#readme",
   "devDependencies": {
+    "autoprefixer": "^8.5.0",
     "cssnano": "^3.10.0",
     "node-sass": "^4.9.0",
     "postcss-cli": "^5.0.0",
-    "watch": "^1.0.2",
-    "autoprefixer": "^8.5.0"
+    "watch": "^1.0.2"
   },
   "dependencies": {}
 }
