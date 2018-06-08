@@ -10,7 +10,7 @@ async function hentData() {
 // definér data
     data = FooBar.getData();
 
-// lav output/string om til JSON format
+// omdan output/string om til JSON format
     jsonData = JSON.parse(data);
     
     console.log("i kø", jsonData.queue.length);
