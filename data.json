@@ -1,8 +1,11 @@
 {
     "timestamp": 1528355395813,
+    
     "bar": {
         "closingTime": "22:00:00"
     },
+
+
     "queue": [{
         "id": 6,
         "startTime": 1528355359349,
@@ -24,6 +27,8 @@
         "startTime": 1528355389350,
         "order": ["Fairy Tale Ale", "GitHop"]
     }],
+
+
     "serving": [{
         "id": 3,
         "startTime": 1528355359349,
@@ -37,6 +42,8 @@
         "startTime": 1528355359349,
         "order": ["Fairy Tale Ale", "GitHop", "GitHop", "Ruined Childhood"]
     }],
+
+
     "bartenders": [{
         "name": "Peter",
         "status": "WORKING"
@@ -47,6 +54,8 @@
         "name": "Martin",
         "status": "WORKING"
     }],
+
+
     "taps": [{
         "level": 2400,
         "capacity": 2500,
@@ -76,6 +85,8 @@
         "capacity": 2500,
         "beer": "El Hefe"
     }],
+
+
     "storage": [{
         "name": "El Hefe",
         "amount": 4
@@ -107,6 +118,8 @@
         "name": "Steampunk",
         "amount": 7
     }],
+
+
     "beertypes": [{
         "name": "El Hefe",
         "category": "Hefeweizen",
