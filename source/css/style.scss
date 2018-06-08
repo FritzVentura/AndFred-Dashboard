@@ -40,14 +40,14 @@ background: $red;
 grid-column: 2 / span 1;
 border-radius: 50%;
 border: 30px solid $bgColor1;
-
+transition: all .6s;
  }
  .circle2 {
     grid-column: 4 / span 1 ;
     background: $green;
     border-radius: 50%;
     border: 30px solid $bgColor1;
-
+    transition: all .6s;
     
  }
 
