@@ -1,8 +1,4 @@
 
-// sæt interval
-
-window.setInterval(hentData, 2000);
-hentData();
 
 // globale variabler
 
@@ -20,11 +16,26 @@ async function hentData() {
     console.log("i kø", jsonData.queue.length);
 
 
-// find DOM elementer
+// find DOM elementer til modtager og template elementer
+
 
 // udvælg data der skal ind i DOM'en
 
-// prop data ud i DOM'en
+
+// prop data ud i DOM'en og Kald pågældende funktioner
+propUdData();
 
 }
+
+
+// Funktion til Antal i KØ
+function propUdData(){
+    document.querySelector("#queue .queueAmount").textContent = jsonData.queue.length;
+    document.querySelector("#serving .servingAmount").textContent = jsonData.serving.length;
+};
+
+
+// sæt interval
+window.setInterval(hentData, 2000);
+hentData();
 
