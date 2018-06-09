@@ -7,9 +7,9 @@
     "my-sass": "node-sass -w source/css/style.scss build/css/style.css",
     "autoprefix": "postcss build/css/style.css --use autoprefixer -d build/css/",
     "minifycss": "postcss build/css/style.css --use cssnano -d build/css/minify",
-    "transpilejs": "babel build/main.js --out-file build/js/main.js --presets=env",
-    "uglifyjs": "uglifyjs build/js/main.js --compress --mangle --output build/js/uglyify.js",
-    "allcss-js": "npm run my-sass && npm run autoprefix && npm run minifycss && npm run transpilejs",
+    "transpilejs": "babel build/main.js --out-file build/js/transpiled.js --presets=env",
+    "uglifyjs": "uglifyjs build/js/transpiled.js --compress --mangle --output build/js/uglyified.js",
+    "allcss-js": "npm run my-sass && npm run autoprefix && npm run minifycss && npm run transpilejs && npm run uglifyjs",
     "watch": "watch \"npm run allcss-js\" source/"
   },
   "repository": {
