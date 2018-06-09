@@ -1,7 +1,7 @@
 {
   "name": "Customersupport",
   "version": "1.0.0",
-  "description": "Fork this repo, then clone it to your computer",
+  "description": "And-Fred Dashboard Package Handler v.1",
   "main": "index.js",
   "scripts": {
     "my-sass": "node-sass -w source/css/style.scss build/css/style.css",
