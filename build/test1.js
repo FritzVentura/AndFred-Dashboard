@@ -64,7 +64,6 @@ function circleStyling(){
     } else if (servingData < 4 ){
         circle2.style.background = "#87ab66";
     }
-
 };
 
 
