@@ -25,7 +25,6 @@ async function hentData() {
     console.log("In Service", servingData);
 
 
-
 // find DOM elementer til modtager og template elementer
 
 
