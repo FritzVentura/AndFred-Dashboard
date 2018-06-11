@@ -79,7 +79,7 @@ function queueList(){
 // udvælg KØ og SERVING data der skal ind i DOM'en
 // Definér KØ antal
 queueData = jsonData.queue.length;
-console.log("In queue", queueData);
+console.log("In Queue", queueData);
 
 // Definér SERVING antal
 servingData = jsonData.serving.length;
