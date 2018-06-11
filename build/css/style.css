@@ -14,6 +14,16 @@ html, body, p {
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto;
     height: 100vh; }
+  #top {
+    grid-row: 1 / span 5;
+    grid-column: 1 / 13;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    overflow: scroll; }
+  #ticketcontainer {
+    grid-column: 1 / span 2;
+    background: #d94d4d; }
   #middle {
     background: #2f2f2f;
     grid-row: 5 / span 5;
@@ -117,4 +127,10 @@ html, body, p {
     from {
       box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #d94d4d, 0 0 70px #d94d4d, 0 0 80px #d94d4d, 0 0 100px #d94d4d, 0 0 150px #d94d4d; }
     to {
-      box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #d94d4d, 0 0 35px #d94d4d, 0 0 40px #d94d4d, 0 0 50px #d94d4d, 0 0 75px #d94d4d; } } }
+      box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #d94d4d, 0 0 35px #d94d4d, 0 0 40px #d94d4d, 0 0 50px #d94d4d, 0 0 75px #d94d4d; } }
+  #ticketcontainer {
+    /*      position: absolute;
+        top: 20%;
+        left: 10%;
+        width: 200px;
+        height: 200px; */ } }
