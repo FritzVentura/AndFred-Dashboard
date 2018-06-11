@@ -13,6 +13,19 @@
          grid-template-rows: auto;
          height: 100vh
      }
+     #top {
+        grid-row: 1 / span 5;
+        grid-column: 1 / 13;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: auto;
+      overflow: scroll;
+     }
+     #ticketcontainer {
+         grid-column: 1 / span 2;
+     
+         background: $red;
+     }
      #middle {
          background: $bgColor2;
          grid-row: 5 / span 5;

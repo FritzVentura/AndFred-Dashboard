@@ -7,30 +7,52 @@ let data;
 let jsonData;
 let queueData;
 let servingData;
+let queueDetails
+let ticketKlon;
 
-async function hentData() {
+ async function hentData() {
     //definer data
     data = FooBar.getData();
-
     //lav string til JSON format
     jsonData = JSON.parse(data);
+    let ticketTemplate = document.querySelector("#tickettemplate-container");
+    let ticketContainer = document.querySelector("#ticketcontainer")
+    //Find kø
+    queueDetails = jsonData.queue;
+    document.querySelector(".ticketcontainer").innerHTML = "";
+    queueDetails.forEach(tickets => {
 
+        ticketKlon = ticketTemplate.cloneNode(true).content;
+        //data for ticket ID ud i DOM'en
+        ticketKlon.querySelector(".ticket-id").textContent = tickets.id;
+        //Find ordrene
+        let orders = tickets.order
+        //adskil med linjeskift
+        let orderDetail = orders.join(' ')
+        //prop data ud for ordrer
+        ticketKlon.querySelector(".ticket-order").textContent = orderDetail;
+/*         //kald værdi af ordrerne 
+        orders.forEach(function (value) {
+        console.log(value)
+        }) */
+        ticketContainer.appendChild(ticketKlon);
+   
+    });
+    //Find DOM elementer (TICKCETS) til modtager og template elementer
+    //Udvælg Data:
+    //Kø data
     queueData = jsonData.queue.length;
-    servingData = jsonData.serving.length
-
+    //Serving data
+    servingData = jsonData.serving.length;
+    //
     console.log("i kø", jsonData.queue.length)
     console.log("serving", jsonData.serving.length)
-
-    //Find DOM elementer til modtager og template elementer
-
-    //Udvælg data elementer der skal ud i DOM'en
 
     //kald på function der kaster data ud i DOM'en
     propUdData();
     circleStyling();
-
-
 }
+
 
 function circleStyling() {
 
@@ -76,7 +98,6 @@ function propUdData() {
     document.querySelector("#serving .servingAmount").textContent = servingData;
 }
 
-
-//Bestem interval 
+//Bestem interval hvorpaa data skal hentes ind igen
 window.setInterval(hentData, 2000);
 hentData();
