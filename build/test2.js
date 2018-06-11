@@ -28,36 +28,56 @@ async function hentData() {
 
 
 
-    
+
     //kald på function der kaster data ud i DOM'en
- propUdData();
-circleStyling();
+    propUdData();
+    circleStyling();
 
 
 }
 
-function circleStyling(){
+function circleStyling() {
 
-    let circle1 = document.querySelector(".circle1")
+    let circle1 = document.querySelector("#queue-light")
 
-    if (queueData < 5){    
+    if (queueData < 5) {
         circle1.style.background = "#87ab66";
-            } else if (queueData < 10){    
+        circle1.classList.remove("neon-yellow");
+        circle1.classList.remove("neon-red");
+        circle1.classList.add("neon-green");
+
+    } else if (queueData < 10) {
         circle1.style.background = "#e79d3f";
-            } else if (queueData < 15){    
-                circle1.style.background = "#d94d4d";
-            }
-           
-    let circle2 = document.querySelector(".circle2")
-    
-    if (servingData < 2){    
+        circle1.classList.remove("neon-green");
+        circle1.classList.remove("neon-red");
+        circle1.classList.add("neon-yellow");
+
+    } else if (queueData < 15) {
+        circle1.style.background = "#d94d4d";
+        circle1.classList.remove("neon-yellow");
+        circle1.classList.remove("neon-green")
+        circle1.classList.add("neon-red");;
+    }
+
+    let circle2 = document.querySelector("#serving-light")
+
+    if (servingData < 2) {
         circle2.style.background = "#d94d4d";
-            } else if (servingData < 3){    
+        circle2.classList.remove("neon-yellow");
+        circle2.classList.remove("neon-green");
+        circle2.classList.add("neon-red");
+    } else if (servingData < 3) {
         circle2.style.background = "#e79d3f";
-            } else if (servingData < 4){    
-                circle2.style.background = "#87ab66";
-            }
- };
+        circle2.classList.remove("neon-red");
+        circle2.classList.remove("neon-green");
+        circle2.classList.add("neon-yellow");
+    } else if (servingData < 4) {
+        circle2.style.background = "#87ab66";
+        circle2.classList.remove("neon-yellow");
+        circle2.classList.remove("neon-red");
+        circle2.classList.add("neon-green");
+    }
+};
 
 
 function propUdData() {
@@ -69,22 +89,4 @@ function propUdData() {
 
 //Bestem interval 
 window.setInterval(hentData, 2000);
-hentData(); 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+hentData();
