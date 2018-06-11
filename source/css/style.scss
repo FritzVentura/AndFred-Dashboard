@@ -44,13 +44,20 @@
      #queue-light {
          background: $red;
          grid-column: 1 / span 1;
+         margin-left: 50%;
          border-radius: 50%;
+         width: 50%;
+         height: 50%;
+         align-self: center;
          transition: all .6s;
      }
      #serving-light {
          grid-column: 6 / span 1;
          background: $green;
          border-radius: 50%;
+         width: 50%;
+         height: 50%;
+         align-self: center;
          transition: all .6s;
      }
      .neon-green {
