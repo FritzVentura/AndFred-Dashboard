@@ -127,4 +127,10 @@ html, body, p {
     from {
       box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #d94d4d, 0 0 70px #d94d4d, 0 0 80px #d94d4d, 0 0 100px #d94d4d, 0 0 150px #d94d4d; }
     to {
-      box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #d94d4d, 0 0 35px #d94d4d, 0 0 40px #d94d4d, 0 0 50px #d94d4d, 0 0 75px #d94d4d; } } }
+      box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #d94d4d, 0 0 35px #d94d4d, 0 0 40px #d94d4d, 0 0 50px #d94d4d, 0 0 75px #d94d4d; } }
+  #ticketcontainer {
+    /*      position: absolute;
+        top: 20%;
+        left: 10%;
+        width: 200px;
+        height: 200px; */ } }
