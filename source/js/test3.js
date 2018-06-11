@@ -1,4 +1,5 @@
 
+document.addEventListener("DOMContentLoaded", hentData);
 
 // globale variabler
 
@@ -8,14 +9,20 @@ let queueData;
 let servingData;
 let queueDetails;
 
-async function hentData() {
-
+function hentData(){
 // definér data / HENT Data
     data = FooBar.getData();
-
 // omdan output/string om til JSON format
     jsonData = JSON.parse(data);
 
+    ticketOrders();
+
+// prop data ud i DOM'en og Kald pågældende funktioner
+    queueList();
+    circleStyling();
+}
+
+function ticketOrders() {
 
 // find DOM elementer (TICKETS) til modtager og template elementer
 
@@ -24,6 +31,9 @@ let ticketContainer = document.querySelector("#ticketcontainer");
 
 
 console.log("kø data", jsonData.queue);
+
+//udskift indhold i modtageren
+document.querySelector("#ticketcontainer").innerHTML = "";
 
 // find køen
 queueDetails = jsonData.queue;
@@ -48,8 +58,6 @@ let orderDetail = orders.join(' ');
 
 // prop data for ticket order ud i DOM'en
     ticketKlon.querySelector(".ticket-order").textContent = orderDetail;
-//    document.querySelector(".ticket-order").innerHTML = "";
-
 
 
 // kald værdien af ordrerne i arrayet
@@ -61,24 +69,26 @@ let orderDetail = orders.join(' ');
     ticketContainer.appendChild(ticketKlon);
 });
 
+};
 
+
+
+// Funktion til Antal i KØ
+function queueList(){
 
 // udvælg KØ og SERVING data der skal ind i DOM'en
 // Definér KØ antal
 queueData = jsonData.queue.length;
-    console.log("In queue", queueData);
+console.log("In queue", queueData);
 
 // Definér SERVING antal
 servingData = jsonData.serving.length;
-    console.log("In Service", servingData);
+console.log("In Service", servingData);
 
-
-
-// prop data ud i DOM'en og Kald pågældende funktioner
-propUdData();
-circleStyling();
+// Prop Data ud
+    document.querySelector("#queue .queueAmount").textContent = queueData;
+    document.querySelector("#serving .servingAmount").textContent = servingData;
 };
-
 
 
 function circleStyling() {
@@ -116,13 +126,6 @@ function circleStyling() {
         circle2.classList.remove("neon-yellow", "neon-red");
         circle2.classList.add("neon-green");
     }
-};
-
-
-// Funktion til Antal i KØ
-function propUdData(){
-    document.querySelector("#queue .queueAmount").textContent = queueData;
-    document.querySelector("#serving .servingAmount").textContent = servingData;
 };
 
 
