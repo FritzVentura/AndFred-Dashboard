@@ -5,10 +5,11 @@
 let data;
 let jsonData;
 let queueData;
+let servingData;
 
 async function hentData() {
 
-// definér data
+// definér data / HENT Data
     data = FooBar.getData();
 
 // omdan output/string om til JSON format
