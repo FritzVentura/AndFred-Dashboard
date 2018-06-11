@@ -14,17 +14,31 @@
          height: 100vh
      }
      #top {
-        grid-row: 1 / span 5;
-        grid-column: 1 / 13;
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: auto;
-      overflow: scroll;
+         grid-row: 1 / span 5;
+         grid-column: 1 / 13;
      }
      #ticketcontainer {
-         grid-column: 1 / span 2;
-     
+         display: flex;
+         flex-direction: row;
+         justify-content: flex-start;
          background: $red;
+         overflow: scroll;
+         height: 400px;
+         align-self: flex-end;
+        
+         section {
+             
+             width: 200px;
+             border: 1px solid black;
+         }
+         h1 {
+             text-align: center;
+             color: white;
+         }
+         ul {
+             list-style: square;
+             color: white;
+         }
      }
      #middle {
          background: $bgColor2;
@@ -85,15 +99,15 @@
          animation: neon-green 1.5s ease-in-out infinite alternate;
      }
      .neon-yellow {
-        -webkit-animation: neon-yellow 1.5s ease-in-out infinite alternate;
-        -moz-animation: neon-yellow 1.5s ease-in-out infinite alternate;
-        animation: neon-yellow 1.5s ease-in-out infinite alternate;
-    }
-    .neon-red {
-        -webkit-animation: neon-red 1.5s ease-in-out infinite alternate;
-        -moz-animation: neon-red 1.5s ease-in-out infinite alternate;
-        animation: neon-red 1.5s ease-in-out infinite alternate;
-    }
+         -webkit-animation: neon-yellow 1.5s ease-in-out infinite alternate;
+         -moz-animation: neon-yellow 1.5s ease-in-out infinite alternate;
+         animation: neon-yellow 1.5s ease-in-out infinite alternate;
+     }
+     .neon-red {
+         -webkit-animation: neon-red 1.5s ease-in-out infinite alternate;
+         -moz-animation: neon-red 1.5s ease-in-out infinite alternate;
+         animation: neon-red 1.5s ease-in-out infinite alternate;
+     }
      @-webkit-keyframes neon-green {
          from {
              box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #87ab66, 0 0 70px #87ab66, 0 0 80px #87ab66, 0 0 100px #87ab66, 0 0 150px #87ab66;
@@ -119,60 +133,58 @@
          }
      }
      @-webkit-keyframes neon-yellow {
-        from {
-            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $yellow, 0 0 70px $yellow, 0 0 80px $yellow, 0 0 100px $yellow, 0 0 150px $yellow;
-        }
-        to {
-            box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $yellow, 0 0 35px $yellow, 0 0 40px $yellow, 0 0 50px $yellow, 0 0 75px $yellow;
-        }
-    }
-    @-moz-keyframes neon-yellow {
-        from {
-            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $yellow, 0 0 70px $yellow, 0 0 80px $yellow, 0 0 100px $yellow, 0 0 150px $yellow;
-        }
-        to {
-            box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $yellow, 0 0 35px $yellow, 0 0 40px $yellow, 0 0 50px $yellow, 0 0 75px $yellow;
-        }
-    }
-    @keyframes neon-yellow {
-        from {
-            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $yellow, 0 0 70px $yellow, 0 0 80px $yellow, 0 0 100px $yellow, 0 0 150px $yellow;
-        }
-        to {
-            box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $yellow, 0 0 35px $yellow, 0 0 40px $yellow, 0 0 50px $yellow, 0 0 75px $yellow;
-        }
-    }
-    @-webkit-keyframes neon-red {
-        from {
-            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $red, 0 0 70px $red, 0 0 80px $red, 0 0 100px $red, 0 0 150px $red;
-        }
-        to {
-            box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $red, 0 0 35px $red, 0 0 40px $red, 0 0 50px $red, 0 0 75px $red;
-        }
-    }
-    @-moz-keyframes neon-red {
-        from {
-            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $red, 0 0 70px $red, 0 0 80px $red, 0 0 100px $red, 0 0 150px $red;
-        }
-        to {
-            box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $red, 0 0 35px $red, 0 0 40px $red, 0 0 50px $red, 0 0 75px $red;
-        }
-    }
-    @keyframes neon-red {
-        from {
-            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $red, 0 0 70px $red, 0 0 80px $red, 0 0 100px $red, 0 0 150px $red;
-        }
-        to {
-            box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $red, 0 0 35px $red, 0 0 40px $red, 0 0 50px $red, 0 0 75px $red;
-        }
-    }
-
-
-    #ticketcontainer{
-   /*      position: absolute;
+         from {
+             box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $yellow, 0 0 70px $yellow, 0 0 80px $yellow, 0 0 100px $yellow, 0 0 150px $yellow;
+         }
+         to {
+             box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $yellow, 0 0 35px $yellow, 0 0 40px $yellow, 0 0 50px $yellow, 0 0 75px $yellow;
+         }
+     }
+     @-moz-keyframes neon-yellow {
+         from {
+             box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $yellow, 0 0 70px $yellow, 0 0 80px $yellow, 0 0 100px $yellow, 0 0 150px $yellow;
+         }
+         to {
+             box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $yellow, 0 0 35px $yellow, 0 0 40px $yellow, 0 0 50px $yellow, 0 0 75px $yellow;
+         }
+     }
+     @keyframes neon-yellow {
+         from {
+             box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $yellow, 0 0 70px $yellow, 0 0 80px $yellow, 0 0 100px $yellow, 0 0 150px $yellow;
+         }
+         to {
+             box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $yellow, 0 0 35px $yellow, 0 0 40px $yellow, 0 0 50px $yellow, 0 0 75px $yellow;
+         }
+     }
+     @-webkit-keyframes neon-red {
+         from {
+             box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $red, 0 0 70px $red, 0 0 80px $red, 0 0 100px $red, 0 0 150px $red;
+         }
+         to {
+             box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $red, 0 0 35px $red, 0 0 40px $red, 0 0 50px $red, 0 0 75px $red;
+         }
+     }
+     @-moz-keyframes neon-red {
+         from {
+             box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $red, 0 0 70px $red, 0 0 80px $red, 0 0 100px $red, 0 0 150px $red;
+         }
+         to {
+             box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $red, 0 0 35px $red, 0 0 40px $red, 0 0 50px $red, 0 0 75px $red;
+         }
+     }
+     @keyframes neon-red {
+         from {
+             box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $red, 0 0 70px $red, 0 0 80px $red, 0 0 100px $red, 0 0 150px $red;
+         }
+         to {
+             box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $red, 0 0 35px $red, 0 0 40px $red, 0 0 50px $red, 0 0 75px $red;
+         }
+     }
+     #ticketcontainer {
+         /*      position: absolute;
         top: 20%;
         left: 10%;
         width: 200px;
         height: 200px; */
-    }
+     }
  }

@@ -55,10 +55,17 @@ let orders = tickets.order;
 // adskil arrayet med ordrerne med et return/nyt linjeskift
 let orderDetail = orders.join(' ');
 
-// udvælg data for ticketOrder detaljer
+
+// prop data for ticket order ud i DOM'en
     ticketKlon.querySelector(".ticket-order").textContent = orderDetail;
 
-//kast data ind i containeren for hver klon
+
+// kald værdien af ordrerne i arrayet
+    orders.forEach(function(value, index){
+        console.log("ordererne er her", value, index);
+        //ticketKlon.querySelector(".ticket-order").textContent = value + index;
+    });
+
     ticketContainer.appendChild(ticketKlon);
 });
 
@@ -78,7 +85,7 @@ console.log("In Queue", queueData);
 servingData = jsonData.serving.length;
 console.log("In Service", servingData);
 
-// Udvælg data for kø og serving antal og prop data ud i DOM'en
+// Prop Data ud
     document.querySelector("#queue .queueAmount").textContent = queueData;
     document.querySelector("#serving .servingAmount").textContent = servingData;
 };
@@ -129,4 +136,3 @@ function circleStyling() {
 window.setInterval(hentData, 2000);
 hentData();
 
- 

@@ -16,14 +16,24 @@ html, body, p {
     height: 100vh; }
   #top {
     grid-row: 1 / span 5;
-    grid-column: 1 / 13;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto;
-    overflow: scroll; }
+    grid-column: 1 / 13; }
   #ticketcontainer {
-    grid-column: 1 / span 2;
-    background: #d94d4d; }
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background: #d94d4d;
+    overflow: scroll;
+    height: 400px;
+    align-self: flex-end; }
+    #ticketcontainer section {
+      width: 200px;
+      border: 1px solid black; }
+    #ticketcontainer h1 {
+      text-align: center;
+      color: white; }
+    #ticketcontainer ul {
+      list-style: square;
+      color: white; }
   #middle {
     background: #2f2f2f;
     grid-row: 5 / span 5;
