@@ -10,7 +10,7 @@
      #grid_container {
          display: grid;
          grid-template-columns: repeat(12, 1fr);
-         grid-template-rows: repeat(12, 1fr);
+         grid-template-rows: auto;
          height: 100vh
      }
      #middle {
@@ -30,6 +30,9 @@
          grid-column: 3 / span 1;
          background: $brown;
          border-radius: 50%;
+         width: 200px;
+         height: 200px;
+         align-self: center;
          border: 10px solid $bgColor1;
          transition: all .6s;
      }
@@ -38,6 +41,9 @@
          grid-column: 4 / span 1;
          background: $brown;
          border-radius: 50%;
+         width: 200px;
+         height: 200px;
+         align-self: center;
          border: 10px solid $bgColor1;
          transition: all .6s;
      }
@@ -46,8 +52,8 @@
          grid-column: 1 / span 1;
          margin-left: 50%;
          border-radius: 50%;
-         width: 50%;
-         height: 50%;
+         width: 100px;
+         height: 100px;
          align-self: center;
          transition: all .6s;
      }
@@ -55,8 +61,8 @@
          grid-column: 6 / span 1;
          background: $green;
          border-radius: 50%;
-         width: 50%;
-         height: 50%;
+         width: 100px;
+         height: 100px;
          align-self: center;
          transition: all .6s;
      }

@@ -12,7 +12,7 @@ html, body, p {
   #grid_container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr);
+    grid-template-rows: auto;
     height: 100vh; }
   #middle {
     background: #2f2f2f;
@@ -29,6 +29,9 @@ html, body, p {
     grid-column: 3 / span 1;
     background: #a86f3b;
     border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    align-self: center;
     border: 10px solid #414141;
     transition: all .6s; }
   .serving-circle {
@@ -36,6 +39,9 @@ html, body, p {
     grid-column: 4 / span 1;
     background: #a86f3b;
     border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    align-self: center;
     border: 10px solid #414141;
     transition: all .6s; }
   #queue-light {
@@ -43,16 +49,16 @@ html, body, p {
     grid-column: 1 / span 1;
     margin-left: 50%;
     border-radius: 50%;
-    width: 50%;
-    height: 50%;
+    width: 100px;
+    height: 100px;
     align-self: center;
     transition: all .6s; }
   #serving-light {
     grid-column: 6 / span 1;
     background: #87ab66;
     border-radius: 50%;
-    width: 50%;
-    height: 50%;
+    width: 100px;
+    height: 100px;
     align-self: center;
     transition: all .6s; }
   .neon-green {

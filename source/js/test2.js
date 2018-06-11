@@ -25,10 +25,6 @@ async function hentData() {
 
     //Udvælg data elementer der skal ud i DOM'en
 
-
-
-
-
     //kald på function der kaster data ud i DOM'en
     propUdData();
     circleStyling();
