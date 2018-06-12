@@ -40,6 +40,21 @@
     </section>
 </template>
 
+<template id="tapinfotemplate-container">
+        <section class="section">
+                <h1>Beer: <span class="tap-beer"></span></h1>
+            <h1>Level: <span class="tap-level"></span></h1>
+            <h1>Capacity: <span class="tap-cap"></span></h1>
+        </section>
+    </template>
+
+   <template id="storagetemplate-container">
+       <section id="section">
+            <h1>Name: <span class="tap-name"></span></h1>
+            <h1>Storage: <span class="tap-storage"></span></h1>
+        </section>
+    </template>
+
 
 
 <div id="grid_container">
@@ -49,7 +64,9 @@
 </div>
 
     <div id="middle">
-        <div id="queue-light"></div>
+        <div id="queue-light">
+            <h1 class="busy">BUSY AF!</h1>
+        </div>
         <div class="queue-circle flex_center">
             <div id="queue">
                 <h2 class="queueAmount"></h2>
@@ -68,7 +85,10 @@
     </div>
 
     </div>
-
+    <div id="bottom">
+    <div id="tapinfocontainer"></div>
+<!--     <div id="storagecontainer"></div> -->
+</div>
 
 </div>
 
