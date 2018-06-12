@@ -21,10 +21,10 @@ function hentData(){
     jsonData = JSON.parse(data);
 
 // Kald funktioner
-    ticketOrders();
-    queueList();
-    circleStyling();
     servingOrders();
+    ticketOrders();
+    tapInfo();
+    queueList();
 }
 
 
@@ -119,6 +119,81 @@ let orderDetail = orders.join('\n');
 
 
 
+//--------------------------------------------------------------------
+// FUNKTION til KEGS, LEVEL & Storage eller ordrer
+
+function tapInfo(){
+
+// find DOM elementer til template og modtager
+let tapinfoTemplate = document.querySelector("#tapinfotemplate-container");
+let tapinfoContainer = document.querySelector("#tapinfocontainer")
+
+let storageTemplate = document.querySelector("#storagetemplate-container");
+let storageContainer = document.querySelector("#storagecontainer")
+
+document.querySelector("#tapinfocontainer").innerHTML = "";
+//document.querySelector("#storagecontainer").innerHTML = "";
+//console.log("TAP info", jsonData.taps);
+
+// find arrays (taps + storage)
+let tapData = jsonData.taps;
+let tapStorage = jsonData.storage;
+
+// concatenate/kombinér arrays (taps + storage)
+//let combiData = tapStorage.concat(tapData);
+//console.log("TAP info", combiData);
+
+
+tapData.forEach(element => {
+
+    let tapKlon1 = tapinfoTemplate.cloneNode(true).content;
+
+    tapKlon1.querySelector(".tap-beer").textContent = element.beer;
+    tapKlon1.querySelector(".tap-level").textContent = element.level;
+    tapKlon1.querySelector(".tap-cap").textContent = element.capacity;
+
+    const app = document.createElement("div");
+    app.setAttribute("class", "parent");
+
+    for(let i=0; i<1; i++){
+        const data = document.createElement("h2");
+        app.appendChild(data);
+    }
+
+    document.body.appendChild(app);
+
+
+    tapinfoContainer.appendChild(tapKlon1);
+});
+
+
+/* tapStorage.forEach(element2 => {
+
+    let tapKlon2 = storageTemplate.cloneNode(true).content;
+
+
+    tapKlon2.querySelector(".tap-storage").textContent = element2.amount;
+
+
+    storageContainer.appendChild(tapKlon2);
+}); */
+
+beerStyling();
+
+}
+
+
+function beerStyling(){
+
+
+
+
+
+
+}
+
+
+
 
 //--------------------------------------------------------------------
 // FUNKTION til Antal i KØ
@@ -136,6 +211,8 @@ console.log("In Service", servingData);
 // Udvælg data for KØ og Serving ANTAL og Prop Data ud i ODM'en
     document.querySelector("#queue .queueAmount").textContent = queueData;
     document.querySelector("#serving .servingAmount").textContent = servingData;
+
+    circleStyling();
 };
 
 

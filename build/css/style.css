@@ -22,17 +22,22 @@ html, body, p {
   #servingcontainer {
     grid-column: 1 / span 2;
     display: flex;
-    flex-direction: row; }
+    flex-direction: row;
+    background: #87ab66; }
+    #servingcontainer section {
+      border: 1px solid black; }
   #ticketcontainer {
     grid-column: 3 / span 4;
     display: flex;
     flex-direction: row; }
     #ticketcontainer :nth-child(1) {
-      background: #87ab66; }
+      background: #e79d3f; }
     #ticketcontainer :nth-child(2) {
-      background: #87ab66; }
-    #ticketcontainer :nth-child(2n+3) {
-      background: #d94d4d; }
+      background: #e79d3f; }
+    #ticketcontainer :nth-child(3) {
+      background: #e79d3f; }
+    #ticketcontainer :nth-child(2n+4) {
+      background: #2f2f2f; }
     #ticketcontainer section {
       width: 200px;
       border: 1px solid black; }
