@@ -1,12 +1,19 @@
+//PRESETS
 @import "variables";
- @import "preset";
+@import "preset";
+
+//MEDIAQUERY FOR STOR SKÆRM
  @media only screen and (min-width: 75em) {
+
+
      html {
          font-size: calc(0.5em + 1vw)
      }
      body {
          background: $bgColor1;
      }
+
+//CONTAINER
      #grid_container {
          display: grid;
          grid-template-columns: repeat(12, 1fr);
@@ -14,6 +21,7 @@
          height: 100vh;
       
      }
+//TOP BOKS TIL TICKETS
      #top {
          grid-row: 1 / span 5;
          grid-column: 1 / 13;
@@ -97,6 +105,8 @@
      .section {
          width: 200px;
      }
+
+//MIDDLE BOKS TIL KØ/SERVING ANTAL
      #middle {
          background: $bgColor2;
          grid-row: 5 / span 5;
@@ -105,38 +115,62 @@
          height: 400px;
          grid-template-columns: repeat(6, 1fr);
          grid-template-rows: repeat(1, 1fr);
-         h1 {
-             font-size: .5em;
-             color: white;
-             text-align: center;
-             
-         }
      }
      .flex_center {
          display: flex;
          align-items: center;
          justify-content: center;
      }
+
+// MIDTERSTE BOKS MED FÆRDIGE ORDRER
+#orders-heading {
+    grid-column: 3 / span 2;
+    grid-row: 1/ span 1;
+    margin-top: 30%;
+    justify-self: center;
+    color: white;
+  
+}
+#orders-done {
+    grid-column: 3 / span 2;
+    grid-row: 1/ span 1;
+    border-radius: 50%;
+    border: 10px solid $bgColor1;
+    width: 150px;
+    height: 150px;
+    background: $brown;
+    align-self: center;
+    justify-self: center;
+    margin-top: 30%;
+}
+
+
+// QUEUE
+    .queue-heading {
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 1;
+        font-size: 1.5em;
+        color: white;
+        text-align: center;
+
+    }
      .queue-circle {
-         grid-column: 3 / span 1;
+         grid-column: 2 / span 1;
+         grid-row: 1 / span 1;
          background: $brown;
          border-radius: 50%;
          width: 200px;
          height: 200px;
          align-self: center;
+         justify-self: center;
          border: 10px solid $bgColor1;
          transition: all .6s;
+     
      }
-     .serving-circle {
-         grid-row: 1/ span 1;
-         grid-column: 4 / span 1;
-         background: $brown;
-         border-radius: 50%;
-         width: 200px;
-         height: 200px;
-         align-self: center;
-         border: 10px solid $bgColor1;
-         transition: all .6s;
+     .queueAmount {
+         text-align: center;
+         color: white; 
+         font-size: 3em;
      }
      #queue-light {
          background: none;
@@ -160,8 +194,14 @@
          transform: rotatex(180deg) translate3d(0, -300px, 0);
          /* the Y-Value shall be higher than the height on hover*/
          transform-origin: top;
+         display: flex; 
+         align-items: center;
+         justify-content: center;
          h1 {
              transform: rotatex(180deg);
+             color: white;
+             text-align: center;
+             font-size: .7em;
          }
      }
      .busy {
@@ -173,6 +213,32 @@
      .good {
          display: none;
      }
+
+//SERVING
+     .serving-heading {
+        grid-column: 5 / span 1;
+        grid-row: 1 / span 1;
+        font-size: 1.5em;
+        color: white;
+        text-align: center;
+     }
+     .serving-circle {
+        grid-row: 1/ span 1;
+        grid-column: 5 / span 1;
+        background: $brown;
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        align-self: center;
+        justify-self: center;
+        border: 10px solid $bgColor1;
+        transition: all .6s;
+    }
+    .servingAmount {
+        text-align: center;
+        color: white; 
+        font-size: 3em;
+    }
      #serving-light {
          grid-column: 6 / span 1;
          grid-row: 1 / 1;
@@ -195,10 +261,14 @@
          transform: rotatex(180deg) translate3d(0, -300px, 0);
          /* the Y-Value shall be higher than the height on hover*/
          transform-origin: top;
+         display: flex; 
+         align-items: center;
+         justify-content: center;
          h1 {
              transform: rotatex(180deg);
              color: white;
              text-align: center;
+             font-size: .7em;
          }
         }
         .eff1 {
@@ -210,6 +280,8 @@
         .eff3 {
             display: none;
         }
+
+//BOTTOM BOKS TIL ØLTYPER OG STORAGE
      #bottom {
          background: $bgColor1;
          grid-row: 11 / span 5;

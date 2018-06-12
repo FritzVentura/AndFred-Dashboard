@@ -11,83 +11,114 @@
 </head>
 
 <body>
- 
-<template id="tickettemplate-container">
-    <section class="section">
-        <h1>Ticket nr: <span class="ticket-id"></span></h1>
-        <ul>Order: <br><li><span class="ticket-order"></span></li></ul>
-    </section>
-</template>
 
-<template id="servingtemplate-container">
-    <section class="section">
-        <h1>Ticket nr: <span class="serving-id"></span></h1>
-        <ul>Order: <br><li><span class="serving-order"></span></li></ul>
-    </section>
-</template>
+    <template id="tickettemplate-container">
+        <section class="section">
+            <h1>Ticket nr:
+                <span class="ticket-id"></span>
+            </h1>
+            <ul>Order:
+                <br>
+                <li>
+                    <span class="ticket-order"></span>
+                </li>
+            </ul>
+        </section>
+    </template>
 
-<template id="tapinfotemplate-container">
+    <template id="servingtemplate-container">
+        <section class="section">
+            <h1>Ticket nr:
+                <span class="serving-id"></span>
+            </h1>
+            <ul>Order:
+                <br>
+                <li>
+                    <span class="serving-order"></span>
+                </li>
+            </ul>
+        </section>
+    </template>
+
+    <template id="tapinfotemplate-container">
         <section class="tapsection">
-                <h2>Beer: <span class="tap-beer"></span></h2>
-    
-            <p>Level: <span class="tap-level"></span></p>
-            <p> / <span class="tap-cap"></span></p>
-       
+            <h2>Beer:
+                <span class="tap-beer"></span>
+            </h2>
+
+            <p>Level:
+                <span class="tap-level"></span>
+            </p>
+            <p> /
+                <span class="tap-cap"></span>
+            </p>
+
         </section>
     </template>
 
-   <template id="storagetemplate-container">
-       <section id="section">
-            <h1>Name: <span class="tap-name"></span></h1>
-            <h1>Storage: <span class="tap-storage"></span></h1>
+    <template id="storagetemplate-container">
+        <section id="section">
+            <h1>Name:
+                <span class="tap-name"></span>
+            </h1>
+            <h1>Storage:
+                <span class="tap-storage"></span>
+            </h1>
         </section>
     </template>
 
-<div id="grid_container">
-    <div id="top">
-    <div id="servingcontainer"></div>
-    <div id="ticketcontainer"></div>
-</div>
-    <div id="middle">
-        <div id="queue-light">
-             
+    <div id="grid_container">
+        <div id="top">
+            <div id="servingcontainer"></div>
+            <div id="ticketcontainer"></div>
         </div>
-        <div id="queue-light-fill">
+        <div id="middle">
+                <h1 id="orders-heading">Orders Done!</h1>
+                <div id="orders-done"></div>
+
+
+
+            <div id="queue-light"></div>
+            <div id="queue-light-fill">
                 <h1 class="busy">BUSY AF!</h1>
                 <h1 class="almost">ALMOST</h1>
                 <h1 class="good">GOOD</h1>
-        </div>
-        
-        <div class="queue-circle flex_center">
-            <div id="queue">
-                <h2 class="queueAmount"></h2>
             </div>
-        </div>
-        <div id="serving-light"></div>
-        <div id="serving-light-fill">
+
+            <h1 class="queue-heading">People In Queue</h1>
+            <div class="queue-circle flex_center">
+                <div id="queue">
+                    <h2 class="queueAmount"></h2>
+                </div>
+            </div>
+
+            <div id="serving-light"></div>
+            <div id="serving-light-fill">
                 <h1 class="eff1">33.33%</h1>
                 <h1 class="eff2">66.66%</h1>
                 <h1 class="eff3">100%</h1>
+            </div>
+
+            <h1 class="serving-heading">Bartenders Serving</h1>
+            <div class="serving-circle flex_center">
+                <div id="serving">
+                    <h2 class="servingAmount"></h2>
+                </div>
+            </div>
+
         </div>
-        <div class="serving-circle flex_center">
-        <div id="serving">
-            <h2 class="servingAmount"></h2>
+        <div id="bottom">
+            <div id="tapinfocontainer"></div>
+            <!--     <div id="storagecontainer"></div> -->
+
+
         </div>
-    </div>
 
     </div>
-    <div id="bottom">
-    <div id="tapinfocontainer"></div>
-<!--     <div id="storagecontainer"></div> -->
-
-
-</div>
-
-</div>
 
     <script src="http://petlatkea.dk/2018/front/foobar.js"></script>
     <!-- <script src="test1.js"></script> -->
-    <script src="test1.js"></script>
+    <script src="../source/js/test2.js"></script>
 </body>
 
 </html>

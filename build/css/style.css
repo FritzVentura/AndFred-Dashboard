@@ -1,4 +1,4 @@
-html, body, p {
+html, body, p, h1, h2, h3 {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -78,33 +78,48 @@ html, body, p {
     height: 400px;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(1, 1fr); }
-    #middle h1 {
-      font-size: .5em;
-      color: white;
-      text-align: center; }
   .flex_center {
     display: flex;
     align-items: center;
     justify-content: center; }
-  .queue-circle {
-    grid-column: 3 / span 1;
-    background: #a86f3b;
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    align-self: center;
-    border: 10px solid #414141;
-    transition: all .6s; }
-  .serving-circle {
+  #orders-heading {
+    grid-column: 3 / span 2;
     grid-row: 1/ span 1;
-    grid-column: 4 / span 1;
+    margin-top: 30%;
+    justify-self: center;
+    color: white; }
+  #orders-done {
+    grid-column: 3 / span 2;
+    grid-row: 1/ span 1;
+    border-radius: 50%;
+    border: 10px solid #414141;
+    width: 150px;
+    height: 150px;
+    background: #a86f3b;
+    align-self: center;
+    justify-self: center;
+    margin-top: 30%; }
+  .queue-heading {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    font-size: 1.5em;
+    color: white;
+    text-align: center; }
+  .queue-circle {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
     background: #a86f3b;
     border-radius: 50%;
     width: 200px;
     height: 200px;
     align-self: center;
+    justify-self: center;
     border: 10px solid #414141;
     transition: all .6s; }
+  .queueAmount {
+    text-align: center;
+    color: white;
+    font-size: 3em; }
   #queue-light {
     background: none;
     grid-column: 1 / span 1;
@@ -125,15 +140,42 @@ html, body, p {
     transition: height .6s;
     transform: rotatex(180deg) translate3d(0, -300px, 0);
     /* the Y-Value shall be higher than the height on hover*/
-    transform-origin: top; }
+    transform-origin: top;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
     #queue-light-fill h1 {
-      transform: rotatex(180deg); }
+      transform: rotatex(180deg);
+      color: white;
+      text-align: center;
+      font-size: .7em; }
   .busy {
     display: none; }
   .almost {
     display: none; }
   .good {
     display: none; }
+  .serving-heading {
+    grid-column: 5 / span 1;
+    grid-row: 1 / span 1;
+    font-size: 1.5em;
+    color: white;
+    text-align: center; }
+  .serving-circle {
+    grid-row: 1/ span 1;
+    grid-column: 5 / span 1;
+    background: #a86f3b;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    align-self: center;
+    justify-self: center;
+    border: 10px solid #414141;
+    transition: all .6s; }
+  .servingAmount {
+    text-align: center;
+    color: white;
+    font-size: 3em; }
   #serving-light {
     grid-column: 6 / span 1;
     grid-row: 1 / 1;
@@ -154,11 +196,15 @@ html, body, p {
     transition: height .6s;
     transform: rotatex(180deg) translate3d(0, -300px, 0);
     /* the Y-Value shall be higher than the height on hover*/
-    transform-origin: top; }
+    transform-origin: top;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
     #serving-light-fill h1 {
       transform: rotatex(180deg);
       color: white;
-      text-align: center; }
+      text-align: center;
+      font-size: .7em; }
   .eff1 {
     display: none; }
   .eff2 {
