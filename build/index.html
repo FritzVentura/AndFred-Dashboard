@@ -1,17 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dashboard</title>
+    <title>And-Fred Dashboard</title>
+    <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="And-Fred Bar Dashboard - The last dashboard for your bar you'll ever need!">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    
+    <!-- ANIMATE CSS LIBRARY v5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arvo|IBM+Plex+Sans|Montserrat" rel="stylesheet">
+
+    <!-- FAVICON -->
 
 </head>
 
 <body>
 
+    <!-- TEMPLATE TIL TICKETS -->
     <template id="tickettemplate-container">
         <section class="section">
             <h1>Ticket nr:
@@ -26,6 +38,7 @@
         </section>
     </template>
 
+    <!-- TEMPLATE TIL IN SERVICE -->
     <template id="servingtemplate-container">
         <section class="section">
             <h1>Ticket nr:
@@ -40,6 +53,7 @@
         </section>
     </template>
 
+    <!-- TEMPLATE TIL TAPINFO -->
     <template id="tapinfotemplate-container">
         <section class="tapsection">
             <h2>Beer:
@@ -56,6 +70,7 @@
         </section>
     </template>
 
+    <!-- TEMPLATE TIL KEG STORAGE -->
     <template id="storagetemplate-container">
         <section id="section">
             <h1>Name:
@@ -67,17 +82,24 @@
         </section>
     </template>
 
+
+<!-- GRID CONTAINER (MAIN PARENT) -->
     <div id="grid_container">
+
+        <!-- TOP CONTAINER / TICKETS + SERVING -->
         <div id="top">
             <div id="servingcontainer"></div>
             <div id="ticketcontainer"></div>
         </div>
+
+        <!-- MIDDLE CONTAINER -->
         <div id="middle">
                 <h1 id="orders-heading">Orders Done!</h1>
-                <div id="orders-done"></div>
+                <div id="orders-done">
+                    <h1 class="orderAmount"></h1>
+                </div>
 
-
-
+            <!-- QUEUE LIGHT + FILL -->
             <div id="queue-light"></div>
             <div id="queue-light-fill">
                 <h1 class="busy">BUSY AF!</h1>
@@ -85,6 +107,7 @@
                 <h1 class="good">GOOD</h1>
             </div>
 
+            <!-- QUEUE DATA / AMOUNT -->
             <h1 class="queue-heading">People In Queue</h1>
             <div class="queue-circle flex_center">
                 <div id="queue">
@@ -92,6 +115,7 @@
                 </div>
             </div>
 
+            <!-- SERVING LIGHT + FILL-->
             <div id="serving-light"></div>
             <div id="serving-light-fill">
                 <h1 class="eff1">33.33%</h1>
@@ -99,6 +123,7 @@
                 <h1 class="eff3">100%</h1>
             </div>
 
+            <!-- SERVING DATA / AMOUNT -->
             <h1 class="serving-heading">Bartenders Serving</h1>
             <div class="serving-circle flex_center">
                 <div id="serving">
@@ -107,18 +132,23 @@
             </div>
 
         </div>
+
+        <!-- BOTTOM CONTAINER -->
         <div id="bottom">
+
+            <!-- TAP INFO -->
             <div id="tapinfocontainer"></div>
             <!--     <div id="storagecontainer"></div> -->
 
 
         </div>
 
+<!-- GRID CONTAINER // SLUT -->
     </div>
 
     <script src="http://petlatkea.dk/2018/front/foobar.js"></script>
-    <!-- <script src="test1.js"></script> -->
-    <script src="../source/js/test2.js"></script>
+    <script src="test1.js"></script>
+<!--      <script src="../source/js/test2.js"></script> -->
 </body>
 
 </html>

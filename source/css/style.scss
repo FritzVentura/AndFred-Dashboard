@@ -19,7 +19,6 @@
          grid-template-columns: repeat(12, 1fr);
          grid-template-rows: auto;
          height: 100vh;
-      
      }
 //TOP BOKS TIL TICKETS
      #top {
@@ -29,8 +28,6 @@
          grid-template-columns: repeat(6, 1fr);
          height: 350px;
          overflow: hidden;
-
-         
      }
      #servingcontainer {
          grid-column: 1 / span 2;

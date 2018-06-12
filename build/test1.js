@@ -10,6 +10,7 @@ let queueData;
 let servingData;
 let queueDetails;
 let servingDetails;
+let sectionAnim;
 
 
 //--------------------------------------------------------------------
@@ -31,6 +32,8 @@ function hentData(){
 
 
 //--------------------------------------------------------------------
+//FUNKTION til in service
+
 function servingOrders(){
 
 // find DOM elementer (SERVING ORDERS) til modtager og template elementer
@@ -38,7 +41,7 @@ function servingOrders(){
 let servingTemplate = document.querySelector("#servingtemplate-container");
 let servingContainer = document.querySelector("#servingcontainer");
 
-//console.log("kø data", jsonData.serving);
+//console.log("serving data", jsonData.serving);
 
 //udskift indhold i modtageren
 document.querySelector("#servingcontainer").innerHTML = "";
@@ -50,7 +53,7 @@ servingDetails.forEach(servingTickets => {
 
     let servingKlon = servingTemplate.cloneNode(true).content;
 
-// prop data for serving ID ud i DOM'en
+    // prop data for serving ID ud i DOM'en
     servingKlon.querySelector(".serving-id").textContent = servingTickets.id;
 
 // find ordrerne
@@ -59,21 +62,31 @@ let servingOrders = servingTickets.order;
 // adskil arrayet med ordrerne med et return/nyt linjeskift
 let orderDetail2 = servingOrders.join(" ");
 
-// Udvælg data for serving order detaljer
+    // Udvælg data for serving order detaljer
     servingKlon.querySelector(".serving-order").textContent = orderDetail2;
 
-    servingContainer.appendChild(servingKlon);
 
-    console.log("servingdubbi", );
-    
+
+    servingContainer.appendChild(servingKlon);
+/* for (i = 0; i<1; i++) {
+    orderAntal = servingDetails.length + i;
+    document.querySelector("#orders-done .orderAmount").textContent = orderAntal;
+  } */
+
 });
-}
+
+
+// Definér order antal DONE!
+
+
+};
 
 
 
 
 //--------------------------------------------------------------------
 // FUNKTION til TICKETS eller ordrer
+
 function ticketOrders() {
 
 // find DOM elementer (TICKETS) til modtager og template elementer
@@ -81,24 +94,21 @@ function ticketOrders() {
 let ticketTemplate = document.querySelector("#tickettemplate-container");
 let ticketContainer = document.querySelector("#ticketcontainer");
 
-console.log("kø data", jsonData.queue);
+//console.log("kø data", jsonData.queue);
 
 //udskift indhold i modtageren
 document.querySelector("#ticketcontainer").innerHTML = "";
 
 // find køen
 queueDetails = jsonData.queue;
+queueDetails.slice(0,5).forEach(tickets => {
 
-
-queueDetails.forEach(tickets => {
 //  console.log("TICKETS ORDRER",tickets.order);
-
 // definér klon til tickets
-  let ticketKlon = ticketTemplate.cloneNode(true).content;
+let ticketKlon = ticketTemplate.cloneNode(true).content;
 
-// prop data for ticket ID ud i DOM'en
-//  console.log("TICKET ID", tickets.id);
-
+    // prop data for ticket ID ud i DOM'en
+    //  console.log("TICKET ID", tickets.id);
     ticketKlon.querySelector(".ticket-id").textContent = tickets.id;
 
 // find ordrerne
@@ -107,14 +117,12 @@ let orders = tickets.order;
 // adskil arrayet med ordrerne med et return/nyt linjeskift
 let orderDetail = orders.join('\n');
 
-// Udvælg data for ticket order detaljer
+    // Udvælg data for ticket order detaljer
     ticketKlon.querySelector(".ticket-order").textContent = orderDetail;
 
-// prop Data ud i DOM'en for hver klon
+    // prop Data ud i DOM'en for hver klon
     ticketContainer.appendChild(ticketKlon);
 });
-
-
 };
 
 
@@ -145,9 +153,11 @@ let tapStorage = jsonData.storage;
 //let combiData = tapStorage.concat(tapData);
 //console.log("TAP info", combiData);
 
-let i = 1;
+let i;
 
 tapData.forEach(element => {
+
+    i = 1;
 
     let tapKlon1 = tapinfoTemplate.cloneNode(true).content;
 
@@ -197,6 +207,11 @@ console.log("In queue", queueData);
 // Definér SERVING antal
 servingData = jsonData.serving.length;
 console.log("In Service", servingData);
+
+/* for (i = 0; i<1; i++) {
+    orderAntal = servingData + i++;
+    document.querySelector("#orders-done .orderAmount").textContent = orderAntal;
+  } */
 
 // Udvælg data for KØ og Serving ANTAL og Prop Data ud i ODM'en
     document.querySelector("#queue .queueAmount").textContent = queueData;
