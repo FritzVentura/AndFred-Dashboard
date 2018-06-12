@@ -126,10 +126,12 @@ function tapInfo(){
 
 // find DOM elementer til template og modtager
 let tapinfoTemplate = document.querySelector("#tapinfotemplate-container");
-let tapinfoContainer = document.querySelector("#tapinfocontainer")
+let tapinfoContainer = document.querySelector("#tapinfocontainer");
 
-let storageTemplate = document.querySelector("#storagetemplate-container");
-let storageContainer = document.querySelector("#storagecontainer")
+//let tapSection = document.querySelector(".tapsection");
+
+/* let storageTemplate = document.querySelector("#storagetemplate-container");
+let storageContainer = document.querySelector("#storagecontainer"); */
 
 document.querySelector("#tapinfocontainer").innerHTML = "";
 //document.querySelector("#storagecontainer").innerHTML = "";
@@ -143,6 +145,7 @@ let tapStorage = jsonData.storage;
 //let combiData = tapStorage.concat(tapData);
 //console.log("TAP info", combiData);
 
+let i = 1;
 
 tapData.forEach(element => {
 
@@ -152,15 +155,7 @@ tapData.forEach(element => {
     tapKlon1.querySelector(".tap-level").textContent = element.level;
     tapKlon1.querySelector(".tap-cap").textContent = element.capacity;
 
-    const app = document.createElement("div");
-    app.setAttribute("class", "parent");
-
-    for(let i=0; i<1; i++){
-        const data = document.createElement("h2");
-        app.appendChild(data);
-    }
-
-    document.body.appendChild(app);
+    tapKlon1.querySelector(".tapsection").className = "sectionTap" + i++;
 
 
     tapinfoContainer.appendChild(tapKlon1);
@@ -184,11 +179,6 @@ beerStyling();
 
 
 function beerStyling(){
-
-
-
-
-
 
 }
 
@@ -221,38 +211,58 @@ console.log("In Service", servingData);
 // FUNKTION til styling af cirkler
 function circleStyling() {
 
-    let circle1 = document.querySelector("#queue-light")
+    let bar1 = document.querySelector("#queue-light")
+    let barFill1 = document.querySelector(".queue-light-fill");
+    let good = document.querySelector(".good");
+    let almost = document.querySelector(".almost");
+    let busy = document.querySelector(".busy");
 
     if (queueData < 5) {
-        circle1.style.background = "#87ab66";
-        circle1.classList.remove("neon-yellow", "neon-red");
-        circle1.classList.add("neon-green");
+        good.style.display = "inherit";
+        almost.style.display = "none";
+        busy.style.display = "none";
+        barFill1.style.height = "50px";
+        barFill1.style.background = "#87ab66";
+        bar1.style.border = "#87ab66";
+        bar1.classList.remove("neon-yellow", "neon-red");
+        bar1.classList.add("neon-green");
 
     } else if (queueData < 10) {
-        circle1.style.background = "#e79d3f";
-        circle1.classList.remove("neon-green", "neon-red");
-        circle1.classList.add("neon-yellow");
+        almost.style.display = "inherit";
+        good.style.display = "none";
+        busy.style.display = "none";
+        good.style.display = "inherit";
+        barFill1.style.height = "100px";
+        barFill1.style.background = "#e79d3f";
+        bar1.style.border = "#e79d3f";
+        bar1.classList.remove("neon-green", "neon-red");
+        bar1.classList.add("neon-yellow");
 
     } else if (queueData < 15) {
-        circle1.style.background = "#d94d4d";
-        circle1.classList.remove("neon-yellow", "neon-green");
-        circle1.classList.add("neon-red");;
+        busy.style.display = "inherit";
+        almost.style.display = "none";
+        good.style.display = "none";
+        barFill1.style.height = "200px";
+        barFill1.style.background = "#d94d4d";
+        bar1.style.border = "#d94d4d";
+        bar1.classList.remove("neon-yellow", "neon-green");
+        bar1.classList.add("neon-red");;
     }
 
-    let circle2 = document.querySelector("#serving-light")
+    let bar2 = document.querySelector("#serving-light")
 
     if (servingData == 1) {
-        circle2.style.background = "#d94d4d";
-        circle2.classList.remove("neon-yellow", "neon-green");
-        circle2.classList.add("neon-red");
+        bar2.style.border = "#d94d4d";
+        bar2.classList.remove("neon-yellow", "neon-green");
+        bar2.classList.add("neon-red");
     } else if (servingData == 2) {
-        circle2.style.background = "#e79d3f";
-        circle2.classList.remove("neon-red", "neon-green");
-        circle2.classList.add("neon-yellow");
+        bar2.style.border = "#e79d3f";
+        bar2.classList.remove("neon-red", "neon-green");
+        bar2.classList.add("neon-yellow");
     } else if (servingData == 3) {
-        circle2.style.background = "#87ab66";
-        circle2.classList.remove("neon-yellow", "neon-red");
-        circle2.classList.add("neon-green");
+        bar2.style.border = "#87ab66";
+        bar2.classList.remove("neon-yellow", "neon-red");
+        bar2.classList.add("neon-green");
     }
 };
 

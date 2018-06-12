@@ -83,7 +83,11 @@
          grid-column: 1 / 13;
          display: grid;
          grid-template-columns: repeat(6, 1fr);
-         grid-template-rows: repeat(1, 1fr)
+         grid-template-rows: repeat(1, 1fr);
+         h1{
+             font-size: .5em;
+             text-align: center;
+         }
      }
      .flex_center {
          display: flex;

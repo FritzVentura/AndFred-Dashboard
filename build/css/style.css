@@ -64,6 +64,9 @@ html, body, p {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(1, 1fr); }
+    #middle h1 {
+      font-size: .5em;
+      text-align: center; }
   .flex_center {
     display: flex;
     align-items: center;
