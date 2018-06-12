@@ -17,6 +17,7 @@ function hentData(){
     data = FooBar.getData();
 // omdan output/string om til JSON format
     jsonData = JSON.parse(data);
+    servingOrders();
     ticketOrders();
 // prop data ud i DOM'en og Kald pågældende funktioner
     queueList();
@@ -33,26 +34,26 @@ function servingOrders() {
     // find DOM elementer (TICKETS) til modtager og template elementer
 let servingTemplate = document.querySelector("#servingtemplate-container");
 let servingContainer = document.querySelector("#servingcontainer");
-console.log("kø data", jsonData.serving);
+
 //udskift indhold i modtageren
 document.querySelector("#servingcontainer").innerHTML = "";
 // find køen
 servingDetails = jsonData.serving;
-servingDetails.forEach(tickets => {
+servingDetails.forEach(servingTickets => {
 //  console.log("TICKETS ORDRER",tickets.order);
 // definér klon til tickets
   let servingKlon = servingTemplate.cloneNode(true).content;
 // prop data for ticket ID ud i DOM'en
 //  console.log("TICKET ID", tickets.id);
-    servingKlon.querySelector(".serving-id").textContent = tickets.id;
+    servingKlon.querySelector(".serving-id").textContent = servingTickets.id;
 // find ordrerne
-let orders = tickets.order;
+let servingOrders = servingTickets.order;
 // adskil arrayet med ordrerne med et return/nyt linjeskift
-let orderDetail = orders.join(' ');
+let orderDetail2 = servingOrders.join(' ');
 // udvælg data for ticketOrder detaljer
-    ticketKlon.querySelector(".serving-order").textContent = orderDetail;
+    servingKlon.querySelector(".serving-order").textContent = orderDetail2;
 //kast data ind i containeren for hver klon
-    ticketContainer.appendChild(ticketKlon);
+    servingContainer.appendChild(servingKlon);
 });
 }
 
@@ -63,7 +64,7 @@ function ticketOrders() {
 // find DOM elementer (TICKETS) til modtager og template elementer
 let ticketTemplate = document.querySelector("#tickettemplate-container");
 let ticketContainer = document.querySelector("#ticketcontainer");
-console.log("kø data", jsonData.queue);
+
 //udskift indhold i modtageren
 document.querySelector("#ticketcontainer").innerHTML = "";
 // find køen
