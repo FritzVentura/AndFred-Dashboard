@@ -1,6 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", hentData);
 
+//--------------------------------------------------------------------
 // globale variabler
 
 let data;
@@ -11,7 +12,7 @@ let queueDetails;
 let servingDetails;
 
 
-
+//--------------------------------------------------------------------
 // FUNKTION til hent data
 function hentData(){
 // definér data / HENT Data
@@ -27,9 +28,12 @@ function hentData(){
 }
 
 
+
+
+//--------------------------------------------------------------------
 function servingOrders(){
 
-    // find DOM elementer (SERVING ORDERS) til modtager og template elementer
+// find DOM elementer (SERVING ORDERS) til modtager og template elementer
 
 let servingTemplate = document.querySelector("#servingtemplate-container");
 let servingContainer = document.querySelector("#servingcontainer");
@@ -38,7 +42,6 @@ let servingContainer = document.querySelector("#servingcontainer");
 
 //udskift indhold i modtageren
 document.querySelector("#servingcontainer").innerHTML = "";
-
 
 servingDetails = jsonData.serving;
 //console.log("bliver serveret", servingDetails);
@@ -50,8 +53,7 @@ servingDetails.forEach(servingTickets => {
 // prop data for serving ID ud i DOM'en
     servingKlon.querySelector(".serving-id").textContent = servingTickets.id;
 
-
-    // find ordrerne
+// find ordrerne
 let servingOrders = servingTickets.order;
 
 // adskil arrayet med ordrerne med et return/nyt linjeskift
@@ -59,7 +61,6 @@ let orderDetail2 = servingOrders.join(" ");
 
 // Udvælg data for serving order detaljer
     servingKlon.querySelector(".serving-order").textContent = orderDetail2;
-
 
     servingContainer.appendChild(servingKlon);
 
@@ -71,9 +72,7 @@ let orderDetail2 = servingOrders.join(" ");
 
 
 
-
-
-
+//--------------------------------------------------------------------
 // FUNKTION til TICKETS eller ordrer
 function ticketOrders() {
 
@@ -92,7 +91,7 @@ queueDetails = jsonData.queue;
 
 
 queueDetails.forEach(tickets => {
-  //  console.log("TICKETS ORDRER",tickets.order);
+//  console.log("TICKETS ORDRER",tickets.order);
 
 // definér klon til tickets
   let ticketKlon = ticketTemplate.cloneNode(true).content;
@@ -102,7 +101,6 @@ queueDetails.forEach(tickets => {
 
     ticketKlon.querySelector(".ticket-id").textContent = tickets.id;
 
-
 // find ordrerne
 let orders = tickets.order;
 
@@ -111,7 +109,6 @@ let orderDetail = orders.join('\n');
 
 // Udvælg data for ticket order detaljer
     ticketKlon.querySelector(".ticket-order").textContent = orderDetail;
-
 
 // prop Data ud i DOM'en for hver klon
     ticketContainer.appendChild(ticketKlon);
@@ -123,7 +120,7 @@ let orderDetail = orders.join('\n');
 
 
 
-
+//--------------------------------------------------------------------
 // FUNKTION til Antal i KØ
 function queueList(){
 
@@ -143,6 +140,7 @@ console.log("In Service", servingData);
 
 
 
+//--------------------------------------------------------------------
 // FUNKTION til styling af cirkler
 function circleStyling() {
 
@@ -184,7 +182,7 @@ function circleStyling() {
 
 
 
-
+//--------------------------------------------------------------------
 // sæt interval
 window.setInterval(hentData, 2000);
 hentData();

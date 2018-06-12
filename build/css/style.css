@@ -21,19 +21,35 @@ html, body, p {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    background: #d94d4d;
+    margin-left: 40%;
     overflow: scroll;
     height: 400px;
     align-self: flex-end; }
+    #ticketcontainer :nth-child(1) {
+      background: #87ab66; }
+    #ticketcontainer :nth-child(2) {
+      background: #87ab66; }
+    #ticketcontainer :nth-child(2n+3) {
+      background: #d94d4d; }
     #ticketcontainer section {
       width: 200px;
       border: 1px solid black; }
     #ticketcontainer h1 {
       text-align: center;
-      color: white; }
+      color: white;
+      background: inherit !important; }
     #ticketcontainer ul {
       list-style: square;
-      color: white; }
+      color: white;
+      background: inherit !important; }
+    #ticketcontainer li {
+      background: inherit !important; }
+    #ticketcontainer br {
+      background: inherit !important; }
+  .ticket-order {
+    background: inherit !important; }
+  .ticket-id {
+    background: inherit !important; }
   #middle {
     background: #2f2f2f;
     grid-row: 5 / span 5;
