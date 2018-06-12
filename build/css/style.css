@@ -19,7 +19,8 @@ html, body, p {
     grid-column: 1 / 13;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    height: 400px; }
+    height: 350px;
+    overflow: hidden; }
   #servingcontainer {
     grid-column: 1 / span 2;
     display: flex;
@@ -27,6 +28,15 @@ html, body, p {
     background: #87ab66; }
     #servingcontainer section {
       border: 1px solid black; }
+    #servingcontainer h1 {
+      font-size: 1em;
+      text-align: center;
+      color: white;
+      background: inherit !important; }
+    #servingcontainer ul {
+      font-size: .7em;
+      color: white;
+      background: inherit !important; }
   #ticketcontainer {
     grid-column: 3 / span 4;
     display: flex;
@@ -40,14 +50,14 @@ html, body, p {
     #ticketcontainer :nth-child(2n+4) {
       background: #2f2f2f; }
     #ticketcontainer section {
-      width: 200px;
       border: 1px solid black; }
     #ticketcontainer h1 {
+      font-size: 1em;
       text-align: center;
       color: white;
       background: inherit !important; }
     #ticketcontainer ul {
-      list-style: square;
+      font-size: .7em;
       color: white;
       background: inherit !important; }
     #ticketcontainer li {
@@ -58,12 +68,14 @@ html, body, p {
     background: inherit !important; }
   .ticket-id {
     background: inherit !important; }
+  .section {
+    width: 200px; }
   #middle {
     background: #2f2f2f;
     grid-row: 5 / span 5;
     grid-column: 1 / 13;
     display: grid;
-    height: 100%;
+    height: 400px;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(1, 1fr); }
     #middle h1 {
@@ -111,7 +123,7 @@ html, body, p {
     width: 100px;
     height: 0px;
     transition: height .6s;
-    transform: rotatex(180deg) translate3d(0, -229px, 0);
+    transform: rotatex(180deg) translate3d(0, -300px, 0);
     /* the Y-Value shall be higher than the height on hover*/
     transform-origin: top; }
     #queue-light-fill h1 {
@@ -140,7 +152,7 @@ html, body, p {
     width: 100px;
     height: 0px;
     transition: height .6s;
-    transform: rotatex(180deg) translate3d(0, -229px, 0);
+    transform: rotatex(180deg) translate3d(0, -300px, 0);
     /* the Y-Value shall be higher than the height on hover*/
     transform-origin: top; }
     #serving-light-fill h1 {

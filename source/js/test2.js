@@ -241,7 +241,7 @@ function circleStyling() {
     let eff2 = document.querySelector(".eff2");
     let eff3 = document.querySelector(".eff3");
 
-    if (servingData == 1) {
+    if (servingData <= 1) {
         eff3.style.display = "none";
         eff2.style.display = "none";
         eff1.style.display = "inherit"
