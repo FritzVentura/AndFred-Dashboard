@@ -18,7 +18,8 @@ html, body, p {
     grid-row: 1 / span 5;
     grid-column: 1 / 13;
     display: grid;
-    grid-template-columns: repeat(6, 1fr); }
+    grid-template-columns: repeat(6, 1fr);
+    height: 400px; }
   #servingcontainer {
     grid-column: 1 / span 2;
     display: flex;
@@ -62,8 +63,13 @@ html, body, p {
     grid-row: 5 / span 5;
     grid-column: 1 / 13;
     display: grid;
+    height: 100%;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(1, 1fr); }
+    #middle h1 {
+      font-size: .5em;
+      color: white;
+      text-align: center; }
   .flex_center {
     display: flex;
     align-items: center;
@@ -88,22 +94,65 @@ html, body, p {
     border: 10px solid #414141;
     transition: all .6s; }
   #queue-light {
-    background: #d94d4d;
+    background: none;
     grid-column: 1 / span 1;
+    grid-row: 1 / 1;
     margin-left: 50%;
     border-radius: 20px;
     width: 100px;
     height: 200px;
-    align-self: center;
-    transition: all .6s; }
+    align-self: center; }
+  #queue-light-fill {
+    background: #87ab66;
+    grid-column: 1 / span 1;
+    grid-row: 1 / 1;
+    margin-left: 50%;
+    border-radius: 20px;
+    width: 100px;
+    height: 0px;
+    transition: height .6s;
+    transform: rotatex(180deg) translate3d(0, -229px, 0);
+    /* the Y-Value shall be higher than the height on hover*/
+    transform-origin: top; }
+    #queue-light-fill h1 {
+      transform: rotatex(180deg); }
+  .busy {
+    display: none; }
+  .almost {
+    display: none; }
+  .good {
+    display: none; }
   #serving-light {
     grid-column: 6 / span 1;
-    background: #87ab66;
+    grid-row: 1 / 1;
+    background: none;
     border-radius: 20px;
     width: 100px;
     height: 200px;
     align-self: center;
-    transition: all .6s; }
+    transition: all .6s;
+    border: 2px solid black; }
+  #serving-light-fill {
+    background: #87ab66;
+    grid-column: 6 / span 1;
+    grid-row: 1 / 1;
+    border-radius: 20px;
+    width: 100px;
+    height: 0px;
+    transition: height .6s;
+    transform: rotatex(180deg) translate3d(0, -229px, 0);
+    /* the Y-Value shall be higher than the height on hover*/
+    transform-origin: top; }
+    #serving-light-fill h1 {
+      transform: rotatex(180deg);
+      color: white;
+      text-align: center; }
+  .eff1 {
+    display: none; }
+  .eff2 {
+    display: none; }
+  .eff3 {
+    display: none; }
   #bottom {
     background: #414141;
     grid-row: 11 / span 5;
@@ -111,9 +160,9 @@ html, body, p {
     display: grid;
     grid-template-columns: repeat(6, 1fr); }
   #tapinfocontainer {
-    grid-column: 1 / span 2;
+    grid-column: 1 / span 6;
     display: flex;
-    flex-direction: row; }
+    align-content: space-between; }
     #tapinfocontainer section {
       border: 1px solid black; }
   #storagecontainer {

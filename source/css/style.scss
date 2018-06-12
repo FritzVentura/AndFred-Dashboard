@@ -17,73 +17,75 @@
          grid-row: 1 / span 5;
          grid-column: 1 / 13;
          display: grid;
-         grid-template-columns: repeat(6, 1fr)
+         grid-template-columns: repeat(6, 1fr);
+         height: 400px;
      }
      #servingcontainer {
-        grid-column: 1 / span 2;
-        display: flex;
-       flex-direction: row; 
-       background: $green;
-       section {
-           border: 1px solid black;
-       }
+         grid-column: 1 / span 2;
+         display: flex;
+         flex-direction: row;
+         background: $green;
+         section {
+             border: 1px solid black;
+         }
      }
      #ticketcontainer {
-       grid-column: 3 / span 4;
-          display: flex;
-         flex-direction: row; 
+         grid-column: 3 / span 4;
+         display: flex;
+         flex-direction: row;
          :nth-child(1) {
              background: $yellow;
          }
          :nth-child(2) {
-            background: $yellow;
-        }
-        :nth-child(3) {
-            background: $yellow;
-        }
+             background: $yellow;
+         }
+         :nth-child(3) {
+             background: $yellow;
+         }
          :nth-child(2n+4) {
-            background: $bgColor2;
-          
-        }
-  
+             background: $bgColor2;
+         }
          section {
              width: 200px;
              border: 1px solid black;
-    
-             
          }
          h1 {
              text-align: center;
              color: white;
-             background: inherit!important;
+             background: inherit !important;
          }
          ul {
              list-style: square;
              color: white;
-             background: inherit!important;
+             background: inherit !important;
          }
          li {
-            background: inherit!important;
+             background: inherit !important;
          }
          br {
-            background: inherit!important;
+             background: inherit !important;
          }
-       
-         
      }
      .ticket-order {
-        background: inherit!important;
+         background: inherit !important;
      }
      .ticket-id {
-        background: inherit!important;
+         background: inherit !important;
      }
      #middle {
          background: $bgColor2;
          grid-row: 5 / span 5;
          grid-column: 1 / 13;
          display: grid;
+         height: 100%;
          grid-template-columns: repeat(6, 1fr);
-         grid-template-rows: repeat(1, 1fr)
+         grid-template-rows: repeat(1, 1fr);
+         h1 {
+             font-size: .5em;
+             color: white;
+             text-align: center;
+             
+         }
      }
      .flex_center {
          display: flex;
@@ -112,87 +114,105 @@
          transition: all .6s;
      }
      #queue-light {
-         background: $red;
+         background: none;
          grid-column: 1 / span 1;
+         grid-row: 1 / 1;
          margin-left: 50%;
          border-radius: 20px;
          width: 100px;
          height: 200px;
          align-self: center;
-         transition: all .6s;
+     }
+     #queue-light-fill {
+         background: $green;
+         grid-column: 1 / span 1;
+         grid-row: 1 / 1;
+         margin-left: 50%;
+         border-radius: 20px;
+         width: 100px;
+         height: 0px;
+         transition: height .6s;
+         transform: rotatex(180deg) translate3d(0, -229px, 0);
+         /* the Y-Value shall be higher than the height on hover*/
+         transform-origin: top;
+         h1 {
+             transform: rotatex(180deg);
+         }
+     }
+     .busy {
+         display: none;
+     }
+     .almost {
+         display: none;
+     }
+     .good {
+         display: none;
      }
      #serving-light {
          grid-column: 6 / span 1;
-         background: $green;
+         grid-row: 1 / 1;
+         background: none;
          border-radius: 20px;
          width: 100px;
          height: 200px;
          align-self: center;
          transition: all .6s;
+         border: 2px solid black;
      }
+      #serving-light-fill {
+         background: $green;
+         grid-column: 6 / span 1;
+         grid-row: 1 / 1;
+         border-radius: 20px;
+         width: 100px;
+         height: 0px;
+         transition: height .6s;
+         transform: rotatex(180deg) translate3d(0, -229px, 0);
+         /* the Y-Value shall be higher than the height on hover*/
+         transform-origin: top;
+         h1 {
+             transform: rotatex(180deg);
+             color: white;
+             text-align: center;
+         }
+        }
+        .eff1 {
+            display: none;
+        }
+        .eff2 {
+            display: none;
+        }
+        .eff3 {
+            display: none;
+        }
      #bottom {
          background: $bgColor1;
-        grid-row: 11 / span 5;
-        grid-column: 1 / 13;
-        display: grid;
-        grid-template-columns: repeat(6, 1fr)
+         grid-row: 11 / span 5;
+         grid-column: 1 / 13;
+         display: grid;
+         grid-template-columns: repeat(6, 1fr)
      }
      #tapinfocontainer {
-        grid-column: 1 / span 2;
-        display: flex;
-       flex-direction: row; 
-    
-       section {
-           border: 1px solid black;
-       }
-
+         grid-column: 1 / span 6;
+         display: flex;
+         align-content: space-between;
+         section {
+             border: 1px solid black;
+         }
      }
      #storagecontainer {
-        grid-column: 1 / span 2;
-        display: flex;
-       flex-direction: row; 
-            section {
-           border: 1px solid black; }
-
+         grid-column: 1 / span 2;
+         display: flex;
+         flex-direction: row;
+         section {
+             border: 1px solid black;
+         }
      }
-
-    .liquid {
-        background: red;
-        width: 100px;
-        height: 100px;
-        
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+     .liquid {
+         background: red;
+         width: 100px;
+         height: 100px;
+     }
      .neon-green {
          -webkit-animation: neon-green 1.5s ease-in-out infinite alternate;
          -moz-animation: neon-green 1.5s ease-in-out infinite alternate;
@@ -248,34 +268,37 @@
              box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $yellow, 0 0 35px $yellow, 0 0 40px $yellow, 0 0 50px $yellow, 0 0 75px $yellow;
          }
      }
-         from {
-             box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $yellow, 0 0 70px $yellow, 0 0 80px $yellow, 0 0 100px $yellow, 0 0 150px $yellow;
-         }
-         to {
-             box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $yellow, 0 0 35px $yellow, 0 0 40px $yellow, 0 0 50px $yellow, 0 0 75px $yellow;
-         }
+     from {
+         box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $yellow, 0 0 70px $yellow, 0 0 80px $yellow, 0 0 100px $yellow, 0 0 150px $yellow;
      }
-     @-webkit-keyframes neon-red {
-         from {
-             box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $red, 0 0 70px $red, 0 0 80px $red, 0 0 100px $red, 0 0 150px $red;
-         }
-         to {
-             box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $red, 0 0 35px $red, 0 0 40px $red, 0 0 50px $red, 0 0 75px $red;
-         }
+     to {
+         box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $yellow, 0 0 35px $yellow, 0 0 40px $yellow, 0 0 50px $yellow, 0 0 75px $yellow;
      }
-     @-moz-keyframes neon-red {
-         from {
-             box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $red, 0 0 70px $red, 0 0 80px $red, 0 0 100px $red, 0 0 150px $red;
-         }
-         to {
-             box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $red, 0 0 35px $red, 0 0 40px $red, 0 0 50px $red, 0 0 75px $red;
-         }
+ }
+
+ @-webkit-keyframes neon-red {
+     from {
+         box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $red, 0 0 70px $red, 0 0 80px $red, 0 0 100px $red, 0 0 150px $red;
      }
-     @keyframes neon-red {
-         from {
-             box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $red, 0 0 70px $red, 0 0 80px $red, 0 0 100px $red, 0 0 150px $red;
-         }
-         to {
-             box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $red, 0 0 35px $red, 0 0 40px $red, 0 0 50px $red, 0 0 75px $red;
-         }
+     to {
+         box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $red, 0 0 35px $red, 0 0 40px $red, 0 0 50px $red, 0 0 75px $red;
      }
+ }
+
+ @-moz-keyframes neon-red {
+     from {
+         box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $red, 0 0 70px $red, 0 0 80px $red, 0 0 100px $red, 0 0 150px $red;
+     }
+     to {
+         box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $red, 0 0 35px $red, 0 0 40px $red, 0 0 50px $red, 0 0 75px $red;
+     }
+ }
+
+ @keyframes neon-red {
+     from {
+         box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $red, 0 0 70px $red, 0 0 80px $red, 0 0 100px $red, 0 0 150px $red;
+     }
+     to {
+         box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $red, 0 0 35px $red, 0 0 40px $red, 0 0 50px $red, 0 0 75px $red;
+     }
+ }
