@@ -16,15 +16,17 @@ html, body, p {
     height: 100vh; }
   #top {
     grid-row: 1 / span 5;
-    grid-column: 1 / 13; }
-  #ticketcontainer {
+    grid-column: 1 / 13;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); }
+  #servingcontainer {
+    grid-column: 1 / span 2;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-left: 40%;
-    overflow: scroll;
-    height: 400px;
-    align-self: flex-end; }
+    flex-direction: row; }
+  #ticketcontainer {
+    grid-column: 3 / span 4;
+    display: flex;
+    flex-direction: row; }
     #ticketcontainer :nth-child(1) {
       background: #87ab66; }
     #ticketcontainer :nth-child(2) {
