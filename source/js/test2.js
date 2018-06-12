@@ -70,7 +70,7 @@ function ticketOrders() {
     document.querySelector("#ticketcontainer").innerHTML = "";
     // find køen
     queueDetails = jsonData.queue;
-    queueDetails.forEach(tickets => {
+    queueDetails.slice(0,5).forEach(tickets => {
         //  console.log("TICKETS ORDRER",tickets.order);
         // definér klon til tickets
         let ticketKlon = ticketTemplate.cloneNode(true).content;
@@ -120,18 +120,17 @@ function tapInfo() {
     tapData.forEach(element => {
 
         let tapKlon = tapInfoTemplate.cloneNode(true).content;
-        const app = document.createElement("div");
-
+      
         tapKlon.querySelector(".tap-beer").textContent = element.beer;
         tapKlon.querySelector(".tap-level").textContent = element.level;
         tapKlon.querySelector(".tap-cap").textContent = element.capacity;
 
         tapKlon.querySelector(".tapsection").className = "hans" + i++ 
        
-        app.setAttribute("class", "liquid");
+       
 
         tapInfoContainer.appendChild(tapKlon)
-        tapInfoContainer.appendChild(app)
+     
 
     });
 
@@ -275,6 +274,6 @@ function circleStyling() {
 //--------------------------------------------------------------------
 
 
-// sæt interval
+ // sæt interval
 window.setInterval(hentData, 2000);
-hentData();
+hentData(); 
