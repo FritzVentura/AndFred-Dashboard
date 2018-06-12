@@ -211,55 +211,72 @@ console.log("In Service", servingData);
 // FUNKTION til styling af cirkler
 function circleStyling() {
 
-    let bar1 = document.querySelector("#queue-light")
-    let barFill1 = document.querySelector(".queue-light-fill");
-    let good = document.querySelector(".good");
-    let almost = document.querySelector(".almost");
+    let bar1 = document.querySelector("#queue-light");
+    let barFill1 = document.querySelector("#queue-light-fill");
     let busy = document.querySelector(".busy");
+    let almost = document.querySelector(".almost");
+    let good = document.querySelector(".good");
 
     if (queueData < 5) {
-        good.style.display = "inherit";
         almost.style.display = "none";
         busy.style.display = "none";
-        barFill1.style.height = "50px";
-        barFill1.style.background = "#87ab66";
+        good.style.display = "inherit"
         bar1.style.border = "#87ab66";
+        barFill1.style.background = "#87ab66"
+        barFill1.style.height = "50px"
         bar1.classList.remove("neon-yellow", "neon-red");
         bar1.classList.add("neon-green");
-
-    } else if (queueData < 10) {
-        almost.style.display = "inherit";
-        good.style.display = "none";
+        
+    } else if(queueData < 10) {
         busy.style.display = "none";
-        good.style.display = "inherit";
-        barFill1.style.height = "100px";
-        barFill1.style.background = "#e79d3f";
+        good.style.display = "none";
+        almost.style.display = "inherit"
         bar1.style.border = "#e79d3f";
+        barFill1.style.background = "#e79d3f"
+        barFill1.style.height = "100px";
         bar1.classList.remove("neon-green", "neon-red");
         bar1.classList.add("neon-yellow");
-
     } else if (queueData < 15) {
-        busy.style.display = "inherit";
         almost.style.display = "none";
         good.style.display = "none";
-        barFill1.style.height = "200px";
-        barFill1.style.background = "#d94d4d";
+        busy.style.display = "inherit"
         bar1.style.border = "#d94d4d";
+        barFill1.style.background = "#d94d4d"
+        barFill1.style.height = "200px";
         bar1.classList.remove("neon-yellow", "neon-green");
         bar1.classList.add("neon-red");;
     }
 
     let bar2 = document.querySelector("#serving-light")
+    let barFill2 = document.querySelector("#serving-light-fill");
+    let eff1 = document.querySelector(".eff1");
+    let eff2 = document.querySelector(".eff2");
+    let eff3 = document.querySelector(".eff3");
 
     if (servingData == 1) {
+        eff3.style.display = "none";
+        eff2.style.display = "none";
+        eff1.style.display = "inherit"
+        barFill2.style.background = "#d94d4d"
+        barFill2.style.height = "30px";
         bar2.style.border = "#d94d4d";
         bar2.classList.remove("neon-yellow", "neon-green");
         bar2.classList.add("neon-red");
     } else if (servingData == 2) {
+        eff1.style.display = "none";
+        eff2.style.display = "inherit";
+        eff3.style.display = "none"
+        barFill2.style.background = "#e79d3f"
+        barFill2.style.height = "100px";
         bar2.style.border = "#e79d3f";
         bar2.classList.remove("neon-red", "neon-green");
         bar2.classList.add("neon-yellow");
     } else if (servingData == 3) {
+        eff1.style.display = "none";
+        eff2.style.display = "none";
+        eff3.style.display = "inherit"
+        barFill2.style.background = "#87ab66"
+        barFill2.style.height = "200px";
         bar2.style.border = "#87ab66";
         bar2.classList.remove("neon-yellow", "neon-red");
         bar2.classList.add("neon-green");
