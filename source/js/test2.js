@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", hentData);
 
 // globale variabler
@@ -12,16 +11,18 @@ let queueDetails;
 //--------------------------------------------------------------------
 
 
-function hentData(){
-// definér data / HENT Data
+function hentData() {
+    // definér data / HENT Data
     data = FooBar.getData();
-// omdan output/string om til JSON format
+    // omdan output/string om til JSON format
     jsonData = JSON.parse(data);
     servingOrders();
     ticketOrders();
-// prop data ud i DOM'en og Kald pågældende funktioner
+    tapInfo();
+    // prop data ud i DOM'en og Kald pågældende funktioner
     queueList();
     circleStyling();
+
 }
 
 
@@ -32,80 +33,144 @@ function hentData(){
 
 function servingOrders() {
     // find DOM elementer (TICKETS) til modtager og template elementer
-let servingTemplate = document.querySelector("#servingtemplate-container");
-let servingContainer = document.querySelector("#servingcontainer");
+    let servingTemplate = document.querySelector("#servingtemplate-container");
+    let servingContainer = document.querySelector("#servingcontainer");
 
-//udskift indhold i modtageren
-document.querySelector("#servingcontainer").innerHTML = "";
-// find køen
-servingDetails = jsonData.serving;
-servingDetails.forEach(servingTickets => {
-//  console.log("TICKETS ORDRER",tickets.order);
-// definér klon til tickets
-  let servingKlon = servingTemplate.cloneNode(true).content;
-// prop data for ticket ID ud i DOM'en
-//  console.log("TICKET ID", tickets.id);
-    servingKlon.querySelector(".serving-id").textContent = servingTickets.id;
-// find ordrerne
-let servingOrders = servingTickets.order;
-// adskil arrayet med ordrerne med et return/nyt linjeskift
-let orderDetail2 = servingOrders.join(' ');
-// udvælg data for ticketOrder detaljer
-    servingKlon.querySelector(".serving-order").textContent = orderDetail2;
-//kast data ind i containeren for hver klon
-    servingContainer.appendChild(servingKlon);
-});
+    //udskift indhold i modtageren
+    document.querySelector("#servingcontainer").innerHTML = "";
+    // find køen
+    servingDetails = jsonData.serving;
+    servingDetails.forEach(servingTickets => {
+        //  console.log("TICKETS ORDRER",tickets.order);
+        // definér klon til tickets
+        let servingKlon = servingTemplate.cloneNode(true).content;
+        // prop data for ticket ID ud i DOM'en
+        //  console.log("TICKET ID", tickets.id);
+        servingKlon.querySelector(".serving-id").textContent = servingTickets.id;
+        // find ordrerne
+        let servingOrders = servingTickets.order;
+        // adskil arrayet med ordrerne med et return/nyt linjeskift
+        let orderDetail2 = servingOrders.join(' ');
+        // udvælg data for ticketOrder detaljer
+        servingKlon.querySelector(".serving-order").textContent = orderDetail2;
+        //kast data ind i containeren for hver klon
+        servingContainer.appendChild(servingKlon);
+    });
 }
 
 
 //--------------------------------------------------------------------
 
 function ticketOrders() {
-// find DOM elementer (TICKETS) til modtager og template elementer
-let ticketTemplate = document.querySelector("#tickettemplate-container");
-let ticketContainer = document.querySelector("#ticketcontainer");
+    // find DOM elementer (TICKETS) til modtager og template elementer
+    let ticketTemplate = document.querySelector("#tickettemplate-container");
+    let ticketContainer = document.querySelector("#ticketcontainer");
 
-//udskift indhold i modtageren
-document.querySelector("#ticketcontainer").innerHTML = "";
-// find køen
-queueDetails = jsonData.queue;
-queueDetails.forEach(tickets => {
-  //  console.log("TICKETS ORDRER",tickets.order);
-// definér klon til tickets
-  let ticketKlon = ticketTemplate.cloneNode(true).content;
-// prop data for ticket ID ud i DOM'en
-//  console.log("TICKET ID", tickets.id);
-    ticketKlon.querySelector(".ticket-id").textContent = tickets.id;
-// find ordrerne
-let orders = tickets.order;
-// adskil arrayet med ordrerne med et return/nyt linjeskift
-let orderDetail = orders.join(' ');
-// udvælg data for ticketOrder detaljer
-    ticketKlon.querySelector(".ticket-order").textContent = orderDetail;
-//kast data ind i containeren for hver klon
-    ticketContainer.appendChild(ticketKlon);
-});
+    //udskift indhold i modtageren
+    document.querySelector("#ticketcontainer").innerHTML = "";
+    // find køen
+    queueDetails = jsonData.queue;
+    queueDetails.forEach(tickets => {
+        //  console.log("TICKETS ORDRER",tickets.order);
+        // definér klon til tickets
+        let ticketKlon = ticketTemplate.cloneNode(true).content;
+        // prop data for ticket ID ud i DOM'en
+        //  console.log("TICKET ID", tickets.id);
+        ticketKlon.querySelector(".ticket-id").textContent = tickets.id;
+        // find ordrerne
+        let orders = tickets.order;
+        // adskil arrayet med ordrerne med et return/nyt linjeskift
+        let orderDetail = orders.join(' ');
+        // udvælg data for ticketOrder detaljer
+        ticketKlon.querySelector(".ticket-order").textContent = orderDetail;
+        //kast data ind i containeren for hver klon
+        ticketContainer.appendChild(ticketKlon);
+    });
+
 
 };
 
 
 
 
+//--------------------------------------------------------------------
+
+function tapInfo() {
+
+    let tapInfoTemplate = document.querySelector("#tapinfotemplate-container");
+    let tapInfoContainer = document.querySelector("#tapinfocontainer");
+
+    let storageTemplate = document.querySelector("#storagetemplate-container");
+    let storageContainer = document.querySelector("#storagecontainer");
+
+    //få den til at udskifte data
+    document.querySelector("#tapinfocontainer").innerHTML = "";
+  /*   document.querySelector("#storagecontainer").innerHTML = ""; */
+
+    //find arrays for taps og storage og gem data i variabler
+    let tapData = jsonData.taps;
+    let tapStorage = jsonData.storage;
+
+   //kombiner de to arrays med concat
+     let combiData = tapStorage.concat(tapData);
+ 
+    console.log("tap info", combiData) 
+
+    tapData.forEach(element => {
+
+        let tapKlon = tapInfoTemplate.cloneNode(true).content;
+        const app = document.createElement("div");
+
+        tapKlon.querySelector(".tap-beer").textContent = element.beer;
+        tapKlon.querySelector(".tap-level").textContent = element.level;
+        tapKlon.querySelector(".tap-cap").textContent = element.capacity;
+
+
+       
+        app.setAttribute("class", "liquid");
+
+        tapInfoContainer.appendChild(tapKlon)
+        tapInfoContainer.appendChild(app)
+
+    });
+
+    //TIL BRUG SENERE
+/* 
+    tapStorage.forEach(element2 => {
+
+        let tapKlon2 = storageTemplate.cloneNode(true).content;
+
+        tapKlon2.querySelector(".tap-name").textContent = element2.name;
+        tapKlon2.querySelector(".tap-storage").textContent = element2.amount;
+
+        storageContainer.appendChild(tapKlon2);
+    }); 
+*/
+beerStyling();
+} 
+
+
+
+
+//--------------------------------------------------------------------
+
+function beerStyling() {
+    
+}
 
 //--------------------------------------------------------------------
 
 
-
 // Funktion til Antal i KØ
-function queueList(){
-// udvælg KØ og SERVING data der skal ind i DOM'en
-// Definér KØ antal
-queueData = jsonData.queue.length;
-console.log("In Queue", queueData);
-// Definér SERVING antal
-servingData = jsonData.serving.length;
-console.log("In Service", servingData);
-// Udvælg data for kø og serving antal og prop data ud i DOM'en
+function queueList() {
+    // udvælg KØ og SERVING data der skal ind i DOM'en
+    // Definér KØ antal
+    queueData = jsonData.queue.length;
+    console.log("In Queue", queueData);
+    // Definér SERVING antal
+    servingData = jsonData.serving.length;
+    console.log("In Service", servingData);
+    // Udvælg data for kø og serving antal og prop data ud i DOM'en
     document.querySelector("#queue .queueAmount").textContent = queueData;
     document.querySelector("#serving .servingAmount").textContent = servingData;
 };
@@ -161,5 +226,3 @@ function circleStyling() {
 // sæt interval
 window.setInterval(hentData, 2000);
 hentData();
-
- 
