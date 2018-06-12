@@ -1,4 +1,5 @@
 
+document.addEventListener("DOMContentLoaded", hentData);
 
 // globale variabler
 
@@ -8,14 +9,25 @@ let queueData;
 let servingData;
 let queueDetails;
 
-async function hentData() {
 
+
+// FUNKTION til hent data
+function hentData(){
 // definér data / HENT Data
     data = FooBar.getData();
-
 // omdan output/string om til JSON format
     jsonData = JSON.parse(data);
 
+// Kald funktioner
+    ticketOrders();
+    queueList();
+    circleStyling();
+}
+
+
+
+// FUNKTION til TICKETS eller ordrer
+function ticketOrders() {
 
 // find DOM elementer (TICKETS) til modtager og template elementer
 
@@ -24,6 +36,9 @@ let ticketContainer = document.querySelector("#ticketcontainer");
 
 
 console.log("kø data", jsonData.queue);
+
+//udskift indhold i modtageren
+document.querySelector("#ticketcontainer").innerHTML = "";
 
 // find køen
 queueDetails = jsonData.queue;
@@ -46,41 +61,40 @@ let orders = tickets.order;
 let orderDetail = orders.join(' ');
 
 
-// prop data for ticket order ud i DOM'en
+// Udvælg data for ticket order detaljer
     ticketKlon.querySelector(".ticket-order").textContent = orderDetail;
-//    document.querySelector(".ticket-order").innerHTML = "";
 
-
-
-// kald værdien af ordrerne i arrayet
-    orders.forEach(function(value, index){
-        console.log("ordererne er her", value, index);
-        //ticketKlon.querySelector(".ticket-order").textContent = value + index;
-    });
-
+// prop Data ud i DOM'en for hver klon
     ticketContainer.appendChild(ticketKlon);
 });
 
 
-
-// udvælg KØ og SERVING data der skal ind i DOM'en
-// Definér KØ antal
-queueData = jsonData.queue.length;
-    console.log("In queue", queueData);
-
-// Definér SERVING antal
-servingData = jsonData.serving.length;
-    console.log("In Service", servingData);
-
-
-
-// prop data ud i DOM'en og Kald pågældende funktioner
-propUdData();
-circleStyling();
 };
 
 
 
+
+
+// FUNKTION til Antal i KØ
+function queueList(){
+
+// udvælg KØ og SERVING data der skal ind i DOM'en
+// Definér KØ antal
+queueData = jsonData.queue.length;
+console.log("In queue", queueData);
+
+// Definér SERVING antal
+servingData = jsonData.serving.length;
+console.log("In Service", servingData);
+
+// Udvælg data for KØ og Serving ANTAL og Prop Data ud i ODM'en
+    document.querySelector("#queue .queueAmount").textContent = queueData;
+    document.querySelector("#serving .servingAmount").textContent = servingData;
+};
+
+
+
+// FUNKTION til styling af cirkler
 function circleStyling() {
 
     let circle1 = document.querySelector("#queue-light")
@@ -116,13 +130,6 @@ function circleStyling() {
         circle2.classList.remove("neon-yellow", "neon-red");
         circle2.classList.add("neon-green");
     }
-};
-
-
-// Funktion til Antal i KØ
-function propUdData(){
-    document.querySelector("#queue .queueAmount").textContent = queueData;
-    document.querySelector("#serving .servingAmount").textContent = servingData;
 };
 
 
