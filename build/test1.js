@@ -1,6 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", hentData);
 
+//--------------------------------------------------------------------
 // globale variabler
 
 let data;
@@ -8,9 +9,10 @@ let jsonData;
 let queueData;
 let servingData;
 let queueDetails;
+let servingDetails;
 
 
-
+//--------------------------------------------------------------------
 // FUNKTION til hent data
 function hentData(){
 // definér data / HENT Data
@@ -19,13 +21,58 @@ function hentData(){
     jsonData = JSON.parse(data);
 
 // Kald funktioner
+    servingOrders();
     ticketOrders();
+    tapInfo();
     queueList();
-    circleStyling();
 }
 
 
 
+
+//--------------------------------------------------------------------
+function servingOrders(){
+
+// find DOM elementer (SERVING ORDERS) til modtager og template elementer
+
+let servingTemplate = document.querySelector("#servingtemplate-container");
+let servingContainer = document.querySelector("#servingcontainer");
+
+//console.log("kø data", jsonData.serving);
+
+//udskift indhold i modtageren
+document.querySelector("#servingcontainer").innerHTML = "";
+
+servingDetails = jsonData.serving;
+//console.log("bliver serveret", servingDetails);
+
+servingDetails.forEach(servingTickets => {
+
+    let servingKlon = servingTemplate.cloneNode(true).content;
+
+// prop data for serving ID ud i DOM'en
+    servingKlon.querySelector(".serving-id").textContent = servingTickets.id;
+
+// find ordrerne
+let servingOrders = servingTickets.order;
+
+// adskil arrayet med ordrerne med et return/nyt linjeskift
+let orderDetail2 = servingOrders.join(" ");
+
+// Udvælg data for serving order detaljer
+    servingKlon.querySelector(".serving-order").textContent = orderDetail2;
+
+    servingContainer.appendChild(servingKlon);
+
+    console.log("servingdubbi", );
+    
+});
+}
+
+
+
+
+//--------------------------------------------------------------------
 // FUNKTION til TICKETS eller ordrer
 function ticketOrders() {
 
@@ -33,7 +80,6 @@ function ticketOrders() {
 
 let ticketTemplate = document.querySelector("#tickettemplate-container");
 let ticketContainer = document.querySelector("#ticketcontainer");
-
 
 console.log("kø data", jsonData.queue);
 
@@ -43,23 +89,23 @@ document.querySelector("#ticketcontainer").innerHTML = "";
 // find køen
 queueDetails = jsonData.queue;
 
+
 queueDetails.forEach(tickets => {
-  //  console.log("TICKETS ORDRER",tickets.order);
+//  console.log("TICKETS ORDRER",tickets.order);
 
 // definér klon til tickets
   let ticketKlon = ticketTemplate.cloneNode(true).content;
 
 // prop data for ticket ID ud i DOM'en
 //  console.log("TICKET ID", tickets.id);
-    ticketKlon.querySelector(".ticket-id").textContent = tickets.id;
 
+    ticketKlon.querySelector(".ticket-id").textContent = tickets.id;
 
 // find ordrerne
 let orders = tickets.order;
 
 // adskil arrayet med ordrerne med et return/nyt linjeskift
-let orderDetail = orders.join(' ');
-
+let orderDetail = orders.join('\n');
 
 // Udvælg data for ticket order detaljer
     ticketKlon.querySelector(".ticket-order").textContent = orderDetail;
@@ -73,8 +119,73 @@ let orderDetail = orders.join(' ');
 
 
 
+//--------------------------------------------------------------------
+// FUNKTION til KEGS, LEVEL & Storage eller ordrer
+
+function tapInfo(){
+
+// find DOM elementer til template og modtager
+let tapinfoTemplate = document.querySelector("#tapinfotemplate-container");
+let tapinfoContainer = document.querySelector("#tapinfocontainer");
+
+//let tapSection = document.querySelector(".tapsection");
+
+/* let storageTemplate = document.querySelector("#storagetemplate-container");
+let storageContainer = document.querySelector("#storagecontainer"); */
+
+document.querySelector("#tapinfocontainer").innerHTML = "";
+//document.querySelector("#storagecontainer").innerHTML = "";
+//console.log("TAP info", jsonData.taps);
+
+// find arrays (taps + storage)
+let tapData = jsonData.taps;
+let tapStorage = jsonData.storage;
+
+// concatenate/kombinér arrays (taps + storage)
+//let combiData = tapStorage.concat(tapData);
+//console.log("TAP info", combiData);
+
+let i = 1;
+
+tapData.forEach(element => {
+
+    let tapKlon1 = tapinfoTemplate.cloneNode(true).content;
+
+    tapKlon1.querySelector(".tap-beer").textContent = element.beer;
+    tapKlon1.querySelector(".tap-level").textContent = element.level;
+    tapKlon1.querySelector(".tap-cap").textContent = element.capacity;
+
+    tapKlon1.querySelector(".tapsection").className = "sectionTap" + i++;
 
 
+    tapinfoContainer.appendChild(tapKlon1);
+});
+
+
+/* tapStorage.forEach(element2 => {
+
+    let tapKlon2 = storageTemplate.cloneNode(true).content;
+
+
+    tapKlon2.querySelector(".tap-storage").textContent = element2.amount;
+
+
+    storageContainer.appendChild(tapKlon2);
+}); */
+
+beerStyling();
+
+}
+
+
+function beerStyling(){
+
+}
+
+
+
+
+//--------------------------------------------------------------------
 // FUNKTION til Antal i KØ
 function queueList(){
 
@@ -90,52 +201,92 @@ console.log("In Service", servingData);
 // Udvælg data for KØ og Serving ANTAL og Prop Data ud i ODM'en
     document.querySelector("#queue .queueAmount").textContent = queueData;
     document.querySelector("#serving .servingAmount").textContent = servingData;
+
+    circleStyling();
 };
 
 
 
+//--------------------------------------------------------------------
 // FUNKTION til styling af cirkler
 function circleStyling() {
 
-    let circle1 = document.querySelector("#queue-light")
+    let bar1 = document.querySelector("#queue-light");
+    let barFill1 = document.querySelector("#queue-light-fill");
+    let busy = document.querySelector(".busy");
+    let almost = document.querySelector(".almost");
+    let good = document.querySelector(".good");
 
     if (queueData < 5) {
-        circle1.style.background = "#87ab66";
-        circle1.classList.remove("neon-yellow", "neon-red");
-        circle1.classList.add("neon-green");
-
-    } else if (queueData < 10) {
-        circle1.style.background = "#e79d3f";
-        circle1.classList.remove("neon-green", "neon-red");
-        circle1.classList.add("neon-yellow");
-
+        almost.style.display = "none";
+        busy.style.display = "none";
+        good.style.display = "inherit"
+        bar1.style.border = "#87ab66";
+        barFill1.style.background = "#87ab66"
+        barFill1.style.height = "50px"
+        bar1.classList.remove("neon-yellow", "neon-red");
+        bar1.classList.add("neon-green");
+        
+    } else if(queueData < 10) {
+        busy.style.display = "none";
+        good.style.display = "none";
+        almost.style.display = "inherit"
+        bar1.style.border = "#e79d3f";
+        barFill1.style.background = "#e79d3f"
+        barFill1.style.height = "100px";
+        bar1.classList.remove("neon-green", "neon-red");
+        bar1.classList.add("neon-yellow");
     } else if (queueData < 15) {
-        circle1.style.background = "#d94d4d";
-        circle1.classList.remove("neon-yellow", "neon-green");
-        circle1.classList.add("neon-red");;
+        almost.style.display = "none";
+        good.style.display = "none";
+        busy.style.display = "inherit"
+        bar1.style.border = "#d94d4d";
+        barFill1.style.background = "#d94d4d"
+        barFill1.style.height = "200px";
+        bar1.classList.remove("neon-yellow", "neon-green");
+        bar1.classList.add("neon-red");;
     }
 
-    let circle2 = document.querySelector("#serving-light")
+    let bar2 = document.querySelector("#serving-light")
+    let barFill2 = document.querySelector("#serving-light-fill");
+    let eff1 = document.querySelector(".eff1");
+    let eff2 = document.querySelector(".eff2");
+    let eff3 = document.querySelector(".eff3");
 
     if (servingData == 1) {
-        circle2.style.background = "#d94d4d";
-        circle2.classList.remove("neon-yellow", "neon-green");
-        circle2.classList.add("neon-red");
+        eff3.style.display = "none";
+        eff2.style.display = "none";
+        eff1.style.display = "inherit"
+        barFill2.style.background = "#d94d4d"
+        barFill2.style.height = "30px";
+        bar2.style.border = "#d94d4d";
+        bar2.classList.remove("neon-yellow", "neon-green");
+        bar2.classList.add("neon-red");
     } else if (servingData == 2) {
-        circle2.style.background = "#e79d3f";
-        circle2.classList.remove("neon-red", "neon-green");
-        circle2.classList.add("neon-yellow");
+        eff1.style.display = "none";
+        eff2.style.display = "inherit";
+        eff3.style.display = "none"
+        barFill2.style.background = "#e79d3f"
+        barFill2.style.height = "100px";
+        bar2.style.border = "#e79d3f";
+        bar2.classList.remove("neon-red", "neon-green");
+        bar2.classList.add("neon-yellow");
     } else if (servingData == 3) {
-        circle2.style.background = "#87ab66";
-        circle2.classList.remove("neon-yellow", "neon-red");
-        circle2.classList.add("neon-green");
+        eff1.style.display = "none";
+        eff2.style.display = "none";
+        eff3.style.display = "inherit"
+        barFill2.style.background = "#87ab66"
+        barFill2.style.height = "200px";
+        bar2.style.border = "#87ab66";
+        bar2.classList.remove("neon-yellow", "neon-red");
+        bar2.classList.add("neon-green");
     }
 };
 
 
 
 
-
+//--------------------------------------------------------------------
 // sæt interval
 window.setInterval(hentData, 2000);
 hentData();
