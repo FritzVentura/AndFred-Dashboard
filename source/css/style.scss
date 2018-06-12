@@ -23,19 +23,26 @@
         grid-column: 1 / span 2;
         display: flex;
        flex-direction: row; 
+       background: green;
+       section {
+           border: 1px solid black;
+       }
      }
      #ticketcontainer {
        grid-column: 3 / span 4;
           display: flex;
          flex-direction: row; 
          :nth-child(1) {
-             background: $green;
+             background: $yellow;
          }
          :nth-child(2) {
-            background: $green;
+            background: $yellow;
         }
-         :nth-child(2n+3) {
-            background: $red;
+        :nth-child(3) {
+            background: $yellow;
+        }
+         :nth-child(2n+4) {
+            background: $bgColor2;
           
         }
   
