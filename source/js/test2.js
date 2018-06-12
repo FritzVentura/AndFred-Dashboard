@@ -9,55 +9,78 @@ let queueData;
 let servingData;
 let queueDetails;
 
+//--------------------------------------------------------------------
+
+
 function hentData(){
 // definér data / HENT Data
     data = FooBar.getData();
 // omdan output/string om til JSON format
     jsonData = JSON.parse(data);
-
     ticketOrders();
-
 // prop data ud i DOM'en og Kald pågældende funktioner
     queueList();
     circleStyling();
 }
 
+
+
+//--------------------------------------------------------------------
+
+
+
+function servingOrders() {
+    // find DOM elementer (TICKETS) til modtager og template elementer
+let servingTemplate = document.querySelector("#servingtemplate-container");
+let servingContainer = document.querySelector("#servingcontainer");
+console.log("kø data", jsonData.serving);
+//udskift indhold i modtageren
+document.querySelector("#servingcontainer").innerHTML = "";
+// find køen
+servingDetails = jsonData.serving;
+servingDetails.forEach(tickets => {
+//  console.log("TICKETS ORDRER",tickets.order);
+// definér klon til tickets
+  let servingKlon = servingTemplate.cloneNode(true).content;
+// prop data for ticket ID ud i DOM'en
+//  console.log("TICKET ID", tickets.id);
+    servingKlon.querySelector(".serving-id").textContent = tickets.id;
+// find ordrerne
+let orders = tickets.order;
+// adskil arrayet med ordrerne med et return/nyt linjeskift
+let orderDetail = orders.join(' ');
+// udvælg data for ticketOrder detaljer
+    ticketKlon.querySelector(".serving-order").textContent = orderDetail;
+//kast data ind i containeren for hver klon
+    ticketContainer.appendChild(ticketKlon);
+});
+}
+
+
+//--------------------------------------------------------------------
+
 function ticketOrders() {
-
 // find DOM elementer (TICKETS) til modtager og template elementer
-
 let ticketTemplate = document.querySelector("#tickettemplate-container");
 let ticketContainer = document.querySelector("#ticketcontainer");
-
-
 console.log("kø data", jsonData.queue);
-
 //udskift indhold i modtageren
 document.querySelector("#ticketcontainer").innerHTML = "";
-
 // find køen
 queueDetails = jsonData.queue;
-
 queueDetails.forEach(tickets => {
   //  console.log("TICKETS ORDRER",tickets.order);
-
 // definér klon til tickets
   let ticketKlon = ticketTemplate.cloneNode(true).content;
-
 // prop data for ticket ID ud i DOM'en
 //  console.log("TICKET ID", tickets.id);
     ticketKlon.querySelector(".ticket-id").textContent = tickets.id;
-
-
 // find ordrerne
 let orders = tickets.order;
-
 // adskil arrayet med ordrerne med et return/nyt linjeskift
 let orderDetail = orders.join(' ');
-
 // udvælg data for ticketOrder detaljer
     ticketKlon.querySelector(".ticket-order").textContent = orderDetail;
-
 //kast data ind i containeren for hver klon
     ticketContainer.appendChild(ticketKlon);
 });
@@ -66,22 +89,31 @@ let orderDetail = orders.join(' ');
 
 
 
+
+
+//--------------------------------------------------------------------
+
+
+
 // Funktion til Antal i KØ
 function queueList(){
-
 // udvælg KØ og SERVING data der skal ind i DOM'en
 // Definér KØ antal
 queueData = jsonData.queue.length;
 console.log("In Queue", queueData);
-
 // Definér SERVING antal
 servingData = jsonData.serving.length;
 console.log("In Service", servingData);
-
 // Udvælg data for kø og serving antal og prop data ud i DOM'en
     document.querySelector("#queue .queueAmount").textContent = queueData;
     document.querySelector("#serving .servingAmount").textContent = servingData;
 };
+
+
+
+
+//--------------------------------------------------------------------
+
 
 
 function circleStyling() {
@@ -122,7 +154,7 @@ function circleStyling() {
 };
 
 
-
+//--------------------------------------------------------------------
 
 
 // sæt interval
