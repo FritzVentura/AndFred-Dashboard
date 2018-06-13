@@ -11,6 +11,7 @@ let servingData;
 let queueDetails;
 let servingDetails;
 let sectionAnim;
+let queueId = [];
 
 
 //--------------------------------------------------------------------
@@ -26,8 +27,8 @@ function hentData(){
     ticketOrders();
     tapInfo();
     queueList();
+    customerList();
 }
-
 
 
 
@@ -156,17 +157,6 @@ let tapStorage = jsonData.storage;
 //console.log("TAP info", combiData);
 
 
-const glass = document.createElement("div");
-    glass.setAttribute("class", "glass");
-    document.body.appendChild(glass);
-
-
-    const beer = document.createElement("div");
-    beer.setAttribute("class", "beer");
-    document.body.appendChild(beer);
-
-    tapinfoContainer.appendChild(tapKlon1);
-
 
 tapData.forEach(element => {
 
@@ -180,9 +170,12 @@ tapData.forEach(element => {
 
     //tapKlon1.querySelector(".tapsection").className = "sectionTap" + i++;
 
+    
+
+    tapinfoContainer.appendChild(tapKlon1);
+
     beerStyling();
 });
-
 
 
 /* tapStorage.forEach(element2 => {
@@ -237,6 +230,7 @@ console.log("In Service", servingData);
 
     circleStyling();
 };
+
 
 
 //--------------------------------------------------------------------
@@ -314,6 +308,50 @@ function circleStyling() {
         bar2.classList.add("neon-green");
     }
 };
+
+
+//--------------------------------------------------------------------
+//FUNKTION til Orders Done!
+
+function customerList() {
+
+    // find array for serving i JSON output
+    servingData = jsonData.serving;
+  
+    // loop serving array igennem  
+    servingData.forEach(function (elm) {
+
+      // tilføj array til serving array med korresponderende ID
+      queueId.push(elm.id);
+      console.log("length", queueId)
+  
+      // begræns array til length = 3
+       if(queueId.length > 2) {
+           // fjern det ældste id fra array
+          queueId.shift();
+      }
+    })
+  
+    // vend/sortér array så det nyeste ID er det første
+    let newId =  queueId.sort(function (a,b){
+      return b - a;
+    })
+
+    //console.log("højeste ID", highestId)
+
+    // nulstil/tilføj +1 til ID (da ticket id starter fra 0)
+    let customerAmount = newId[0]+1;
+
+    // output data i DOM'en
+    document.querySelector(".orderAmount").textContent = customerAmount;
+
+    //console.log("HEJSA",newId)
+
+    // hvis ID'et er = 0 output --> 0
+    if(queueId == 0){
+        document.querySelector(".orderAmount").textContent = "0";
+    }
+  };
 
 
 
