@@ -434,7 +434,7 @@
         grid-template-columns: repeat(12, 1fr);
         position: absolute;
         background: grey;
-        width: 90%;
+        width: 95%;
         height: 100%;
         top: 0%;
         left: 8.5%;
@@ -445,27 +445,138 @@
         .storage-section{
         } 
     }
+
      // BEER TYPES
      #beertypecontainer {
         display: none;
-        justify-content: space-between;
         grid-template-columns: repeat(12, 1fr);
+        grid-column-gap: 30px;
+        grid-row-gap: 10px;
         position: absolute;
         background: grey;
-        width: 90%;
+        width: 100%;
         height: 100%;
         top: 0%;
         left: 8.5%;
-        z-index: 1000;
-        :nth-child(2n+4) {
-            background: $bgColor2;
+        overflow-y: scroll;
+        z-index: 10;
+        h1{
+            color:rgb(219, 219, 219);
+            font-size: .7em;
         }
         img{
-            width: 100%;
+            align-self: center;
+            margin-left: 20%;
+            width: 50%;
         }
-        .storage-section{
+        .beertype-section{
+            margin-top: 20px;
+            padding: 20px;
+            .font-size-sm{
+                color: black;
+                font-size: .8em;
+            }
+        }
+        .section1{
+            background: #87ab66;
+            grid-column:  2 / span 3;
+            grid-row: 1 / auto;
+        }
+        .section2{
+            background: red;
+            grid-column: 5 / span 3;
+            grid-row: 1 / auto;
+        }
+        .section3{
+            background: pink;
+            grid-column: 8 / span 3;
+            grid-row: 1 / auto;
+        }
+        .section4{
+            background: yellow;
+            grid-column: 2 / span 3;
+            grid-row: 2 / auto;
+        }
+        .section5{
+            background: purple;
+            grid-column: 5 / span 3;
+            grid-row: 2 / auto;
+        }
+        .section6{
+            background: rgb(81, 247, 150);
+            grid-column: 8 / span 3;
+            grid-row: 2 / auto;
+        }
+        .section7{
+            background: blue;
+            grid-column: 2 / span 3;
+            grid-row: 3 / auto;
+        }
+        .section8{
+            background: lightsalmon;
+            grid-column: 5 / span 3;
+            grid-row: 3 / auto;
+        }
+        .section9{
+            background: lightseagreen;
+            grid-column: 8 / span 3;
+            grid-row: 3 / auto;
+        }
+        .section10{
+            background: wheat;
+            grid-column: 2 / span 3;
+            grid-row: 4 / auto;
+        }
+        
+        .info-btn{
+            font-family: $myFont;
+            background: grey;
+            color: white;
+            border-style: none;
+            width: 200px;
+            height: 30px;
+            margin-top: 10%;
+            margin-left: 20%;
+            border-radius: 50px;
+            transition: all .6s;
+            cursor: pointer;
+            &:hover{
+                background: white;
+                color: black;
+            }
+        }
+        .close-btn{
+            display: none;
+            font-family: $myFont;
+            background: grey;
+            color: white;
+            border-style: none;
+            width: 200px;
+            height: 30px;
+            margin-top: 10%;
+            margin-left: 20%;
+            border-radius: 50px;
+            transition: all .6s;
+            cursor: pointer;
+            &:hover{
+                background: white;
+                color: black;
+            }
+        }
+        .description{
+            border-radius: 20px;
+            display: none;
+            padding: 20px;
+            background: darkgrey;
+            margin-top: 10%;
+            transition: all .7s;
+            .font-size-sm2{
+                font-size: .7em;
+                color: rgb(49, 49, 49);
+            }
         }
     }
+
     //ANIMATIONER
     .neon-green {
         -webkit-animation: neon-green 1.5s ease-in-out infinite alternate;

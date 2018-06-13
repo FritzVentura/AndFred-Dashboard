@@ -170,7 +170,7 @@ function tapInfo() {
         tapKlon.querySelector(".tap-level").textContent = (element.level*0.01) + " L.";
         tapKlon.querySelector(".tap-cap").textContent = (element.capacity*0.01) + " L.";
 
-        tapKlon.querySelector(".tapsection").className = "hans" + i++
+        //tapKlon.querySelector(".tapsection").className = "hans" + i++
 
         newDiv.style.height = `${element.level*0.04}%` 
 
@@ -292,17 +292,76 @@ function beerTypeData(){
     document.querySelector("#beertypecontainer").innerHTML = "";
 
     let beerTypes = jsonData.beertypes;
+    let i = 1;
+    let imgPath = "imgs/";
 
     beerTypes.forEach(type => {
 
         let typeKlon = beerTypeTemplate.cloneNode(true).content;
 
-        let imgPath = "imgs/";
+        typeKlon.querySelector(".beertype-section").classList = "beertype-section section" + i++;
 
-        typeKlon.querySelector(".beer-name").textContent = type.name;
+        //typeKlon.querySelector(".beer-name").textContent = type.name;
         typeKlon.querySelector(".beer-cat").textContent = type.category;
+        typeKlon.querySelector(".beer-alco").textContent = type.alc + "%";
+        typeKlon.querySelector(".beer-speed").textContent = type.pouringSpeed;
+        typeKlon.querySelector(".beer-popul").textContent = type.popularity;
+        // Description
+        typeKlon.querySelector(".beer-aroma").textContent = type.description.aroma;
+        typeKlon.querySelector(".beer-appea").textContent = type.description.appearance;
+        typeKlon.querySelector(".beer-flavour").textContent = type.description.flavor;
+        typeKlon.querySelector(".beer-mouth").textContent = type.description.mouthfeel;
+        typeKlon.querySelector(".beer-impress").textContent = type.description.overallImpression;
         typeKlon.querySelector(".beer-label").setAttribute("src", imgPath + type.label);
+        
 
+    // SE MERE KNAP 
+    let btn1 = typeKlon.querySelector(".info-btn");
+
+    let btn2 = typeKlon.querySelector(".close-btn");
+
+    btn1.addEventListener("click", function(event){
+        
+        // find target
+        let clicked = event.target;
+        //console.log("button er clicked - event target",clicked);
+
+        // find targets prevoius sibling = full
+        let targetClick = clicked.previousSibling.previousSibling;
+        //console.log("Previous Sibling",targetClick);
+
+        // VIS TEXTBOX
+        targetClick.style.display = "inherit"; 
+        btn2.style.display = "inherit";
+        btn1.style.display = "none";
+
+        targetClick.classList.remove("fadeOut");
+        targetClick.classList.add("fadeInDown");
+    })
+    
+    btn2.addEventListener("click", function(event){
+        
+        // find target
+        let clicked2 = event.target;
+        //console.log("button er clicked - event target",clicked);
+
+        // find targets prevoius sibling = full
+        let targetClick2 = clicked2.previousSibling.previousSibling.previousElementSibling;
+        //console.log("Previous Sibling",clicked2.previousSibling.previousSibling.previousElementSibling);
+
+        // SKJUL TEXTBOX
+        btn1.style.display = "inherit";
+        btn2.style.display = "none";
+
+        targetClick2.classList.remove("fadeInDown");
+        targetClick2.classList.add("fadeOut");
+
+        setTimeout(function(){ 
+            targetClick2.style.display = "none"; 
+        }, 1000);
+
+    });
+        
         beerTypeContainer.appendChild(typeKlon);
 
     });
@@ -427,7 +486,7 @@ function customerList() {
 
       // tilføj array til serving array med korresponderende ID
       queueId.push(elm.id);
-      console.log("length", queueId)
+      //console.log("length", queueId)
   
       // begræns array til length = 3
        if(queueId.length > 2) {
@@ -449,7 +508,7 @@ function customerList() {
     // output data i DOM'en
     document.querySelector(".orderAmount").textContent = customerAmount;
 
-    //console.log("HEJSA",newId)
+    //console.log("Ny ID",newId)
 
     // hvis ID'et er = 0 output --> 0
     if(queueId == 0){
@@ -462,5 +521,5 @@ function customerList() {
 
 //--------------------------------------------------------------------
 // sæt interval
-window.setInterval(hentData, 2000);
+window.setInterval(hentData, 10000);
 hentData();
