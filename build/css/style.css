@@ -118,7 +118,8 @@ html, body, p, h1, h2, h3 {
     #servingcontainer ul {
       font-size: .7em;
       color: #fff;
-      background: inherit !important; }
+      background: inherit !important;
+      list-style-type: decimal; }
   #ticketcontainer {
     grid-column: 3 / span 4;
     display: flex;
