@@ -148,17 +148,24 @@ function tapInfo() {
     let i = 1;
 
     tapData.forEach(element => {
-
+   
         let tapKlon = tapInfoTemplate.cloneNode(true).content;
+
+        const newDiv = document.createElement("div");
+        newDiv.setAttribute("class", "liquid");
 
 
         tapKlon.querySelector(".tap-beer").textContent = element.beer;
-        tapKlon.querySelector(".tap-level").textContent = element.level;
-        tapKlon.querySelector(".tap-cap").textContent = element.capacity;
+        tapKlon.querySelector(".tap-level").textContent = (element.level*0.01) + " L.";
+        tapKlon.querySelector(".tap-cap").textContent = (element.capacity*0.01) + " L.";
 
         tapKlon.querySelector(".tapsection").className = "hans" + i++
 
-            tapInfoContainer.appendChild(tapKlon)
+        newDiv.style.height = `${element.level*0.04}%` 
+
+        tapInfoContainer.appendChild(newDiv);
+
+        tapInfoContainer.appendChild(tapKlon)
 
 
     });

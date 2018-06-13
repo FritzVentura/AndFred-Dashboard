@@ -20,6 +20,42 @@ html, body, p, h1, h2, h3 {
     background: #000;
     width: 100%;
     height: 100%; }
+    #sidebar :nth-child(2) {
+      background-image: url(../imgs/home_white.png);
+      background-repeat: no-repeat;
+      background-size: 40%;
+      background-position-x: center;
+      background-position-y: center; }
+      #sidebar :nth-child(2):hover {
+        background-image: url(../imgs/home.png);
+        background-repeat: no-repeat;
+        background-size: 40%;
+        background-position-x: center;
+        background-position-y: center; }
+    #sidebar :nth-child(3) {
+      background-image: url(../imgs/beerTypes_white.png);
+      background-repeat: no-repeat;
+      background-size: 40%;
+      background-position-x: center;
+      background-position-y: center; }
+      #sidebar :nth-child(3):hover {
+        background-image: url(../imgs/beerTypes.png);
+        background-repeat: no-repeat;
+        background-size: 40%;
+        background-position-x: center;
+        background-position-y: center; }
+    #sidebar :nth-child(4) {
+      background-image: url(../imgs/storage_white.png);
+      background-repeat: no-repeat;
+      background-size: 40%;
+      background-position-x: center;
+      background-position-y: center; }
+      #sidebar :nth-child(4):hover {
+        background-image: url(../imgs/storage.png);
+        background-repeat: no-repeat;
+        background-size: 40%;
+        background-position-x: center;
+        background-position-y: center; }
     #sidebar ul {
       margin: 0;
       padding: 20px;
@@ -27,7 +63,8 @@ html, body, p, h1, h2, h3 {
       border: solid #fff 1px;
       border-left: none;
       border-right: none;
-      transition: all .6s; }
+      transition: all .6s;
+      height: 60px; }
       #sidebar ul:hover {
         background: #fff;
         color: #000;
@@ -48,7 +85,7 @@ html, body, p, h1, h2, h3 {
     flex-direction: row;
     background: #87ab66; }
     #servingcontainer section {
-      border: 1px solid #fff;
+      border: 1px solid #414141;
       position: relative;
       padding: 17px 13px; }
     #servingcontainer section:after {
@@ -57,8 +94,8 @@ html, body, p, h1, h2, h3 {
       z-index: 1;
       top: 0;
       left: 0;
-      border-right: #fff 17px solid;
-      border-bottom: #fff 17px solid;
+      border-right: #414141 17px solid;
+      border-bottom: #414141 17px solid;
       -moz-border-radius: 0 0 20px 0;
       -webkit-border-radius: 0 0 20px 0;
       border-radius: 0 0 20px 0; }
@@ -68,8 +105,8 @@ html, body, p, h1, h2, h3 {
       z-index: 1;
       top: 0;
       right: 0;
-      border-left: #fff 17px solid;
-      border-bottom: #fff 17px solid;
+      border-left: #414141 17px solid;
+      border-bottom: #414141 17px solid;
       -moz-border-radius: 0 0 0 20px;
       -webkit-border-radius: 0 0 0 20px;
       border-radius: 0 0 0 20px; }
@@ -95,7 +132,7 @@ html, body, p, h1, h2, h3 {
     #ticketcontainer :nth-child(2n+4) {
       background: #2f2f2f; }
     #ticketcontainer section {
-      border: 1px solid #fff;
+      border: 1px solid #414141;
       position: relative;
       padding: 17px 13px; }
     #ticketcontainer section:after {
@@ -104,8 +141,8 @@ html, body, p, h1, h2, h3 {
       z-index: 1;
       top: 0;
       left: 0;
-      border-right: #fff 17px solid;
-      border-bottom: #fff 17px solid;
+      border-right: #414141 17px solid;
+      border-bottom: #414141 17px solid;
       -moz-border-radius: 0 0 20px 0;
       -webkit-border-radius: 0 0 20px 0;
       border-radius: 0 0 20px 0; }
@@ -115,8 +152,8 @@ html, body, p, h1, h2, h3 {
       z-index: 1;
       top: 0;
       right: 0;
-      border-left: #fff 17px solid;
-      border-bottom: #fff 17px solid;
+      border-left: #414141 17px solid;
+      border-bottom: #414141 17px solid;
       -moz-border-radius: 0 0 0 20px;
       -webkit-border-radius: 0 0 0 20px;
       border-radius: 0 0 0 20px; }
@@ -181,7 +218,7 @@ html, body, p, h1, h2, h3 {
   .queue-heading {
     grid-column: 2 / span 1;
     grid-row: 1 / span 1;
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: #fff;
     text-align: center; }
   .queue-circle {
@@ -237,7 +274,7 @@ html, body, p, h1, h2, h3 {
   .serving-heading {
     grid-column: 5 / span 1;
     grid-row: 1 / span 1;
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: #fff;
     text-align: center; }
   .serving-circle {
@@ -299,9 +336,20 @@ html, body, p, h1, h2, h3 {
   #tapinfocontainer {
     grid-column: 1 / span 6;
     display: flex;
-    align-content: space-between; }
+    align-content: space-between;
+    height: 500px;
+    transition: all 1s; }
     #tapinfocontainer section {
-      border: 1px solid #000; }
+      border: 1px solid #000;
+      width: 500px;
+      transition: all 1s; }
+  .liquid {
+    width: 50px;
+    height: 0;
+    background: red;
+    z-index: 9;
+    position: relative;
+    transition: all 1s; }
   #storagecontainer {
     grid-column: 1 / span 2;
     display: flex;

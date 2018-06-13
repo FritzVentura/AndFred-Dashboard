@@ -176,7 +176,7 @@ function tapInfo() {
         let tapKlon1 = tapinfoTemplate.cloneNode(true).content;
 
         tapKlon1.querySelector(".tap-beer").textContent = element.beer;
-        tapKlon1.querySelector(".tap-level").textContent = element.level;
+        tapKlon1.querySelector(".tap-level").textContent = (element.level*0.01) + "litres left";
         tapKlon1.querySelector(".tap-cap").textContent = element.capacity;
 
         //tapKlon1.querySelector(".tapsection").className = "sectionTap" + i++;
