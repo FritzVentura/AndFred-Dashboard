@@ -14,9 +14,31 @@ html, body, p, h1, h2, h3 {
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto;
     height: 100vh; }
+  #sidebar {
+    grid-column: 1 / 2;
+    grid-row: 1 / span 15;
+    background: black;
+    width: 100%;
+    height: 100%; }
+    #sidebar ul {
+      margin: 0;
+      padding: 20px;
+      color: white;
+      border: solid white 1px;
+      border-left: none;
+      border-right: none;
+      transition: all .6s; }
+      #sidebar ul:hover {
+        background: white;
+        color: black;
+        cursor: pointer; }
+    #sidebar img {
+      padding-left: 10px;
+      padding-top: 10px;
+      width: 85%; }
   #top {
     grid-row: 1 / span 5;
-    grid-column: 1 / 13;
+    grid-column: 2 / 13;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     height: 350px; }
@@ -123,7 +145,7 @@ html, body, p, h1, h2, h3 {
   #middle {
     background: #2f2f2f;
     grid-row: 5 / span 5;
-    grid-column: 1 / 13;
+    grid-column: 2 / 13;
     display: grid;
     height: 400px;
     grid-template-columns: repeat(6, 1fr);
@@ -271,7 +293,7 @@ html, body, p, h1, h2, h3 {
   #bottom {
     background: #414141;
     grid-row: 11 / span 5;
-    grid-column: 1 / 13;
+    grid-column: 2 / 13;
     display: grid;
     grid-template-columns: repeat(6, 1fr); }
   #tapinfocontainer {
