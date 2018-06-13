@@ -17,20 +17,20 @@ html, body, p, h1, h2, h3 {
   #sidebar {
     grid-column: 1 / 2;
     grid-row: 1 / span 15;
-    background: black;
+    background: #000;
     width: 100%;
     height: 100%; }
     #sidebar ul {
       margin: 0;
       padding: 20px;
-      color: white;
-      border: solid white 1px;
+      color: #fff;
+      border: solid #fff 1px;
       border-left: none;
       border-right: none;
       transition: all .6s; }
       #sidebar ul:hover {
-        background: white;
-        color: black;
+        background: #fff;
+        color: #000;
         cursor: pointer; }
     #sidebar img {
       padding-left: 10px;
@@ -48,7 +48,7 @@ html, body, p, h1, h2, h3 {
     flex-direction: row;
     background: #87ab66; }
     #servingcontainer section {
-      border: 1px solid white;
+      border: 1px solid #fff;
       position: relative;
       padding: 17px 13px; }
     #servingcontainer section:after {
@@ -76,11 +76,11 @@ html, body, p, h1, h2, h3 {
     #servingcontainer h1 {
       font-size: 1em;
       text-align: center;
-      color: white;
+      color: #fff;
       background: inherit !important; }
     #servingcontainer ul {
       font-size: .7em;
-      color: white;
+      color: #fff;
       background: inherit !important; }
   #ticketcontainer {
     grid-column: 3 / span 4;
@@ -95,7 +95,7 @@ html, body, p, h1, h2, h3 {
     #ticketcontainer :nth-child(2n+4) {
       background: #2f2f2f; }
     #ticketcontainer section {
-      border: 1px solid white;
+      border: 1px solid #fff;
       position: relative;
       padding: 17px 13px; }
     #ticketcontainer section:after {
@@ -123,11 +123,11 @@ html, body, p, h1, h2, h3 {
     #ticketcontainer h1 {
       font-size: 1em;
       text-align: center;
-      color: white;
+      color: #fff;
       background: inherit !important; }
     #ticketcontainer ul {
       font-size: .7em;
-      color: white;
+      color: #fff;
       list-style-type: decimal;
       background: inherit !important; }
       #ticketcontainer ul h3 {
@@ -160,7 +160,7 @@ html, body, p, h1, h2, h3 {
     grid-row: 1/ span 1;
     margin-top: 30%;
     justify-self: center;
-    color: white; }
+    color: #fff; }
   #orders-done {
     grid-column: 3 / span 2;
     grid-row: 1/ span 1;
@@ -176,13 +176,13 @@ html, body, p, h1, h2, h3 {
     align-items: center;
     justify-content: center; }
   .orderAmount {
-    color: white;
+    color: #fff;
     font-size: 2em; }
   .queue-heading {
     grid-column: 2 / span 1;
     grid-row: 1 / span 1;
     font-size: 1.5em;
-    color: white;
+    color: #fff;
     text-align: center; }
   .queue-circle {
     grid-column: 2 / span 1;
@@ -197,7 +197,7 @@ html, body, p, h1, h2, h3 {
     transition: all .6s; }
   .queueAmount {
     text-align: center;
-    color: white;
+    color: #fff;
     font-size: 3em; }
   #queue-light {
     background: none;
@@ -225,7 +225,7 @@ html, body, p, h1, h2, h3 {
     justify-content: center; }
     #queue-light-fill h1 {
       transform: rotatex(180deg);
-      color: white;
+      color: #fff;
       text-align: center;
       font-size: .7em; }
   .busy {
@@ -238,7 +238,7 @@ html, body, p, h1, h2, h3 {
     grid-column: 5 / span 1;
     grid-row: 1 / span 1;
     font-size: 1.5em;
-    color: white;
+    color: #fff;
     text-align: center; }
   .serving-circle {
     grid-row: 1/ span 1;
@@ -253,7 +253,7 @@ html, body, p, h1, h2, h3 {
     transition: all .6s; }
   .servingAmount {
     text-align: center;
-    color: white;
+    color: #fff;
     font-size: 3em; }
   #serving-light {
     grid-column: 6 / span 1;
@@ -264,7 +264,7 @@ html, body, p, h1, h2, h3 {
     height: 200px;
     align-self: center;
     transition: all .6s;
-    border: 2px solid black; }
+    border: 2px solid #000; }
   #serving-light-fill {
     background: #87ab66;
     grid-column: 6 / span 1;
@@ -281,7 +281,7 @@ html, body, p, h1, h2, h3 {
     justify-content: center; }
     #serving-light-fill h1 {
       transform: rotatex(180deg);
-      color: white;
+      color: #fff;
       text-align: center;
       font-size: .7em; }
   .eff1 {
@@ -301,13 +301,13 @@ html, body, p, h1, h2, h3 {
     display: flex;
     align-content: space-between; }
     #tapinfocontainer section {
-      border: 1px solid black; }
+      border: 1px solid #000; }
   #storagecontainer {
     grid-column: 1 / span 2;
     display: flex;
     flex-direction: row; }
     #storagecontainer section {
-      border: 1px solid black; }
+      border: 1px solid #000; }
   /*     .glass {
         position: relative;           // Relative position
         width: 180px;                 // Width of the glass
