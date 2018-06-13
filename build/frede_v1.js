@@ -155,19 +155,6 @@ let tapStorage = jsonData.storage;
 //let combiData = tapStorage.concat(tapData);
 //console.log("TAP info", combiData);
 
-document.querySelector(".glass").innerHTML = "";
-    document.querySelector(".beer").innerHTML = "";
-
-const glass = document.createElement("div");
-    glass.setAttribute("class", "glass");
-    document.body.appendChild(glass);
-
-
-    const beer = document.createElement("div");
-    beer.setAttribute("class", "beer");
-    document.body.appendChild(beer);
-
-    tapinfoContainer.appendChild(tapKlon1);
 
 
 tapData.forEach(element => {
@@ -182,9 +169,20 @@ tapData.forEach(element => {
 
     //tapKlon1.querySelector(".tapsection").className = "sectionTap" + i++;
 
+
+    const glass = document.createElement("div");
+    glass.setAttribute("class", "glass");
+    document.body.appendChild(glass);
+
+
+    const beer = document.createElement("div");
+    beer.setAttribute("class", "beer");
+    document.body.appendChild(beer);
+
+    tapinfoContainer.appendChild(tapKlon1);
+
     beerStyling();
 });
-
 
 
 /* tapStorage.forEach(element2 => {
