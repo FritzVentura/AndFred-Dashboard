@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="And-Fred Bar Dashboard - The last dashboard for your bar you'll ever need!">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-    
+
     <!-- ANIMATE CSS LIBRARY v5.1 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
 
@@ -26,15 +26,19 @@
     <!-- TEMPLATE TIL TICKETS -->
     <template id="tickettemplate-container">
         <section class="section">
+
             <h1>Ticket nr:
                 <span class="ticket-id"></span>
             </h1>
-            <ul>Order:
+
+            <ul>
+                <h3>Order:</h3>
                 <br>
                 <li>
                     <span class="ticket-order"></span>
                 </li>
             </ul>
+
         </section>
     </template>
 
@@ -44,7 +48,8 @@
             <h1>Ticket nr:
                 <span class="serving-id"></span>
             </h1>
-            <ul>Order:
+            <ul>
+                <h3>Order:</h3>
                 <br>
                 <li>
                     <span class="serving-order"></span>
@@ -72,7 +77,7 @@
 
     <!-- TEMPLATE TIL KEG STORAGE -->
     <template id="storagetemplate-container">
-        <section id="section">
+        <section class="storage-section">
             <h1>Name:
                 <span class="tap-name"></span>
             </h1>
@@ -82,10 +87,43 @@
         </section>
     </template>
 
+    <!-- MODTAGER TIL KEG STORAGE -->
+    <div id="storagecontainer" class="animated "></div>
+
+
+    <!-- TEMPLATE TIL BEER TYPES -->
+    <template id="beertypetemplate-container">
+            <section class="storage-section">
+                <h1>Name:
+                    <span class="beer-name"></span>
+                </h1>
+                <h1>Category:
+                    <span class="beer-cat"></span>
+                </h1>
+            </section>
+    </template>
+
+        <!-- MODTAGER TIL BEER TYPES -->
+        <div id="beertypecontainer" class="animated "></div>
+
+
 
 <!-- GRID CONTAINER (MAIN PARENT) -->
     <div id="grid_container">
+
+<div id="sidebar">
+
+    <img src="imgs/FooBarLogo_cropped.png">
+  
+    <ul class="home-btn">Home</ul>
     
+    <ul class="storage-btn">Keg Storage</ul>
+   
+    <ul class="beers-btn">Beer Types</ul>
+ 
+</div>
+
+
         <!-- TOP CONTAINER / TICKETS + SERVING -->
         <div id="top">
             <div id="servingcontainer"></div>
@@ -94,12 +132,12 @@
 
         <!-- MIDDLE CONTAINER -->
         <div id="middle">
-                <h1 id="orders-heading">Orders Done!</h1>
-                <div id="orders-done">
-                    <h1 class="orderAmount"></h1>
-                </div>
+            <h1 id="orders-heading">Tickets Done!</h1>
+            <div id="orders-done">
+                <h1 class="orderAmount"></h1>
+            </div>
 
-         
+
 
             <!-- QUEUE LIGHT + FILL -->
             <div id="queue-light"></div>
@@ -132,20 +170,16 @@
                     <h2 class="servingAmount"></h2>
                 </div>
             </div>
-
         </div>
 
         <!-- BOTTOM CONTAINER -->
         <div id="bottom">
-
             <!-- TAP INFO -->
             <div id="tapinfocontainer"></div>
             <!--     <div id="storagecontainer"></div> -->
-       
-
         </div>
 
-<!-- GRID CONTAINER // SLUT -->
+        <!-- GRID CONTAINER // SLUT -->
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://petlatkea.dk/2018/front/foobar.js"></script>

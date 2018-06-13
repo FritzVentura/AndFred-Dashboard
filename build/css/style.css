@@ -14,9 +14,31 @@ html, body, p, h1, h2, h3 {
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto;
     height: 100vh; }
+  #sidebar {
+    grid-column: 1 / 2;
+    grid-row: 1 / span 15;
+    background: #000;
+    width: 100%;
+    height: 100%; }
+    #sidebar ul {
+      margin: 0;
+      padding: 20px;
+      color: #fff;
+      border: solid #fff 1px;
+      border-left: none;
+      border-right: none;
+      transition: all .6s; }
+      #sidebar ul:hover {
+        background: #fff;
+        color: #000;
+        cursor: pointer; }
+    #sidebar img {
+      padding-left: 10px;
+      padding-top: 10px;
+      width: 85%; }
   #top {
     grid-row: 1 / span 5;
-    grid-column: 1 / 13;
+    grid-column: 2 / 13;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     height: 350px; }
@@ -26,7 +48,7 @@ html, body, p, h1, h2, h3 {
     flex-direction: row;
     background: #87ab66; }
     #servingcontainer section {
-      border: 1px solid white;
+      border: 1px solid #fff;
       position: relative;
       padding: 17px 13px; }
     #servingcontainer section:after {
@@ -54,11 +76,11 @@ html, body, p, h1, h2, h3 {
     #servingcontainer h1 {
       font-size: 1em;
       text-align: center;
-      color: white;
+      color: #fff;
       background: inherit !important; }
     #servingcontainer ul {
       font-size: .7em;
-      color: white;
+      color: #fff;
       background: inherit !important; }
   #ticketcontainer {
     grid-column: 3 / span 4;
@@ -73,7 +95,7 @@ html, body, p, h1, h2, h3 {
     #ticketcontainer :nth-child(2n+4) {
       background: #2f2f2f; }
     #ticketcontainer section {
-      border: 1px solid white;
+      border: 1px solid #fff;
       position: relative;
       padding: 17px 13px; }
     #ticketcontainer section:after {
@@ -101,12 +123,15 @@ html, body, p, h1, h2, h3 {
     #ticketcontainer h1 {
       font-size: 1em;
       text-align: center;
-      color: white;
+      color: #fff;
       background: inherit !important; }
     #ticketcontainer ul {
       font-size: .7em;
-      color: white;
+      color: #fff;
+      list-style-type: decimal;
       background: inherit !important; }
+      #ticketcontainer ul h3 {
+        background: inherit !important; }
     #ticketcontainer li {
       background: inherit !important; }
     #ticketcontainer br {
@@ -120,7 +145,7 @@ html, body, p, h1, h2, h3 {
   #middle {
     background: #2f2f2f;
     grid-row: 5 / span 5;
-    grid-column: 1 / 13;
+    grid-column: 2 / 13;
     display: grid;
     height: 400px;
     grid-template-columns: repeat(6, 1fr);
@@ -135,7 +160,7 @@ html, body, p, h1, h2, h3 {
     grid-row: 1/ span 1;
     margin-top: 30%;
     justify-self: center;
-    color: white; }
+    color: #fff; }
   #orders-done {
     grid-column: 3 / span 2;
     grid-row: 1/ span 1;
@@ -146,12 +171,18 @@ html, body, p, h1, h2, h3 {
     background: #a86f3b;
     align-self: center;
     justify-self: center;
-    margin-top: 30%; }
+    margin-top: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .orderAmount {
+    color: #fff;
+    font-size: 2em; }
   .queue-heading {
     grid-column: 2 / span 1;
     grid-row: 1 / span 1;
     font-size: 1.5em;
-    color: white;
+    color: #fff;
     text-align: center; }
   .queue-circle {
     grid-column: 2 / span 1;
@@ -166,7 +197,7 @@ html, body, p, h1, h2, h3 {
     transition: all .6s; }
   .queueAmount {
     text-align: center;
-    color: white;
+    color: #fff;
     font-size: 3em; }
   #queue-light {
     background: none;
@@ -194,7 +225,7 @@ html, body, p, h1, h2, h3 {
     justify-content: center; }
     #queue-light-fill h1 {
       transform: rotatex(180deg);
-      color: white;
+      color: #fff;
       text-align: center;
       font-size: .7em; }
   .busy {
@@ -207,7 +238,7 @@ html, body, p, h1, h2, h3 {
     grid-column: 5 / span 1;
     grid-row: 1 / span 1;
     font-size: 1.5em;
-    color: white;
+    color: #fff;
     text-align: center; }
   .serving-circle {
     grid-row: 1/ span 1;
@@ -222,7 +253,7 @@ html, body, p, h1, h2, h3 {
     transition: all .6s; }
   .servingAmount {
     text-align: center;
-    color: white;
+    color: #fff;
     font-size: 3em; }
   #serving-light {
     grid-column: 6 / span 1;
@@ -233,7 +264,7 @@ html, body, p, h1, h2, h3 {
     height: 200px;
     align-self: center;
     transition: all .6s;
-    border: 2px solid black; }
+    border: 2px solid #000; }
   #serving-light-fill {
     background: #87ab66;
     grid-column: 6 / span 1;
@@ -250,7 +281,7 @@ html, body, p, h1, h2, h3 {
     justify-content: center; }
     #serving-light-fill h1 {
       transform: rotatex(180deg);
-      color: white;
+      color: #fff;
       text-align: center;
       font-size: .7em; }
   .eff1 {
@@ -262,7 +293,7 @@ html, body, p, h1, h2, h3 {
   #bottom {
     background: #414141;
     grid-row: 11 / span 5;
-    grid-column: 1 / 13;
+    grid-column: 2 / 13;
     display: grid;
     grid-template-columns: repeat(6, 1fr); }
   #tapinfocontainer {
@@ -270,22 +301,43 @@ html, body, p, h1, h2, h3 {
     display: flex;
     align-content: space-between; }
     #tapinfocontainer section {
-      border: 1px solid black; }
+      border: 1px solid #000; }
+  /*     .glass {
+        position: relative;           // Relative position
+        width: 180px;                 // Width of the glass
+        height: 245px;                 // Height of the glass
+        background-color: rgba(150,150,150,1); // Inner color of glass
+        border-radius: 5px;            // A round border
+        border: 10px solid lightgray;  // Lighter color for the outside
+        border-top: none ;             // Hide the top border
+        overflow: hidden; 
+    } */
   #storagecontainer {
-    grid-column: 1 / span 2;
-    display: flex;
-    flex-direction: row; }
-    #storagecontainer section {
-      border: 1px solid black; }
-  .glass {
-    position: relative;
-    width: 180px;
-    height: 245px;
-    background-color: #969696;
-    border-radius: 5px;
-    border: 10px solid lightgray;
-    border-top: none;
-    overflow: hidden; }
+    display: none;
+    justify-content: space-between;
+    grid-template-columns: repeat(12, 1fr);
+    position: absolute;
+    background: grey;
+    width: 90%;
+    height: 100%;
+    top: 0%;
+    left: 8.5%;
+    z-index: 1000; }
+    #storagecontainer :nth-child(2n) {
+      background: #2f2f2f; }
+  #beertypecontainer {
+    display: none;
+    justify-content: space-between;
+    grid-template-columns: repeat(12, 1fr);
+    position: absolute;
+    background: grey;
+    width: 90%;
+    height: 100%;
+    top: 0%;
+    left: 8.5%;
+    z-index: 1000; }
+    #beertypecontainer :nth-child(2n) {
+      background: #2f2f2f; }
   .neon-green {
     -webkit-animation: neon-green 1.5s ease-in-out infinite alternate;
     -moz-animation: neon-green 1.5s ease-in-out infinite alternate;
