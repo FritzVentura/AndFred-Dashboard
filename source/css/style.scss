@@ -443,7 +443,7 @@
             background: $bgColor2;
         }
         .storage-section{
-        }
+        } 
     }
      // BEER TYPES
      #beertypecontainer {
@@ -457,8 +457,11 @@
         top: 0%;
         left: 8.5%;
         z-index: 1000;
-        :nth-child(2n) {
+        :nth-child(2n+4) {
             background: $bgColor2;
+        }
+        img{
+            width: 100%;
         }
         .storage-section{
         }

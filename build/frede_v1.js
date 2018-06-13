@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", hentData);
 
 //--------------------------------------------------------------------
@@ -11,75 +10,80 @@ let servingData;
 let queueDetails;
 let servingDetails;
 let sectionAnim;
+let queueId = [];
+let storageInfo;
+let beerInfo;
 
 
 //--------------------------------------------------------------------
 // FUNKTION til hent data
-function hentData(){
-// definér data / HENT Data
+function hentData() {
+    // definér data / HENT Data
     data = FooBar.getData();
-// omdan output/string om til JSON format
+    // omdan output/string om til JSON format
     jsonData = JSON.parse(data);
 
-// Kald funktioner
+    // Kald funktioner
     servingOrders();
     ticketOrders();
     tapInfo();
     queueList();
+    customerList();
+    beerStorageData()
+    beerTypeData();
 }
-
 
 
 
 //--------------------------------------------------------------------
 //FUNKTION til in service
 
-function servingOrders(){
+function servingOrders() {
 
-// find DOM elementer (SERVING ORDERS) til modtager og template elementer
+    // find DOM elementer (SERVING ORDERS) til modtager og template elementer
 
-let servingTemplate = document.querySelector("#servingtemplate-container");
-let servingContainer = document.querySelector("#servingcontainer");
+    let servingTemplate = document.querySelector("#servingtemplate-container");
+    let servingContainer = document.querySelector("#servingcontainer");
 
-//console.log("serving data", jsonData.serving);
+    //console.log("serving data", jsonData.serving);
 
-//udskift indhold i modtageren
-document.querySelector("#servingcontainer").innerHTML = "";
+    //udskift indhold i modtageren
+    document.querySelector("#servingcontainer").innerHTML = "";
 
-servingDetails = jsonData.serving;
-//console.log("bliver serveret", servingDetails);
+    servingDetails = jsonData.serving;
+    //console.log("bliver serveret", servingDetails);
 
-servingDetails.forEach(servingTickets => {
+    servingDetails.forEach(servingTickets => {
 
-    let servingKlon = servingTemplate.cloneNode(true).content;
+        let servingKlon = servingTemplate.cloneNode(true).content;
 
-    // prop data for serving ID ud i DOM'en
-    servingKlon.querySelector(".serving-id").textContent = servingTickets.id;
+        // prop data for serving ID ud i DOM'en
+        servingKlon.querySelector(".serving-id").textContent = servingTickets.id;
 
-// find ordrerne
-let servingOrders = servingTickets.order;
+        // find ordrerne
+        let servingOrders = servingTickets.order;
 
-// adskil arrayet med ordrerne med et return/nyt linjeskift
-let orderDetail2 = servingOrders.join(" ");
+        // adskil arrayet med ordrerne med et return/nyt linjeskift
+        let orderDetail2 = servingOrders.join("<li>");
 
-    // Udvælg data for serving order detaljer
-    servingKlon.querySelector(".serving-order").textContent = orderDetail2;
+        // Udvælg data for serving order detaljer
+        servingKlon.querySelector(".serving-order").innerHTML = orderDetail2;
 
 
-    // Prop data ud i DOM'en
-    servingContainer.appendChild(servingKlon);
+        // Prop data ud i DOM'en
+        servingContainer.appendChild(servingKlon);
 
-  //servingTest = servingDetails.length.i++;
+        //servingTest = servingDetails.length.i++;
 
-/*   lengthTest = servingDetails.slice();
-  console.log("nyt array", lengthTest) */
+        /*   lengthTest = servingDetails.slice();
+          console.log("nyt array", lengthTest) */
 
-/*   for (i = 0; i<1; i++) {
-    orderAntal = servingData + i++;
-    document.querySelector("#orders-done .orderAmount").textContent = orderAntal;
-  } */
+        /*   for (i = 0; i<1; i++) {
+            orderAntal = servingData + i++;
+            document.querySelector("#orders-done .orderAmount").textContent = orderAntal;
+          } */
 
-});
+    });
 
 };
 
@@ -91,40 +95,40 @@ let orderDetail2 = servingOrders.join(" ");
 
 function ticketOrders() {
 
-// find DOM elementer (TICKETS) til modtager og template elementer
+    // find DOM elementer (TICKETS) til modtager og template elementer
 
-let ticketTemplate = document.querySelector("#tickettemplate-container");
-let ticketContainer = document.querySelector("#ticketcontainer");
+    let ticketTemplate = document.querySelector("#tickettemplate-container");
+    let ticketContainer = document.querySelector("#ticketcontainer");
 
-//console.log("kø data", jsonData.queue);
+    //console.log("kø data", jsonData.queue);
 
-//udskift indhold i modtageren
-document.querySelector("#ticketcontainer").innerHTML = "";
+    //udskift indhold i modtageren
+    document.querySelector("#ticketcontainer").innerHTML = "";
 
-// find køen
-queueDetails = jsonData.queue;
-queueDetails.slice(0,5).forEach(tickets => {
+    // find køen
+    queueDetails = jsonData.queue;
+    queueDetails.slice(0, 5).forEach(tickets => {
 
-//  console.log("TICKETS ORDRER",tickets.order);
-// definér klon til tickets
-let ticketKlon = ticketTemplate.cloneNode(true).content;
+        //  console.log("TICKETS ORDRER",tickets.order);
+        // definér klon til tickets
+        let ticketKlon = ticketTemplate.cloneNode(true).content;
 
-    // prop data for ticket ID ud i DOM'en
-    //  console.log("TICKET ID", tickets.id);
-    ticketKlon.querySelector(".ticket-id").textContent = tickets.id;
+        // prop data for ticket ID ud i DOM'en
+        //  console.log("TICKET ID", tickets.id);
+        ticketKlon.querySelector(".ticket-id").textContent = tickets.id;
 
-// find ordrerne
-let orders = tickets.order;
+        // find ordrerne
+        let orders = tickets.order;
 
-// adskil arrayet med ordrerne med et return/nyt linjeskift
-let orderDetail = orders.join('\n');
+        // adskil arrayet med ordrerne med et return/nyt linjeskift
+        let orderDetail = orders.join('<li>');
 
-    // Udvælg data for ticket order detaljer
-    ticketKlon.querySelector(".ticket-order").textContent = orderDetail;
+        // Udvælg data for ticket order detaljer
+        ticketKlon.querySelector(".ticket-order").innerHTML = orderDetail;
 
-    // prop Data ud i DOM'en for hver klon
-    ticketContainer.appendChild(ticketKlon);
-});
+        // prop Data ud i DOM'en for hver klon
+        ticketContainer.appendChild(ticketKlon);
+    });
 };
 
 
@@ -132,74 +136,178 @@ let orderDetail = orders.join('\n');
 //--------------------------------------------------------------------
 // FUNKTION til KEGS, LEVEL & Storage eller ordrer
 
-function tapInfo(){
+function tapInfo() {
 
-// find DOM elementer til template og modtager
-let tapinfoTemplate = document.querySelector("#tapinfotemplate-container");
-let tapinfoContainer = document.querySelector("#tapinfocontainer");
+    let tapInfoTemplate = document.querySelector("#tapinfotemplate-container");
+    let tapInfoContainer = document.querySelector("#tapinfocontainer");
 
-//let tapSection = document.querySelector(".tapsection");
+    let storageTemplate = document.querySelector("#storagetemplate-container");
+    let storageContainer = document.querySelector("#storagecontainer");
 
-/* let storageTemplate = document.querySelector("#storagetemplate-container");
-let storageContainer = document.querySelector("#storagecontainer"); */
+    //få den til at udskifte data
+    document.querySelector("#tapinfocontainer").innerHTML = "";
+    /*   document.querySelector("#storagecontainer").innerHTML = ""; */
 
-document.querySelector("#tapinfocontainer").innerHTML = "";
-//document.querySelector("#storagecontainer").innerHTML = "";
-//console.log("TAP info", jsonData.taps);
+    //find arrays for taps og storage og gem data i variabler
+    let tapData = jsonData.taps;
+    let tapStorage = jsonData.storage;
 
-// find arrays (taps + storage)
-let tapData = jsonData.taps;
-let tapStorage = jsonData.storage;
+    //kombiner de to arrays med concat
+    let combiData = tapStorage.concat(tapData);
+    /* 
+       console.log("tap info", combiData)  */
+    let i = 1;
 
-// concatenate/kombinér arrays (taps + storage)
-//let combiData = tapStorage.concat(tapData);
-//console.log("TAP info", combiData);
+    tapData.forEach(element => {
+   
+        let tapKlon = tapInfoTemplate.cloneNode(true).content;
 
-
-
-tapData.forEach(element => {
-
-    //let i = 1;
-
-    let tapKlon1 = tapinfoTemplate.cloneNode(true).content;
-
-    tapKlon1.querySelector(".tap-beer").textContent = element.beer;
-    tapKlon1.querySelector(".tap-level").textContent = element.level;
-    tapKlon1.querySelector(".tap-cap").textContent = element.capacity;
-
-    //tapKlon1.querySelector(".tapsection").className = "sectionTap" + i++;
+        const newDiv = document.createElement("div");
+        newDiv.setAttribute("class", "liquid");
 
 
-    const glass = document.createElement("div");
-    glass.setAttribute("class", "glass");
-    document.body.appendChild(glass);
+        tapKlon.querySelector(".tap-beer").textContent = element.beer;
+        tapKlon.querySelector(".tap-level").textContent = (element.level*0.01) + " L.";
+        tapKlon.querySelector(".tap-cap").textContent = (element.capacity*0.01) + " L.";
+
+        tapKlon.querySelector(".tapsection").className = "hans" + i++
+
+        newDiv.style.height = `${element.level*0.04}%` 
+
+        tapInfoContainer.appendChild(newDiv);
+
+        tapInfoContainer.appendChild(tapKlon)
 
 
-    const beer = document.createElement("div");
-    beer.setAttribute("class", "beer");
-    document.body.appendChild(beer);
+    });
 
-    tapinfoContainer.appendChild(tapKlon1);
+    //TIL BRUG SENERE
+    /* 
+        tapStorage.forEach(element2 => {
 
+            let tapKlon2 = storageTemplate.cloneNode(true).content;
+
+            tapKlon2.querySelector(".tap-name").textContent = element2.name;
+            tapKlon2.querySelector(".tap-storage").textContent = element2.amount;
+
+            storageContainer.appendChild(tapKlon2);
+        }); 
+    */
     beerStyling();
-});
-
-
-/* tapStorage.forEach(element2 => {
-
-    let tapKlon2 = storageTemplate.cloneNode(true).content;
-
-
-    tapKlon2.querySelector(".tap-storage").textContent = element2.amount;
-
-
-    storageContainer.appendChild(tapKlon2);
-}); */
-
 }
 
 
-function beerStyling(){
+
+
+//--------------------------------------------------------------------
+// EVENT til klik home knap
+let homeBtn = document.querySelector(".home-btn");
+
+homeBtn.addEventListener("click", function(event){
+
+    storageInfo = document.querySelector("#storagecontainer");
+
+    storageInfo.classList.remove("bounceInRight");
+    storageInfo.classList.add("bounceOutRight");
+
+    beerInfo.classList.remove("bounceInRight");
+    beerInfo.classList.add("bounceOutRight");
+
+});
+
+
+//--------------------------------------------------------------------
+// EVENT til Keg Storage knap
+let storageBtn = document.querySelector(".storage-btn");
+
+storageBtn.addEventListener("click", function(event){
+
+    storageInfo = document.querySelector("#storagecontainer");
+
+    storageInfo.style.display = "grid";
+
+    beerInfo.classList.remove("bounceInRight");
+    beerInfo.classList.add("bounceOutRight");
+
+    storageInfo.classList.remove("bounceOutRight");
+    storageInfo.classList.add("bounceInRight");
+
+});
+
+
+//--------------------------------------------------------------------
+// EVENT til Beer Types knap
+let beersBtn = document.querySelector(".beers-btn");
+
+    beersBtn.addEventListener("click", function(event){
+    
+    beerInfo = document.querySelector("#beertypecontainer");
+    storageInfo = document.querySelector("#storagecontainer");
+
+    beerInfo.style.display = "grid";
+
+    storageInfo.classList.remove("bounceInRight");
+    storageInfo.classList.add("bounceOutRight");
+
+    beerInfo.classList.remove("bounceOutRight");
+    beerInfo.classList.add("bounceInRight");
+
+});
+
+
+
+
+//--------------------------------------------------------------------
+// FUNKTION til Beer STORAGE
+function beerStorageData(){
+
+    let storageTemplate = document.querySelector("#storagetemplate-container");
+    let storageContainer = document.querySelector("#storagecontainer");
+
+    document.querySelector("#storagecontainer").innerHTML = "";
+
+    let tapStorage = jsonData.storage;
+
+    tapStorage.forEach(storage => {
+
+        let storageKlon = storageTemplate.cloneNode(true).content;
+
+        storageKlon.querySelector(".tap-name").textContent = storage.name;
+        storageKlon.querySelector(".tap-storage").textContent = storage.amount;
+
+        storageContainer.appendChild(storageKlon);
+
+    });
+}
+
+
+
+
+//--------------------------------------------------------------------
+// FUNKTION til Beer TYPES
+function beerTypeData(){
+
+    let beerTypeTemplate = document.querySelector("#beertypetemplate-container");
+    let beerTypeContainer = document.querySelector("#beertypecontainer");
+
+    document.querySelector("#beertypecontainer").innerHTML = "";
+
+    let beerTypes = jsonData.beertypes;
+
+    beerTypes.forEach(type => {
+
+        let typeKlon = beerTypeTemplate.cloneNode(true).content;
+
+        typeKlon.querySelector(".beer-name").textContent = type.name;
+        typeKlon.querySelector(".beer-cat").textContent = type.category;
+
+        beerTypeContainer.appendChild(typeKlon);
+
+    });
+}
+
+
+function beerStyling() {
 
     let topFill = jsonData.taps.capacity;
 
@@ -207,7 +315,7 @@ function beerStyling(){
 
     console.log("HANSEN", maxFill)
 
-   // document.querySelector(".app").style.height = `${tapData.level}0%`;
+    // document.querySelector(".app").style.height = `${tapData.level}0%`;
 }
 
 
@@ -215,23 +323,23 @@ function beerStyling(){
 
 //--------------------------------------------------------------------
 // FUNKTION til Antal i KØ
-function queueList(){
+function queueList() {
 
-// udvælg KØ og SERVING data der skal ind i DOM'en
-// Definér KØ antal
-queueData = jsonData.queue.length;
-console.log("In queue", queueData);
+    // udvælg KØ og SERVING data der skal ind i DOM'en
+    // Definér KØ antal
+    queueData = jsonData.queue.length;
+    console.log("In queue", queueData);
 
-// Definér SERVING antal
-servingData = jsonData.serving.length;
-console.log("In Service", servingData);
+    // Definér SERVING antal
+    servingData = jsonData.serving.length;
+    console.log("In Service", servingData);
 
-/*  for (i = 0; i<1; i++) {
-    orderAntal = servingData + i++;
-    document.querySelector("#orders-done .orderAmount").textContent = orderAntal;
-  }  */
+    /*  for (i = 0; i<1; i++) {
+        orderAntal = servingData + i++;
+        document.querySelector("#orders-done .orderAmount").textContent = orderAntal;
+      }  */
 
-// Udvælg data for KØ og Serving ANTAL og Prop Data ud i ODM'en
+    // Udvælg data for KØ og Serving ANTAL og Prop Data ud i ODM'en
     document.querySelector("#queue .queueAmount").textContent = queueData;
     document.querySelector("#serving .servingAmount").textContent = servingData;
 
@@ -259,8 +367,8 @@ function circleStyling() {
         barFill1.style.height = "50px"
         bar1.classList.remove("neon-yellow", "neon-red");
         bar1.classList.add("neon-green");
-        
-    } else if(queueData < 10) {
+
+    } else if (queueData < 10) {
         busy.style.display = "none";
         good.style.display = "none";
         almost.style.display = "inherit"
@@ -317,10 +425,53 @@ function circleStyling() {
 };
 
 
+//--------------------------------------------------------------------
+//FUNKTION til Orders Done!
+
+function customerList() {
+
+    // find array for serving i JSON output
+    servingData = jsonData.serving;
+  
+    // loop serving array igennem  
+    servingData.forEach(function (elm) {
+
+      // tilføj array til serving array med korresponderende ID
+      queueId.push(elm.id);
+      console.log("length", queueId)
+  
+      // begræns array til length = 3
+       if(queueId.length > 2) {
+           // fjern det ældste id fra array
+          queueId.shift();
+      }
+    })
+  
+    // vend/sortér array så det nyeste ID er det første
+    let newId =  queueId.sort(function (a,b){
+      return b - a;
+    })
+
+    //console.log("højeste ID", highestId)
+
+    // nulstil/tilføj +1 til ID (da ticket id starter fra 0)
+    let customerAmount = newId[0]+1;
+
+    // output data i DOM'en
+    document.querySelector(".orderAmount").textContent = customerAmount;
+
+    //console.log("HEJSA",newId)
+
+    // hvis ID'et er = 0 output --> 0
+    if(queueId == 0){
+        document.querySelector(".orderAmount").textContent = "0";
+    }
+  };
+
+
 
 
 //--------------------------------------------------------------------
 // sæt interval
 window.setInterval(hentData, 2000);
 hentData();
-

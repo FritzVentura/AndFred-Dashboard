@@ -385,8 +385,10 @@ html, body, p, h1, h2, h3 {
     top: 0%;
     left: 8.5%;
     z-index: 1000; }
-    #beertypecontainer :nth-child(2n) {
+    #beertypecontainer :nth-child(2n+4) {
       background: #2f2f2f; }
+    #beertypecontainer img {
+      width: 100%; }
   .neon-green {
     -webkit-animation: neon-green 1.5s ease-in-out infinite alternate;
     -moz-animation: neon-green 1.5s ease-in-out infinite alternate;

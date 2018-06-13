@@ -193,7 +193,6 @@ function tapInfo() {
             storageContainer.appendChild(tapKlon2);
         }); 
     */
-    beerStyling();
 }
 
 
@@ -298,26 +297,16 @@ function beerTypeData(){
 
         let typeKlon = beerTypeTemplate.cloneNode(true).content;
 
+        let imgPath = "imgs/";
+
         typeKlon.querySelector(".beer-name").textContent = type.name;
         typeKlon.querySelector(".beer-cat").textContent = type.category;
+        typeKlon.querySelector(".beer-label").setAttribute("src", imgPath + type.label);
 
         beerTypeContainer.appendChild(typeKlon);
 
     });
 }
-
-
-function beerStyling() {
-
-    let topFill = jsonData.taps.capacity;
-
-    let maxFill = topFill = '100%';
-
-    console.log("HANSEN", maxFill)
-
-    // document.querySelector(".app").style.height = `${tapData.level}0%`;
-}
-
 
 
 
