@@ -155,8 +155,6 @@ let tapStorage = jsonData.storage;
 //let combiData = tapStorage.concat(tapData);
 //console.log("TAP info", combiData);
 
-document.querySelector(".glass").innerHTML = "";
-    document.querySelector(".beer").innerHTML = "";
 
 const glass = document.createElement("div");
     glass.setAttribute("class", "glass");
@@ -239,7 +237,6 @@ console.log("In Service", servingData);
 
     circleStyling();
 };
-
 
 
 //--------------------------------------------------------------------
