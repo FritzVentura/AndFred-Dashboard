@@ -7,7 +7,33 @@ let jsonData;
 let queueData;
 let servingData;
 let queueDetails;
+let queueId = [];
 
+
+
+
+
+function writeNumber() {
+
+  let servingArr = jsonData.serving;
+
+  servingArr.forEach(function (elm) {
+    queueId.push(elm.id);
+    console.log("length", queueId.length)
+
+    if(queueId.length > 3) {
+        queueId.shift();
+  
+    }
+  })
+
+
+  let highestId =  queueId.sort(function (a,b){
+    return b - a;
+  })
+  let displayedNumberOfCustomers = highestId[0]+1;
+  document.querySelector(`.orderAmount`).textContent = displayedNumberOfCustomers;
+}
 //--------------------------------------------------------------------
 
 
@@ -22,7 +48,8 @@ function hentData() {
     // prop data ud i DOM'en og Kald pågældende funktioner
     queueList();
     circleStyling();
-
+  
+   writeNumber();
 }
 
 
@@ -277,5 +304,5 @@ function circleStyling() {
 
 
 // sæt interval
-window.setInterval(hentData, 5000);
+window.setInterval(hentData, 2000);
 hentData();
