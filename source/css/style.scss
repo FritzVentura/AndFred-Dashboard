@@ -1,225 +1,257 @@
 //PRESETS
 @import "variables";
 @import "preset";
-
 //MEDIAQUERY FOR STOR SKÆRM
- @media only screen and (min-width: 75em) {
-
-
-     html {
-         font-size: calc(0.5em + 1vw)
-     }
-     body {
-         background: $bgColor1;
-     }
-
-//CONTAINER
-     #grid_container {
-         display: grid;
-         grid-template-columns: repeat(12, 1fr);
-         grid-template-rows: auto;
-         height: 100vh;
-     }
-//TOP BOKS TIL TICKETS
-     #top {
-         grid-row: 1 / span 5;
-         grid-column: 1 / 13;
-         display: grid;
-         grid-template-columns: repeat(6, 1fr);
-         height: 350px;
-         overflow: hidden;
-     }
-     #servingcontainer {
-         grid-column: 1 / span 2;
-         display: flex;
-         flex-direction: row;
-         background: $green;
-
+@media only screen and (min-width: 75em) {
+    html {
+        font-size: calc(0.5em + 1vw)
+    }
+    body {
+        background: $bgColor1;
+    } //CONTAINER
+    #grid_container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto;
+        height: 100vh;
+    } //TOP BOKS TIL TICKETS
+    #top {
+        grid-row: 1 / span 5;
+        grid-column: 1 / 13;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        height: 350px;
+    }
+    #servingcontainer {
+        grid-column: 1 / span 2;
+        display: flex;
+        flex-direction: row;
+        background: $green;
+     
+        section {
+            border: 1px solid white;
+            position: relative;
+            padding: 17px 13px;
         
-         section {
-             border: 1px solid black;
-         }
-         h1 {
+        }
+        section:after {
+            content: "";
+            position: absolute !important;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            border-right: #fff 17px solid;
+            border-bottom: #fff 17px solid;
+            -moz-border-radius: 0 0 20px 0;
+            -webkit-border-radius: 0 0 20px 0;
+            border-radius: 0 0 20px 0;
+        }
+        section:before {
+            content: "";
+            position: absolute !important;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            border-left: #fff 17px solid;
+            border-bottom: #fff 17px solid;
+            -moz-border-radius: 0 0 0 20px;
+            -webkit-border-radius: 0 0 0 20px;
+            border-radius: 0 0 0 20px;
+        }
+        h1 {
             font-size: 1em;
             text-align: center;
             color: white;
-            background: inherit !important;  
-         }
-         ul {
+            background: inherit !important;
+        }
+        ul {
             font-size: .7em;
-             color: white;
-             background: inherit !important;
-         }
-     }
-     #ticketcontainer {
-         grid-column: 3 / span 4;
-         display: flex;
-         flex-direction: row;
-        
-   
-         
-         :nth-child(1) {
-             background: $yellow;
-         }
-         :nth-child(2) {
-             background: $yellow;
-         }
-         :nth-child(3) {
-             background: $yellow;
-         }
-         :nth-child(2n+4) {
-             background: $bgColor2;
-         }
-         section {
-        
-             border: 1px solid black;
-      
-         }
-         h1 {
-             font-size: 1em;
-             text-align: center;
-             color: white;
-             background: inherit !important;
-         }
-         ul {
+            color: white;
+            background: inherit !important;
+        }
+    }
+    #ticketcontainer {
+        grid-column: 3 / span 4;
+        display: flex;
+        flex-direction: row;
+
+        :nth-child(1) {
+            background: $yellow;
+
+        }
+        :nth-child(2) {
+            background: $yellow;
+        }
+        :nth-child(3) {
+            background: $yellow;
+          
+        }
+        :nth-child(2n+4) {
+            background: $bgColor2;
+        }
+        section {
+            border: 1px solid white;
+            position: relative;
+            padding: 17px 13px;
+        }
+        section:after {
+            content: "";
+            position: absolute !important;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            border-right: #fff 17px solid;
+            border-bottom: #fff 17px solid;
+            -moz-border-radius: 0 0 20px 0;
+            -webkit-border-radius: 0 0 20px 0;
+            border-radius: 0 0 20px 0;
+        }
+        section:before {
+            content: "";
+            position: absolute !important;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            border-left: #fff 17px solid;
+            border-bottom: #fff 17px solid;
+            -moz-border-radius: 0 0 0 20px;
+            -webkit-border-radius: 0 0 0 20px;
+            border-radius: 0 0 0 20px;
+        }
+        h1 {
+            font-size: 1em;
+            text-align: center;
+            color: white;
+            background: inherit !important;
+        }
+        ul {
             font-size: .7em;
-             color: white;
-             background: inherit !important;
-         }
-         li {
-             background: inherit !important;
-         }
-         br {
-             background: inherit !important;
-         }
-     }
-     .ticket-order {
-         background: inherit !important;
-     }
-     .ticket-id {
-         background: inherit !important;
-     }
-     .section {
-         width: 200px;
-     }
-
-//MIDDLE BOKS TIL KØ/SERVING ANTAL
-     #middle {
-         background: $bgColor2;
-         grid-row: 5 / span 5;
-         grid-column: 1 / 13;
-         display: grid;
-         height: 400px;
-         grid-template-columns: repeat(6, 1fr);
-         grid-template-rows: repeat(1, 1fr);
-     }
-     .flex_center {
-         display: flex;
-         align-items: center;
-         justify-content: center;
-     }
-
-// MIDTERSTE BOKS MED FÆRDIGE ORDRER
-#orders-heading {
-    grid-column: 3 / span 2;
-    grid-row: 1/ span 1;
-    margin-top: 30%;
-    justify-self: center;
-    color: white;
-  
-}
-#orders-done {
-    grid-column: 3 / span 2;
-    grid-row: 1/ span 1;
-    border-radius: 50%;
-    border: 10px solid $bgColor1;
-    width: 150px;
-    height: 150px;
-    background: $brown;
-    align-self: center;
-    justify-self: center;
-    margin-top: 30%;
-}
-
-
-// QUEUE
+            color: white;
+            background: inherit !important;
+        }
+        li {
+            background: inherit !important;
+        }
+        br {
+            background: inherit !important;
+        }
+    }
+    .ticket-order {
+        background: inherit !important;
+    }
+    .ticket-id {
+        background: inherit !important;
+    }
+    .section {
+        width: 200px;
+    } //MIDDLE BOKS TIL KØ/SERVING ANTAL
+    #middle {
+        background: $bgColor2;
+        grid-row: 5 / span 5;
+        grid-column: 1 / 13;
+        display: grid;
+        height: 400px;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        z-index: 0;
+    }
+    .flex_center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    } // MIDTERSTE BOKS MED FÆRDIGE ORDRER
+    #orders-heading {
+        grid-column: 3 / span 2;
+        grid-row: 1/ span 1;
+        margin-top: 30%;
+        justify-self: center;
+        color: white;
+    }
+    #orders-done {
+        grid-column: 3 / span 2;
+        grid-row: 1/ span 1;
+        border-radius: 50%;
+        border: 10px solid $bgColor1;
+        width: 150px;
+        height: 150px;
+        background: $brown;
+        align-self: center;
+        justify-self: center;
+        margin-top: 30%;
+    } // QUEUE
     .queue-heading {
         grid-column: 2 / span 1;
         grid-row: 1 / span 1;
         font-size: 1.5em;
         color: white;
         text-align: center;
-
     }
-     .queue-circle {
-         grid-column: 2 / span 1;
-         grid-row: 1 / span 1;
-         background: $brown;
-         border-radius: 50%;
-         width: 200px;
-         height: 200px;
-         align-self: center;
-         justify-self: center;
-         border: 10px solid $bgColor1;
-         transition: all .6s;
-     
-     }
-     .queueAmount {
-         text-align: center;
-         color: white; 
-         font-size: 3em;
-     }
-     #queue-light {
-         background: none;
-         grid-column: 1 / span 1;
-         grid-row: 1 / 1;
-         margin-left: 50%;
-         border-radius: 20px;
-         width: 100px;
-         height: 200px;
-         align-self: center;
-     }
-     #queue-light-fill {
-         background: $green;
-         grid-column: 1 / span 1;
-         grid-row: 1 / 1;
-         margin-left: 50%;
-         border-radius: 20px;
-         width: 100px;
-         height: 0px;
-         transition: height .6s;
-         transform: rotatex(180deg) translate3d(0, -300px, 0);
-         /* the Y-Value shall be higher than the height on hover*/
-         transform-origin: top;
-         display: flex; 
-         align-items: center;
-         justify-content: center;
-         h1 {
-             transform: rotatex(180deg);
-             color: white;
-             text-align: center;
-             font-size: .7em;
-         }
-     }
-     .busy {
-         display: none;
-     }
-     .almost {
-         display: none;
-     }
-     .good {
-         display: none;
-     }
-
-//SERVING
-     .serving-heading {
+    .queue-circle {
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 1;
+        background: $brown;
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        align-self: center;
+        justify-self: center;
+        border: 10px solid $bgColor1;
+        transition: all .6s;
+    }
+    .queueAmount {
+        text-align: center;
+        color: white;
+        font-size: 3em;
+    }
+    #queue-light {
+        background: none;
+        grid-column: 1 / span 1;
+        grid-row: 1 / 1;
+        margin-left: 60%;
+        border-radius: 20px;
+        width: 100px;
+        height: 200px;
+        align-self: center;
+    }
+    #queue-light-fill {
+        background: $green;
+        grid-column: 1 / span 1;
+        grid-row: 1 / 1;
+        margin-left: 60%;
+        border-radius: 20px;
+        width: 100px;
+        height: 0px;
+        transition: height .6s;
+        transform: rotatex(180deg) translate3d(0, -300px, 0);
+        /* the Y-Value shall be higher than the height on hover*/
+        transform-origin: top;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        h1 {
+            transform: rotatex(180deg);
+            color: white;
+            text-align: center;
+            font-size: .7em;
+        }
+    }
+    .busy {
+        display: none;
+    }
+    .almost {
+        display: none;
+    }
+    .good {
+        display: none;
+    } //SERVING
+    .serving-heading {
         grid-column: 5 / span 1;
         grid-row: 1 / span 1;
         font-size: 1.5em;
         color: white;
         text-align: center;
-     }
-     .serving-circle {
+    }
+    .serving-circle {
         grid-row: 1/ span 1;
         grid-column: 5 / span 1;
         background: $brown;
@@ -233,166 +265,189 @@
     }
     .servingAmount {
         text-align: center;
-        color: white; 
+        color: white;
         font-size: 3em;
     }
-     #serving-light {
-         grid-column: 6 / span 1;
-         grid-row: 1 / 1;
-         background: none;
-         border-radius: 20px;
-         width: 100px;
-         height: 200px;
-         align-self: center;
-         transition: all .6s;
-         border: 2px solid black;
-     }
-      #serving-light-fill {
-         background: $green;
-         grid-column: 6 / span 1;
-         grid-row: 1 / 1;
-         border-radius: 20px;
-         width: 100px;
-         height: 0px;
-         transition: height .6s;
-         transform: rotatex(180deg) translate3d(0, -300px, 0);
-         /* the Y-Value shall be higher than the height on hover*/
-         transform-origin: top;
-         display: flex; 
-         align-items: center;
-         justify-content: center;
-         h1 {
-             transform: rotatex(180deg);
-             color: white;
-             text-align: center;
-             font-size: .7em;
-         }
+    #serving-light {
+        grid-column: 6 / span 1;
+        grid-row: 1 / 1;
+        background: none;
+        border-radius: 20px;
+        width: 100px;
+        height: 200px;
+        align-self: center;
+        transition: all .6s;
+        border: 2px solid black;
+    }
+    #serving-light-fill {
+        background: $green;
+        grid-column: 6 / span 1;
+        grid-row: 1 / 1;
+        border-radius: 20px;
+        width: 100px;
+        height: 0px;
+        transition: height .6s;
+        transform: rotatex(180deg) translate3d(0, -300px, 0);
+        /* the Y-Value shall be higher than the height on hover*/
+        transform-origin: top;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        h1 {
+            transform: rotatex(180deg);
+            color: white;
+            text-align: center;
+            font-size: .7em;
         }
-        .eff1 {
-            display: none;
+    }
+    .eff1 {
+        display: none;
+    }
+    .eff2 {
+        display: none;
+    }
+    .eff3 {
+        display: none;
+    } //BOTTOM BOKS TIL ØLTYPER OG STORAGE
+    #bottom {
+        background: $bgColor1;
+        grid-row: 11 / span 5;
+        grid-column: 1 / 13;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr)
+    }
+    #tapinfocontainer {
+        grid-column: 1 / span 6;
+        display: flex;
+        align-content: space-between;
+        section {
+            border: 1px solid black;
         }
-        .eff2 {
-            display: none;
+    }
+    #storagecontainer {
+        grid-column: 1 / span 2;
+        display: flex;
+        flex-direction: row;
+        section {
+            border: 1px solid black;
         }
-        .eff3 {
-            display: none;
+    }
+    .glass {
+        position: relative;           // Relative position
+        width: 180px;                 // Width of the glass
+        height: 245px;                 // Height of the glass
+        background-color: rgba(150,150,150,1); // Inner color of glass
+        border-radius: 5px;            // A round border
+        border: 10px solid lightgray;  // Lighter color for the outside
+        border-top: none ;             // Hide the top border
+        overflow: hidden; 
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //ANIMATIONER
+    .neon-green {
+        -webkit-animation: neon-green 1.5s ease-in-out infinite alternate;
+        -moz-animation: neon-green 1.5s ease-in-out infinite alternate;
+        animation: neon-green 1.5s ease-in-out infinite alternate;
+    }
+    .neon-yellow {
+        -webkit-animation: neon-yellow 1.5s ease-in-out infinite alternate;
+        -moz-animation: neon-yellow 1.5s ease-in-out infinite alternate;
+        animation: neon-yellow 1.5s ease-in-out infinite alternate;
+    }
+    .neon-red {
+        -webkit-animation: neon-red 1.5s ease-in-out infinite alternate;
+        -moz-animation: neon-red 1.5s ease-in-out infinite alternate;
+        animation: neon-red 1.5s ease-in-out infinite alternate;
+    }
+    @-webkit-keyframes neon-green {
+        from {
+            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #87ab66, 0 0 70px #87ab66, 0 0 80px #87ab66, 0 0 100px #87ab66, 0 0 150px #87ab66;
         }
+        to {
+            box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #87ab66, 0 0 35px #87ab66, 0 0 40px #87ab66, 0 0 50px #87ab66, 0 0 75px #87ab66;
+        }
+    }
+    @-moz-keyframes neon-green {
+        from {
+            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #87ab66, 0 0 70px #87ab66, 0 0 80px #87ab66, 0 0 100px #87ab66, 0 0 150px #87ab66;
+        }
+        to {
+            box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #87ab66, 0 0 35px #87ab66, 0 0 40px #87ab66, 0 0 50px #87ab66, 0 0 75px #87ab66;
+        }
+    }
+    @keyframes neon-green {
+        from {
+            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #87ab66, 0 0 70px #87ab66, 0 0 80px #87ab66, 0 0 100px #87ab66, 0 0 150px #87ab66;
+        }
+        to {
+            box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #87ab66, 0 0 35px #87ab66, 0 0 40px #87ab66, 0 0 50px #87ab66, 0 0 75px #87ab66;
+        }
+    }
+    @-webkit-keyframes neon-yellow {
+        from {
+            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $yellow, 0 0 70px $yellow, 0 0 80px $yellow, 0 0 100px $yellow, 0 0 150px $yellow;
+        }
+        to {
+            box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $yellow, 0 0 35px $yellow, 0 0 40px $yellow, 0 0 50px $yellow, 0 0 75px $yellow;
+        }
+    }
+    @-moz-keyframes neon-yellow {
+        from {
+            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $yellow, 0 0 70px $yellow, 0 0 80px $yellow, 0 0 100px $yellow, 0 0 150px $yellow;
+        }
+        to {
+            box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $yellow, 0 0 35px $yellow, 0 0 40px $yellow, 0 0 50px $yellow, 0 0 75px $yellow;
+        }
+    }
+    from {
+        box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $yellow, 0 0 70px $yellow, 0 0 80px $yellow, 0 0 100px $yellow, 0 0 150px $yellow;
+    }
+    to {
+        box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $yellow, 0 0 35px $yellow, 0 0 40px $yellow, 0 0 50px $yellow, 0 0 75px $yellow;
+    }
+}
 
-//BOTTOM BOKS TIL ØLTYPER OG STORAGE
-     #bottom {
-         background: $bgColor1;
-         grid-row: 11 / span 5;
-         grid-column: 1 / 13;
-         display: grid;
-         grid-template-columns: repeat(6, 1fr)
-     }
-     #tapinfocontainer {
-         grid-column: 1 / span 6;
-         display: flex;
-         align-content: space-between;
-         section {
-             border: 1px solid black;
-         }
-     }
-     #storagecontainer {
-         grid-column: 1 / span 2;
-         display: flex;
-         flex-direction: row;
-         section {
-             border: 1px solid black;
-         }
-     }
-     .liquid {
-         background: red;
-         width: 100px;
-         height: 100px;
-     }
-     .neon-green {
-         -webkit-animation: neon-green 1.5s ease-in-out infinite alternate;
-         -moz-animation: neon-green 1.5s ease-in-out infinite alternate;
-         animation: neon-green 1.5s ease-in-out infinite alternate;
-     }
-     .neon-yellow {
-         -webkit-animation: neon-yellow 1.5s ease-in-out infinite alternate;
-         -moz-animation: neon-yellow 1.5s ease-in-out infinite alternate;
-         animation: neon-yellow 1.5s ease-in-out infinite alternate;
-     }
-     .neon-red {
-         -webkit-animation: neon-red 1.5s ease-in-out infinite alternate;
-         -moz-animation: neon-red 1.5s ease-in-out infinite alternate;
-         animation: neon-red 1.5s ease-in-out infinite alternate;
-     }
-     @-webkit-keyframes neon-green {
-         from {
-             box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #87ab66, 0 0 70px #87ab66, 0 0 80px #87ab66, 0 0 100px #87ab66, 0 0 150px #87ab66;
-         }
-         to {
-             box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #87ab66, 0 0 35px #87ab66, 0 0 40px #87ab66, 0 0 50px #87ab66, 0 0 75px #87ab66;
-         }
-     }
-     @-moz-keyframes neon-green {
-         from {
-             box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #87ab66, 0 0 70px #87ab66, 0 0 80px #87ab66, 0 0 100px #87ab66, 0 0 150px #87ab66;
-         }
-         to {
-             box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #87ab66, 0 0 35px #87ab66, 0 0 40px #87ab66, 0 0 50px #87ab66, 0 0 75px #87ab66;
-         }
-     }
-     @keyframes neon-green {
-         from {
-             box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #87ab66, 0 0 70px #87ab66, 0 0 80px #87ab66, 0 0 100px #87ab66, 0 0 150px #87ab66;
-         }
-         to {
-             box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #87ab66, 0 0 35px #87ab66, 0 0 40px #87ab66, 0 0 50px #87ab66, 0 0 75px #87ab66;
-         }
-     }
-     @-webkit-keyframes neon-yellow {
-         from {
-             box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $yellow, 0 0 70px $yellow, 0 0 80px $yellow, 0 0 100px $yellow, 0 0 150px $yellow;
-         }
-         to {
-             box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $yellow, 0 0 35px $yellow, 0 0 40px $yellow, 0 0 50px $yellow, 0 0 75px $yellow;
-         }
-     }
-     @-moz-keyframes neon-yellow {
-         from {
-             box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $yellow, 0 0 70px $yellow, 0 0 80px $yellow, 0 0 100px $yellow, 0 0 150px $yellow;
-         }
-         to {
-             box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $yellow, 0 0 35px $yellow, 0 0 40px $yellow, 0 0 50px $yellow, 0 0 75px $yellow;
-         }
-     }
-     from {
-         box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $yellow, 0 0 70px $yellow, 0 0 80px $yellow, 0 0 100px $yellow, 0 0 150px $yellow;
-     }
-     to {
-         box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $yellow, 0 0 35px $yellow, 0 0 40px $yellow, 0 0 50px $yellow, 0 0 75px $yellow;
-     }
- }
+@-webkit-keyframes neon-red {
+    from {
+        box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $red, 0 0 70px $red, 0 0 80px $red, 0 0 100px $red, 0 0 150px $red;
+    }
+    to {
+        box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $red, 0 0 35px $red, 0 0 40px $red, 0 0 50px $red, 0 0 75px $red;
+    }
+}
 
- @-webkit-keyframes neon-red {
-     from {
-         box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $red, 0 0 70px $red, 0 0 80px $red, 0 0 100px $red, 0 0 150px $red;
-     }
-     to {
-         box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $red, 0 0 35px $red, 0 0 40px $red, 0 0 50px $red, 0 0 75px $red;
-     }
- }
+@-moz-keyframes neon-red {
+    from {
+        box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $red, 0 0 70px $red, 0 0 80px $red, 0 0 100px $red, 0 0 150px $red;
+    }
+    to {
+        box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $red, 0 0 35px $red, 0 0 40px $red, 0 0 50px $red, 0 0 75px $red;
+    }
+}
 
- @-moz-keyframes neon-red {
-     from {
-         box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $red, 0 0 70px $red, 0 0 80px $red, 0 0 100px $red, 0 0 150px $red;
-     }
-     to {
-         box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $red, 0 0 35px $red, 0 0 40px $red, 0 0 50px $red, 0 0 75px $red;
-     }
- }
-
- @keyframes neon-red {
-     from {
-         box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $red, 0 0 70px $red, 0 0 80px $red, 0 0 100px $red, 0 0 150px $red;
-     }
-     to {
-         box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $red, 0 0 35px $red, 0 0 40px $red, 0 0 50px $red, 0 0 75px $red;
-     }
- }
+@keyframes neon-red {
+    from {
+        box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px $red, 0 0 70px $red, 0 0 80px $red, 0 0 100px $red, 0 0 150px $red;
+    }
+    to {
+        box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $red, 0 0 35px $red, 0 0 40px $red, 0 0 50px $red, 0 0 75px $red;
+    }
+}
