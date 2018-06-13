@@ -9,9 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="And-Fred Bar Dashboard - The last dashboard for your bar you'll ever need!">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-    
+
     <!-- ANIMATE CSS LIBRARY v5.1 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
+        crossorigin="anonymous">
 
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -26,15 +27,19 @@
     <!-- TEMPLATE TIL TICKETS -->
     <template id="tickettemplate-container">
         <section class="section">
+
             <h1>Ticket nr:
                 <span class="ticket-id"></span>
             </h1>
-            <ul>Order:
+
+            <ul>
+                <h3>Order:</h3>
                 <br>
                 <li>
                     <span class="ticket-order"></span>
                 </li>
             </ul>
+
         </section>
     </template>
 
@@ -44,7 +49,8 @@
             <h1>Ticket nr:
                 <span class="serving-id"></span>
             </h1>
-            <ul>Order:
+            <ul>
+                <h3>Order:</h3>
                 <br>
                 <li>
                     <span class="serving-order"></span>
@@ -83,9 +89,9 @@
     </template>
 
 
-<!-- GRID CONTAINER (MAIN PARENT) -->
+    <!-- GRID CONTAINER (MAIN PARENT) -->
     <div id="grid_container">
-    
+
         <!-- TOP CONTAINER / TICKETS + SERVING -->
         <div id="top">
             <div id="servingcontainer"></div>
@@ -94,12 +100,12 @@
 
         <!-- MIDDLE CONTAINER -->
         <div id="middle">
-                <h1 id="orders-heading">Orders Done!</h1>
-                <div id="orders-done">
-                    <h1 class="orderAmount"></h1>
-                </div>
+            <h1 id="orders-heading">Tickets Done!</h1>
+            <div id="orders-done">
+                <h1 class="orderAmount"></h1>
+            </div>
 
-         
+
 
             <!-- QUEUE LIGHT + FILL -->
             <div id="queue-light"></div>
@@ -141,16 +147,16 @@
             <!-- TAP INFO -->
             <div id="tapinfocontainer"></div>
             <!--     <div id="storagecontainer"></div> -->
-       
+
 
         </div>
 
-<!-- GRID CONTAINER // SLUT -->
+        <!-- GRID CONTAINER // SLUT -->
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://petlatkea.dk/2018/front/foobar.js"></script>
     <script src="../source/js/test2.js"></script>
-<!--      <script src="../source/js/test2.js"></script> -->
+    <!--      <script src="../source/js/test2.js"></script> -->
 </body>
 
 </html>

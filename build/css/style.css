@@ -106,7 +106,10 @@ html, body, p, h1, h2, h3 {
     #ticketcontainer ul {
       font-size: .7em;
       color: white;
+      list-style-type: decimal;
       background: inherit !important; }
+      #ticketcontainer ul h3 {
+        background: inherit !important; }
     #ticketcontainer li {
       background: inherit !important; }
     #ticketcontainer br {
@@ -146,7 +149,13 @@ html, body, p, h1, h2, h3 {
     background: #a86f3b;
     align-self: center;
     justify-self: center;
-    margin-top: 30%; }
+    margin-top: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .orderAmount {
+    color: white;
+    font-size: 2em; }
   .queue-heading {
     grid-column: 2 / span 1;
     grid-row: 1 / span 1;
@@ -277,15 +286,16 @@ html, body, p, h1, h2, h3 {
     flex-direction: row; }
     #storagecontainer section {
       border: 1px solid black; }
-  .glass {
-    position: relative;
-    width: 180px;
-    height: 245px;
-    background-color: #969696;
-    border-radius: 5px;
-    border: 10px solid lightgray;
-    border-top: none;
-    overflow: hidden; }
+  /*     .glass {
+        position: relative;           // Relative position
+        width: 180px;                 // Width of the glass
+        height: 245px;                 // Height of the glass
+        background-color: rgba(150,150,150,1); // Inner color of glass
+        border-radius: 5px;            // A round border
+        border: 10px solid lightgray;  // Lighter color for the outside
+        border-top: none ;             // Hide the top border
+        overflow: hidden; 
+    } */
   .neon-green {
     -webkit-animation: neon-green 1.5s ease-in-out infinite alternate;
     -moz-animation: neon-green 1.5s ease-in-out infinite alternate;

@@ -27,12 +27,10 @@
         display: flex;
         flex-direction: row;
         background: $green;
-     
         section {
             border: 1px solid white;
             position: relative;
             padding: 17px 13px;
-        
         }
         section:after {
             content: "";
@@ -74,17 +72,14 @@
         grid-column: 3 / span 4;
         display: flex;
         flex-direction: row;
-
         :nth-child(1) {
             background: $yellow;
-
         }
         :nth-child(2) {
             background: $yellow;
         }
         :nth-child(3) {
             background: $yellow;
-          
         }
         :nth-child(2n+4) {
             background: $bgColor2;
@@ -127,12 +122,19 @@
         ul {
             font-size: .7em;
             color: white;
+            list-style-type: decimal;
             background: inherit !important;
+            h3 {
+                background: inherit !important;
+            }
         }
         li {
+ 
             background: inherit !important;
+          
         }
         br {
+       
             background: inherit !important;
         }
     }
@@ -178,6 +180,13 @@
         align-self: center;
         justify-self: center;
         margin-top: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .orderAmount {
+        color: white;
+        font-size: 2em;
     } // QUEUE
     .queue-heading {
         grid-column: 2 / span 1;
@@ -332,7 +341,7 @@
             border: 1px solid black;
         }
     }
-    .glass {
+    /*     .glass {
         position: relative;           // Relative position
         width: 180px;                 // Width of the glass
         height: 245px;                 // Height of the glass
@@ -341,26 +350,7 @@
         border: 10px solid lightgray;  // Lighter color for the outside
         border-top: none ;             // Hide the top border
         overflow: hidden; 
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    } */
     //ANIMATIONER
     .neon-green {
         -webkit-animation: neon-green 1.5s ease-in-out infinite alternate;

@@ -15,24 +15,24 @@ let queueId = [];
 
 function writeNumber() {
 
-  let servingArr = jsonData.serving;
+    let servingArr = jsonData.serving;
 
-  servingArr.forEach(function (elm) {
-    queueId.push(elm.id);
-    console.log("length", queueId.length)
+    servingArr.forEach(function (elm) {
+        queueId.push(elm.id);
+        console.log("length", queueId.length)
 
-    if(queueId.length > 3) {
-        queueId.shift();
-  
-    }
-  })
+        if (queueId.length > 2) {
+            queueId.shift();
+
+        }
+    })
 
 
-  let highestId =  queueId.sort(function (a,b){
-    return b - a;
-  })
-  let displayedNumberOfCustomers = highestId[0]+1;
-  document.querySelector(`.orderAmount`).textContent = displayedNumberOfCustomers;
+    let highestId = queueId.sort(function (a, b) {
+        return b - a;
+    })
+    let displayedNumberOfCustomers = highestId[0] + 1;
+    document.querySelector(`.orderAmount`).textContent = displayedNumberOfCustomers;
 }
 //--------------------------------------------------------------------
 
@@ -48,8 +48,8 @@ function hentData() {
     // prop data ud i DOM'en og Kald pågældende funktioner
     queueList();
     circleStyling();
-  
-   writeNumber();
+
+    writeNumber();
 }
 
 
@@ -77,9 +77,9 @@ function servingOrders() {
         // find ordrerne
         let servingOrders = servingTickets.order;
         // adskil arrayet med ordrerne med et return/nyt linjeskift
-        let orderDetail2 = servingOrders.join(' ');
+        let orderDetail2 = servingOrders.join('<li>');
         // udvælg data for ticketOrder detaljer
-        servingKlon.querySelector(".serving-order").textContent = orderDetail2;
+        servingKlon.querySelector(".serving-order").innerHTML = orderDetail2;
         //kast data ind i containeren for hver klon
         servingContainer.appendChild(servingKlon);
     });
@@ -97,19 +97,20 @@ function ticketOrders() {
     document.querySelector("#ticketcontainer").innerHTML = "";
     // find køen
     queueDetails = jsonData.queue;
-    queueDetails.slice(0,5).forEach(tickets => {
+    queueDetails.slice(0, 5).forEach(tickets => {
         //  console.log("TICKETS ORDRER",tickets.order);
         // definér klon til tickets
         let ticketKlon = ticketTemplate.cloneNode(true).content;
         // prop data for ticket ID ud i DOM'en
         //  console.log("TICKET ID", tickets.id);
         ticketKlon.querySelector(".ticket-id").textContent = tickets.id;
+
         // find ordrerne
         let orders = tickets.order;
         // adskil arrayet med ordrerne med et return/nyt linjeskift
-        let orderDetail = orders.join(' ');
+        let orderDetail = orders.join('<li>');
         // udvælg data for ticketOrder detaljer
-        ticketKlon.querySelector(".ticket-order").textContent = orderDetail;
+        ticketKlon.querySelector(".ticket-order").innerHTML = orderDetail;
         //kast data ind i containeren for hver klon
         ticketContainer.appendChild(ticketKlon);
 
@@ -134,49 +135,48 @@ function tapInfo() {
 
     //få den til at udskifte data
     document.querySelector("#tapinfocontainer").innerHTML = "";
-  /*   document.querySelector("#storagecontainer").innerHTML = ""; */
+    /*   document.querySelector("#storagecontainer").innerHTML = ""; */
 
     //find arrays for taps og storage og gem data i variabler
     let tapData = jsonData.taps;
     let tapStorage = jsonData.storage;
 
-   //kombiner de to arrays med concat
-     let combiData = tapStorage.concat(tapData);
- /* 
-    console.log("tap info", combiData)  */
+    //kombiner de to arrays med concat
+    let combiData = tapStorage.concat(tapData);
+    /* 
+       console.log("tap info", combiData)  */
     let i = 1;
 
     tapData.forEach(element => {
 
         let tapKlon = tapInfoTemplate.cloneNode(true).content;
-     
+
 
         tapKlon.querySelector(".tap-beer").textContent = element.beer;
         tapKlon.querySelector(".tap-level").textContent = element.level;
         tapKlon.querySelector(".tap-cap").textContent = element.capacity;
 
-        tapKlon.querySelector(".tapsection").className = "hans" + i++ 
+        tapKlon.querySelector(".tapsection").className = "hans" + i++
 
-
-        tapInfoContainer.appendChild(tapKlon)
+            tapInfoContainer.appendChild(tapKlon)
 
 
     });
 
     //TIL BRUG SENERE
-/* 
-    tapStorage.forEach(element2 => {
+    /* 
+        tapStorage.forEach(element2 => {
 
-        let tapKlon2 = storageTemplate.cloneNode(true).content;
+            let tapKlon2 = storageTemplate.cloneNode(true).content;
 
-        tapKlon2.querySelector(".tap-name").textContent = element2.name;
-        tapKlon2.querySelector(".tap-storage").textContent = element2.amount;
+            tapKlon2.querySelector(".tap-name").textContent = element2.name;
+            tapKlon2.querySelector(".tap-storage").textContent = element2.amount;
 
-        storageContainer.appendChild(tapKlon2);
-    }); 
-*/
-beerStyling();
-} 
+            storageContainer.appendChild(tapKlon2);
+        }); 
+    */
+    beerStyling();
+}
 
 
 
@@ -188,16 +188,16 @@ function beerStyling() {
 
 
 
-/*     var array1 = jsonData.taps;
+    /*     var array1 = jsonData.taps;
 
-   array1.forEach(hej =>{ 
-    var found = array1.find(function(element) {
-      return element.level;
-    });
-    
-    console.log("found", found);
+       array1.forEach(hej =>{ 
+        var found = array1.find(function(element) {
+          return element.level;
+        });
+        
+        console.log("found", found);
 
-}) */
+    }) */
 
 }
 
@@ -242,8 +242,8 @@ function circleStyling() {
         barFill1.style.height = "50px"
         bar1.classList.remove("neon-yellow", "neon-red");
         bar1.classList.add("neon-green");
-        
-    } else if(queueData < 10) {
+
+    } else if (queueData < 10) {
         busy.style.display = "none";
         good.style.display = "none";
         almost.style.display = "inherit"
