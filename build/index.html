@@ -11,8 +11,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
 
     <!-- ANIMATE CSS LIBRARY v5.1 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
 
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -78,7 +77,7 @@
 
     <!-- TEMPLATE TIL KEG STORAGE -->
     <template id="storagetemplate-container">
-        <section id="section">
+        <section class="storage-section">
             <h1>Name:
                 <span class="tap-name"></span>
             </h1>
@@ -88,20 +87,39 @@
         </section>
     </template>
 
+    <!-- MODTAGER TIL KEG STORAGE -->
+    <div id="storagecontainer" class="animated "></div>
 
-    <!-- GRID CONTAINER (MAIN PARENT) -->
+
+    <!-- TEMPLATE TIL BEER TYPES -->
+    <template id="beertypetemplate-container">
+            <section class="storage-section">
+                <h1>Name:
+                    <span class="beer-name"></span>
+                </h1>
+                <h1>Category:
+                    <span class="beer-cat"></span>
+                </h1>
+            </section>
+    </template>
+
+        <!-- MODTAGER TIL BEER TYPES -->
+        <div id="beertypecontainer" class="animated "></div>
+
+
+
+<!-- GRID CONTAINER (MAIN PARENT) -->
     <div id="grid_container">
-
 
 <div id="sidebar">
 
     <img src="imgs/Asset 8.png">
   
-    <ul>  <!--  <img src="../source/imgs/home_white.png"> --></ul>
+    <ul class="home-btn"></ul>
     
-    <ul>  <!--  <img src="../source/imgs/beerTypes_white.png"> --></ul>
+    <ul class="storage-btn"></ul>
    
-    <ul> <!--   <img src="../source/imgs/storage_white.png"> --></ul>
+    <ul class="beers-btn"></ul>
  
 </div>
 
@@ -152,25 +170,21 @@
                     <h2 class="servingAmount"></h2>
                 </div>
             </div>
-
         </div>
 
         <!-- BOTTOM CONTAINER -->
         <div id="bottom">
-
             <!-- TAP INFO -->
             <div id="tapinfocontainer"></div>
             <!--     <div id="storagecontainer"></div> -->
-
-
         </div>
 
         <!-- GRID CONTAINER // SLUT -->
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://petlatkea.dk/2018/front/foobar.js"></script>
-    <script src="../source/js/test2.js"></script>
-    <!--      <script src="../source/js/test2.js"></script> -->
+    <script src="test1.js"></script>
+<!--      <script src="../source/js/test2.js"></script> -->
 </body>
 
 </html>

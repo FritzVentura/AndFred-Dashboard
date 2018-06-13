@@ -116,6 +116,7 @@ html, body, p, h1, h2, h3 {
       color: #fff;
       background: inherit !important; }
     #servingcontainer ul {
+      list-style-type: decimal;
       font-size: .7em;
       color: #fff;
       background: inherit !important;
@@ -351,12 +352,6 @@ html, body, p, h1, h2, h3 {
     z-index: 9;
     position: relative;
     transition: all 1s; }
-  #storagecontainer {
-    grid-column: 1 / span 2;
-    display: flex;
-    flex-direction: row; }
-    #storagecontainer section {
-      border: 1px solid #000; }
   /*     .glass {
         position: relative;           // Relative position
         width: 180px;                 // Width of the glass
@@ -367,6 +362,32 @@ html, body, p, h1, h2, h3 {
         border-top: none ;             // Hide the top border
         overflow: hidden; 
     } */
+  #storagecontainer {
+    display: none;
+    justify-content: space-between;
+    grid-template-columns: repeat(12, 1fr);
+    position: absolute;
+    background: grey;
+    width: 90%;
+    height: 100%;
+    top: 0%;
+    left: 8.5%;
+    z-index: 1000; }
+    #storagecontainer :nth-child(2n) {
+      background: #2f2f2f; }
+  #beertypecontainer {
+    display: none;
+    justify-content: space-between;
+    grid-template-columns: repeat(12, 1fr);
+    position: absolute;
+    background: grey;
+    width: 90%;
+    height: 100%;
+    top: 0%;
+    left: 8.5%;
+    z-index: 1000; }
+    #beertypecontainer :nth-child(2n) {
+      background: #2f2f2f; }
   .neon-green {
     -webkit-animation: neon-green 1.5s ease-in-out infinite alternate;
     -moz-animation: neon-green 1.5s ease-in-out infinite alternate;

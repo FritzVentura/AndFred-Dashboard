@@ -134,6 +134,7 @@
             background: inherit !important;
         }
         ul {
+            list-style-type: decimal;
             font-size: .7em;
             color: $white;
             background: inherit !important;
@@ -415,14 +416,6 @@
         position: relative;
         transition: all 1s;
     }
-    #storagecontainer {
-        grid-column: 1 / span 2;
-        display: flex;
-        flex-direction: row;
-        section {
-            border: 1px solid $black;
-        }
-    }
     /*     .glass {
         position: relative;           // Relative position
         width: 180px;                 // Width of the glass
@@ -433,6 +426,44 @@
         border-top: none ;             // Hide the top border
         overflow: hidden; 
     } */
+
+
+    // BEER STORAGE
+    #storagecontainer {
+        display: none;
+        justify-content: space-between;
+        grid-template-columns: repeat(12, 1fr);
+        position: absolute;
+        background: grey;
+        width: 90%;
+        height: 100%;
+        top: 0%;
+        left: 8.5%;
+        z-index: 1000;
+        :nth-child(2n) {
+            background: $bgColor2;
+        }
+        .storage-section{
+        }
+    }
+     // BEER TYPES
+     #beertypecontainer {
+        display: none;
+        justify-content: space-between;
+        grid-template-columns: repeat(12, 1fr);
+        position: absolute;
+        background: grey;
+        width: 90%;
+        height: 100%;
+        top: 0%;
+        left: 8.5%;
+        z-index: 1000;
+        :nth-child(2n) {
+            background: $bgColor2;
+        }
+        .storage-section{
+        }
+    }
     //ANIMATIONER
     .neon-green {
         -webkit-animation: neon-green 1.5s ease-in-out infinite alternate;
