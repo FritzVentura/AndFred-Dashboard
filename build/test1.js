@@ -64,10 +64,10 @@ function servingOrders() {
         let servingOrders = servingTickets.order;
 
         // adskil arrayet med ordrerne med et return/nyt linjeskift
-        let orderDetail2 = servingOrders.join(" ");
+        let orderDetail2 = servingOrders.join("<li>");
 
         // Udvælg data for serving order detaljer
-        servingKlon.querySelector(".serving-order").textContent = orderDetail2;
+        servingKlon.querySelector(".serving-order").innerHTML = orderDetail2;
 
 
         // Prop data ud i DOM'en
@@ -121,10 +121,10 @@ function ticketOrders() {
         let orders = tickets.order;
 
         // adskil arrayet med ordrerne med et return/nyt linjeskift
-        let orderDetail = orders.join('\n');
+        let orderDetail = orders.join('<li>');
 
         // Udvælg data for ticket order detaljer
-        ticketKlon.querySelector(".ticket-order").textContent = orderDetail;
+        ticketKlon.querySelector(".ticket-order").innerHTML = orderDetail;
 
         // prop Data ud i DOM'en for hver klon
         ticketContainer.appendChild(ticketKlon);
@@ -138,36 +138,62 @@ function ticketOrders() {
 
 function tapInfo() {
 
-    // find DOM elementer til template og modtager
-    let tapinfoTemplate = document.querySelector("#tapinfotemplate-container");
-    let tapinfoContainer = document.querySelector("#tapinfocontainer");
+    let tapInfoTemplate = document.querySelector("#tapinfotemplate-container");
+    let tapInfoContainer = document.querySelector("#tapinfocontainer");
 
+    let storageTemplate = document.querySelector("#storagetemplate-container");
+    let storageContainer = document.querySelector("#storagecontainer");
+
+    //få den til at udskifte data
     document.querySelector("#tapinfocontainer").innerHTML = "";
-    //console.log("TAP info", jsonData.taps);
+    /*   document.querySelector("#storagecontainer").innerHTML = ""; */
 
-    // find arrays (taps)
+    //find arrays for taps og storage og gem data i variabler
     let tapData = jsonData.taps;
+    let tapStorage = jsonData.storage;
 
-    // concatenate/kombinér arrays (taps + storage)
-    //let combiData = tapStorage.concat(tapData);
-    //console.log("TAP info", combiData);
+    //kombiner de to arrays med concat
+    let combiData = tapStorage.concat(tapData);
+    /* 
+       console.log("tap info", combiData)  */
+    let i = 1;
 
     tapData.forEach(element => {
+   
+        let tapKlon = tapInfoTemplate.cloneNode(true).content;
 
-        //let i = 1;
+        const newDiv = document.createElement("div");
+        newDiv.setAttribute("class", "liquid");
 
-        let tapKlon1 = tapinfoTemplate.cloneNode(true).content;
 
-        tapKlon1.querySelector(".tap-beer").textContent = element.beer;
-        tapKlon1.querySelector(".tap-level").textContent = element.level;
-        tapKlon1.querySelector(".tap-cap").textContent = element.capacity;
+        tapKlon.querySelector(".tap-beer").textContent = element.beer;
+        tapKlon.querySelector(".tap-level").textContent = (element.level*0.01) + " L.";
+        tapKlon.querySelector(".tap-cap").textContent = (element.capacity*0.01) + " L.";
 
-        //tapKlon1.querySelector(".tapsection").className = "sectionTap" + i++;
+        tapKlon.querySelector(".tapsection").className = "hans" + i++
 
-    tapinfoContainer.appendChild(tapKlon1);
+        newDiv.style.height = `${element.level*0.04}%` 
 
+        tapInfoContainer.appendChild(newDiv);
+
+        tapInfoContainer.appendChild(tapKlon)
+
+
+    });
+
+    //TIL BRUG SENERE
+    /* 
+        tapStorage.forEach(element2 => {
+
+            let tapKlon2 = storageTemplate.cloneNode(true).content;
+
+            tapKlon2.querySelector(".tap-name").textContent = element2.name;
+            tapKlon2.querySelector(".tap-storage").textContent = element2.amount;
+
+            storageContainer.appendChild(tapKlon2);
+        }); 
+    */
     beerStyling();
-});
 }
 
 
