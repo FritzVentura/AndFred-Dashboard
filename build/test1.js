@@ -66,18 +66,20 @@ let orderDetail2 = servingOrders.join(" ");
     servingKlon.querySelector(".serving-order").textContent = orderDetail2;
 
 
-
+    // Prop data ud i DOM'en
     servingContainer.appendChild(servingKlon);
-/* for (i = 0; i<1; i++) {
-    orderAntal = servingDetails.length + i;
+
+  //servingTest = servingDetails.length.i++;
+
+/*   lengthTest = servingDetails.slice();
+  console.log("nyt array", lengthTest) */
+
+/*   for (i = 0; i<1; i++) {
+    orderAntal = servingData + i++;
     document.querySelector("#orders-done .orderAmount").textContent = orderAntal;
   } */
 
 });
-
-
-// Definér order antal DONE!
-
 
 };
 
@@ -153,11 +155,11 @@ let tapStorage = jsonData.storage;
 //let combiData = tapStorage.concat(tapData);
 //console.log("TAP info", combiData);
 
-let i;
+
 
 tapData.forEach(element => {
 
-    i = 1;
+    //let i = 1;
 
     let tapKlon1 = tapinfoTemplate.cloneNode(true).content;
 
@@ -165,10 +167,21 @@ tapData.forEach(element => {
     tapKlon1.querySelector(".tap-level").textContent = element.level;
     tapKlon1.querySelector(".tap-cap").textContent = element.capacity;
 
-    tapKlon1.querySelector(".tapsection").className = "sectionTap" + i++;
+    //tapKlon1.querySelector(".tapsection").className = "sectionTap" + i++;
 
+
+    const glass = document.createElement("div");
+    glass.setAttribute("class", "glass");
+    document.body.appendChild(glass);
+
+
+    const beer = document.createElement("div");
+    beer.setAttribute("class", "beer");
+    document.body.appendChild(beer);
 
     tapinfoContainer.appendChild(tapKlon1);
+
+    beerStyling();
 });
 
 
@@ -183,13 +196,18 @@ tapData.forEach(element => {
     storageContainer.appendChild(tapKlon2);
 }); */
 
-beerStyling();
-
 }
 
 
 function beerStyling(){
 
+    let topFill = jsonData.taps.capacity;
+
+    let maxFill = topFill = '100%';
+
+    console.log("HANSEN", maxFill)
+
+   // document.querySelector(".app").style.height = `${tapData.level}0%`;
 }
 
 
@@ -208,10 +226,10 @@ console.log("In queue", queueData);
 servingData = jsonData.serving.length;
 console.log("In Service", servingData);
 
-/* for (i = 0; i<1; i++) {
+/*  for (i = 0; i<1; i++) {
     orderAntal = servingData + i++;
     document.querySelector("#orders-done .orderAmount").textContent = orderAntal;
-  } */
+  }  */
 
 // Udvælg data for KØ og Serving ANTAL og Prop Data ud i ODM'en
     document.querySelector("#queue .queueAmount").textContent = queueData;
