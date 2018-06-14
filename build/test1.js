@@ -153,28 +153,31 @@ function tapInfo() {
     let tapStorage = jsonData.storage;
 
     //kombiner de to arrays med concat
-    let combiData = tapStorage.concat(tapData);
+   // let combiData = tapStorage.concat(tapData);
     /* 
        console.log("tap info", combiData)  */
 
-    tapData.forEach(element => {
-   
+       tapData.forEach(element => {
+        
+        
         let tapKlon = tapInfoTemplate.cloneNode(true).content;
 
         const newDiv = document.createElement("div");
+
+       
         newDiv.setAttribute("class", "liquid");
 
 
         tapKlon.querySelector(".tap-beer").textContent = element.beer;
         tapKlon.querySelector(".tap-level").textContent = (element.level*0.01) + " L.";
         tapKlon.querySelector(".tap-cap").textContent = (element.capacity*0.01) + " L.";
-
-        //tapKlon.querySelector(".tapsection").className = "hans" + i++
+/*         tapKlon.appendChild = newDiv;
+        tapKlon.appendChild = beerGlass; */
 
         newDiv.style.height = `${element.level*0.04}%` 
 
-        tapInfoContainer.appendChild(newDiv);
 
+          tapKlon.querySelector(".beer-glass").appendChild(newDiv)   
         tapInfoContainer.appendChild(tapKlon)
 
 
@@ -540,5 +543,5 @@ function customerList() {
 
 //--------------------------------------------------------------------
 // sæt interval
-window.setInterval(hentData, 10000);
+window.setInterval(hentData, 5000);
 hentData();
