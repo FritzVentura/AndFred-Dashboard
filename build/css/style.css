@@ -219,6 +219,7 @@ html, body, p, h1, h2, h3 {
   .queue-heading {
     grid-column: 2 / span 1;
     grid-row: 1 / span 1;
+    margin-top: 15%;
     font-size: 1.2em;
     color: #fff;
     text-align: center; }
@@ -275,6 +276,7 @@ html, body, p, h1, h2, h3 {
   .serving-heading {
     grid-column: 5 / span 1;
     grid-row: 1 / span 1;
+    margin-top: 15%;
     font-size: 1.2em;
     color: #fff;
     text-align: center; }
@@ -366,30 +368,188 @@ html, body, p, h1, h2, h3 {
     transition: all 1s; }
   #storagecontainer {
     display: none;
-    justify-content: space-between;
     grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 10px;
+    padding-bottom: 20px;
     position: absolute;
-    background: grey;
-    width: 90%;
-    height: 100%;
+    background: #808080;
+    width: 91.5%;
+    height: 110%;
     top: 0%;
     left: 8.5%;
     z-index: 1000; }
-    #storagecontainer :nth-child(2n) {
-      background: #2f2f2f; }
+    #storagecontainer h1 {
+      font-size: .8em; }
+    #storagecontainer .storage-section {
+      margin-top: 20px;
+      padding: 20px; }
+      #storagecontainer .storage-section .font-size-sm {
+        color: #fff;
+        font-size: .8em;
+        letter-spacing: 3px; }
+      #storagecontainer .storage-section .font-size-tal {
+        background: black;
+        padding: 10px;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 2.5em;
+        letter-spacing: 3px; }
+      #storagecontainer .storage-section .align-center {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center; }
+    #storagecontainer .storage1 {
+      background: #414141;
+      grid-column: 2 / span 2;
+      grid-row: 1 / auto; }
+    #storagecontainer .storage2 {
+      background: #2f2f2f;
+      grid-column: 4 / span 2;
+      grid-row: 1 / auto; }
+    #storagecontainer .storage3 {
+      background: #414141;
+      grid-column: 6 / span 2;
+      grid-row: 1 / auto; }
+    #storagecontainer .storage4 {
+      background: #2f2f2f;
+      grid-column: 8 / span 2;
+      grid-row: 1 / auto; }
+    #storagecontainer .storage5 {
+      background: #414141;
+      grid-column: 10 / span 2;
+      grid-row: 1 / auto; }
+    #storagecontainer .storage6 {
+      background: #2f2f2f;
+      grid-column: 2 / span 2;
+      grid-row: 2 / auto; }
+    #storagecontainer .storage7 {
+      background: #414141;
+      grid-column: 4 / span 2;
+      grid-row: 2 / auto; }
+    #storagecontainer .storage8 {
+      background: #2f2f2f;
+      grid-column: 6 / span 2;
+      grid-row: 2 / auto; }
+    #storagecontainer .storage9 {
+      background: #414141;
+      grid-column: 8 / span 2;
+      grid-row: 2 / auto; }
+    #storagecontainer .storage10 {
+      background: #2f2f2f;
+      grid-column: 10 / span 2;
+      grid-row: 2 / auto; }
   #beertypecontainer {
     display: none;
-    justify-content: space-between;
     grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 10px;
     position: absolute;
-    background: grey;
-    width: 90%;
+    background: #808080;
+    width: 91.5%;
     height: 100%;
     top: 0%;
     left: 8.5%;
-    z-index: 1000; }
-    #beertypecontainer :nth-child(2n) {
-      background: #2f2f2f; }
+    overflow-y: scroll;
+    z-index: 10; }
+    #beertypecontainer h1 {
+      color: #000;
+      font-size: .7em;
+      letter-spacing: 2px; }
+    #beertypecontainer img {
+      align-self: center;
+      margin-left: 20%;
+      width: 50%; }
+    #beertypecontainer .beertype-section {
+      margin-top: 20px;
+      padding: 20px; }
+      #beertypecontainer .beertype-section .font-size-sm {
+        color: #fff;
+        font-size: .8em;
+        letter-spacing: 3px; }
+    #beertypecontainer .section1 {
+      background: #414141;
+      grid-column: 2 / span 3;
+      grid-row: 1 / auto; }
+    #beertypecontainer .section2 {
+      background: #2f2f2f;
+      grid-column: 5 / span 3;
+      grid-row: 1 / auto; }
+    #beertypecontainer .section3 {
+      background: #414141;
+      grid-column: 8 / span 3;
+      grid-row: 1 / auto; }
+    #beertypecontainer .section4 {
+      background: #2f2f2f;
+      grid-column: 2 / span 3;
+      grid-row: 2 / auto; }
+    #beertypecontainer .section5 {
+      background: #414141;
+      grid-column: 5 / span 3;
+      grid-row: 2 / auto; }
+    #beertypecontainer .section6 {
+      background: #2f2f2f;
+      grid-column: 8 / span 3;
+      grid-row: 2 / auto; }
+    #beertypecontainer .section7 {
+      background: #414141;
+      grid-column: 2 / span 3;
+      grid-row: 3 / auto; }
+    #beertypecontainer .section8 {
+      background: #2f2f2f;
+      grid-column: 5 / span 3;
+      grid-row: 3 / auto; }
+    #beertypecontainer .section9 {
+      background: #414141;
+      grid-column: 8 / span 3;
+      grid-row: 3 / auto; }
+    #beertypecontainer .section10 {
+      background: #2f2f2f;
+      grid-column: 2 / span 3;
+      grid-row: 4 / auto; }
+    #beertypecontainer .info-btn {
+      font-family: "Roboto", sans-serif;
+      background: #808080;
+      color: #fff;
+      border-style: none;
+      width: 200px;
+      height: 30px;
+      margin-top: 10%;
+      margin-left: 20%;
+      border-radius: 50px;
+      transition: all .6s;
+      cursor: pointer; }
+      #beertypecontainer .info-btn:hover {
+        background: white;
+        color: black; }
+    #beertypecontainer .close-btn {
+      display: none;
+      font-family: "Roboto", sans-serif;
+      background: #808080;
+      color: #fff;
+      border-style: none;
+      width: 200px;
+      height: 30px;
+      margin-top: 10%;
+      margin-left: 20%;
+      border-radius: 50px;
+      transition: all .6s;
+      cursor: pointer; }
+      #beertypecontainer .close-btn:hover {
+        background: white;
+        color: black; }
+    #beertypecontainer .description {
+      border-radius: 5px;
+      display: none;
+      padding: 20px;
+      background: #fff;
+      margin-top: 10%;
+      transition: all .7s; }
+      #beertypecontainer .description .font-size-sm2 {
+        font-size: .7em;
+        color: #808080;
+        letter-spacing: 1px; }
   .neon-green {
     -webkit-animation: neon-green 1.5s ease-in-out infinite alternate;
     -moz-animation: neon-green 1.5s ease-in-out infinite alternate;

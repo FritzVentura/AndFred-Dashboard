@@ -80,33 +80,66 @@
     <!-- TEMPLATE TIL KEG STORAGE -->
     <template id="storagetemplate-container">
         <section class="storage-section">
-            <h1>Name:
-                <span class="tap-name"></span>
-            </h1>
-            <h1>Storage:
-                <span class="tap-storage"></span>
+            <h1>Beer: <br>
+                <span class="font-size-sm tap-name"></span>
+            </h1> <br>
+            <h1 class="test">Kegs: <br> <br>
+                <div class="align-center"> <br>
+                    <span class="font-size-tal tap-storage"></span> In storage
+                </div>
             </h1>
         </section>
     </template>
 
-    <!-- MODTAGER TIL KEG STORAGE -->
+    <!-- MODTAGER TIL KEG STORAGE --> 
     <div id="storagecontainer" class="animated "></div>
 
 
     <!-- TEMPLATE TIL BEER TYPES -->
     <template id="beertypetemplate-container">
-            <section class="storage-section">
-                <h1>Name:
-                    <span class="beer-name"></span>
-                </h1>
+            <section class="beertype-section">
+                <!-- <h1>Name:
+                    <span class="font-size-sm beer-name"></span>
+                </h1> -->
+                <img class="beer-label" src="imgs/" alt="beerlabel"> <br> <br>
                 <h1>Category:
-                    <span class="beer-cat"></span>
+                    <span class="font-size-sm beer-cat"></span>
                 </h1>
+                <h1>Alcohol:
+                    <span class="font-size-sm beer-alco"></span>
+                </h1>
+                <h1>Pouring Speed:
+                    <span class="font-size-sm beer-speed"></span>
+                </h1>
+                <h1>Popularity:
+                    <span class="font-size-sm beer-popul"></span>
+                </h1>
+                <div class="description animated">
+                        <h1>Aroma:
+                            <span class="font-size-sm2 beer-aroma"></span>
+                        </h1> <br>
+                        <h1>Appearance:
+                            <span class="font-size-sm2 beer-appea"></span>
+                        </h1><br>
+                        <h1>Flavour:
+                            <span class="font-size-sm2 beer-flavour"></span>
+                        </h1><br>
+                        <h1>Mouthfeel:
+                            <span class="font-size-sm2 beer-mouth"></span>
+                        </h1><br>
+                        <h1>Overall Impression:
+                            <span class="font-size-sm2 beer-impress"></span>
+                        </h1><br>
+                </div>
+                <button class="info-btn">Read more</button>
+                <button class="close-btn">Read less</button>
+                 <br>
             </section>
     </template>
 
         <!-- MODTAGER TIL BEER TYPES -->
-        <div id="beertypecontainer" class="animated "></div>
+        <div id="beertypecontainer" class="animated ">
+        </div>
 
 
 
@@ -119,9 +152,9 @@
   
     <ul class="home-btn"></ul>
     
-    <ul class="storage-btn"></ul>
-   
     <ul class="beers-btn"></ul>
+   
+    <ul class="storage-btn"></ul>
  
 </div>
 
@@ -186,7 +219,7 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://petlatkea.dk/2018/front/foobar.js"></script>
-    <script src="../source/js/test2.js"></script>
+    <script src="test1.js"></script>
 <!--      <script src="../source/js/test2.js"></script> -->
 </body>
 

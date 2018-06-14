@@ -13,7 +13,6 @@ let sectionAnim;
 let queueId = [];
 let storageInfo;
 let beerInfo;
-let i;
 
 
 //--------------------------------------------------------------------
@@ -33,6 +32,7 @@ function hentData() {
     beerStorageData()
     beerTypeData();
 }
+
 
 
 //--------------------------------------------------------------------
@@ -156,6 +156,7 @@ function tapInfo() {
     let combiData = tapStorage.concat(tapData);
     /* 
        console.log("tap info", combiData)  */
+    let i = 1;
 
     tapData.forEach(element => {
    
@@ -169,7 +170,7 @@ function tapInfo() {
         tapKlon.querySelector(".tap-level").textContent = (element.level*0.01) + " L.";
         tapKlon.querySelector(".tap-cap").textContent = (element.capacity*0.01) + " L.";
 
-        //tapKlon.querySelector(".tapsection").className = "hans" + i++
+        tapKlon.querySelector(".tapsection").className = "hans" + i++
 
         newDiv.style.height = `${element.level*0.04}%` 
 
@@ -192,6 +193,7 @@ function tapInfo() {
             storageContainer.appendChild(tapKlon2);
         }); 
     */
+    beerStyling();
 }
 
 
@@ -211,14 +213,6 @@ homeBtn.addEventListener("click", function(event){
     beerInfo.classList.remove("bounceInRight");
     beerInfo.classList.add("bounceOutRight");
 
-    setTimeout(function(){ 
-        storageInfo.style.display = "none";
-    }, 800);
-
-    setTimeout(function(){ 
-        beerInfo.style.display = "none";
-    }, 800);
-
 });
 
 
@@ -232,15 +226,11 @@ storageBtn.addEventListener("click", function(event){
 
     storageInfo.style.display = "grid";
 
-    storageInfo.classList.remove("bounceOutRight");
-    storageInfo.classList.add("bounceInRight");
-
     beerInfo.classList.remove("bounceInRight");
     beerInfo.classList.add("bounceOutRight");
 
-    setTimeout(function(){ 
-        beerInfo.style.display = "none";
-    }, 800);
+    storageInfo.classList.remove("bounceOutRight");
+    storageInfo.classList.add("bounceInRight");
 
 });
 
@@ -252,19 +242,15 @@ let beersBtn = document.querySelector(".beers-btn");
     beersBtn.addEventListener("click", function(event){
     
     beerInfo = document.querySelector("#beertypecontainer");
-    //storageInfo = document.querySelector("#storagecontainer");
+    storageInfo = document.querySelector("#storagecontainer");
 
     beerInfo.style.display = "grid";
-
-    beerInfo.classList.remove("bounceOutRight");
-    beerInfo.classList.add("bounceInRight");
 
     storageInfo.classList.remove("bounceInRight");
     storageInfo.classList.add("bounceOutRight");
 
-    setTimeout(function(){ 
-        storageInfo.style.display = "none";
-    }, 800);
+    beerInfo.classList.remove("bounceOutRight");
+    beerInfo.classList.add("bounceInRight");
 
 });
 
@@ -281,13 +267,10 @@ function beerStorageData(){
     document.querySelector("#storagecontainer").innerHTML = "";
 
     let tapStorage = jsonData.storage;
-    i = 1;
 
     tapStorage.forEach(storage => {
 
         let storageKlon = storageTemplate.cloneNode(true).content;
-
-        storageKlon.querySelector(".storage-section").classList = "storage-section storage" + i++;
 
         storageKlon.querySelector(".tap-name").textContent = storage.name;
         storageKlon.querySelector(".tap-storage").textContent = storage.amount;
@@ -310,81 +293,31 @@ function beerTypeData(){
     document.querySelector("#beertypecontainer").innerHTML = "";
 
     let beerTypes = jsonData.beertypes;
-    i = 1;
-    let imgPath = "imgs/";
 
     beerTypes.forEach(type => {
 
         let typeKlon = beerTypeTemplate.cloneNode(true).content;
 
-        // tilføj unik class til hver section
-        typeKlon.querySelector(".beertype-section").classList = "beertype-section section" + i++;
-
-        //typeKlon.querySelector(".beer-name").textContent = type.name;
+        typeKlon.querySelector(".beer-name").textContent = type.name;
         typeKlon.querySelector(".beer-cat").textContent = type.category;
-        typeKlon.querySelector(".beer-alco").textContent = type.alc + "%";
-        typeKlon.querySelector(".beer-speed").textContent = type.pouringSpeed;
-        typeKlon.querySelector(".beer-popul").textContent = type.popularity;
-        // Description box her
-        typeKlon.querySelector(".beer-aroma").textContent = type.description.aroma;
-        typeKlon.querySelector(".beer-appea").textContent = type.description.appearance;
-        typeKlon.querySelector(".beer-flavour").textContent = type.description.flavor;
-        typeKlon.querySelector(".beer-mouth").textContent = type.description.mouthfeel;
-        typeKlon.querySelector(".beer-impress").textContent = type.description.overallImpression;
-        typeKlon.querySelector(".beer-label").setAttribute("src", imgPath + type.label);
-        
 
-    // Definér SE MERE KNAP 
-    let btn1 = typeKlon.querySelector(".info-btn");
-    // Definér SE MINDRE KNAP 
-    let btn2 = typeKlon.querySelector(".close-btn");
-
-    btn1.addEventListener("click", function(event){
-        
-        // find target
-        let clicked = event.target;
-        //console.log("button er clicked - event target",clicked);
-
-        // find targets prevoius sibling = full
-        let targetClick = clicked.previousSibling.previousSibling;
-        //console.log("Previous Sibling",targetClick);
-
-        // VIS TEXTBOX
-        targetClick.style.display = "inherit"; 
-        btn2.style.display = "inherit";
-        btn1.style.display = "none";
-
-        targetClick.classList.remove("fadeOut");
-        targetClick.classList.add("fadeInDown");
-    })
-    
-    btn2.addEventListener("click", function(event){
-        
-        // find target
-        let clicked2 = event.target;
-        //console.log("button er clicked - event target",clicked);
-
-        // find targets prevoius sibling = full
-        let targetClick2 = clicked2.previousSibling.previousSibling.previousElementSibling;
-        //console.log("Previous Sibling",clicked2.previousSibling.previousSibling.previousElementSibling);
-
-        // SKJUL TEXTBOX
-        btn1.style.display = "inherit";
-        btn2.style.display = "none";
-
-        targetClick2.classList.remove("fadeInDown");
-        targetClick2.classList.add("fadeOut");
-
-        setTimeout(function(){ 
-            targetClick2.style.display = "none"; 
-        }, 1000);
-
-    });
-        
         beerTypeContainer.appendChild(typeKlon);
 
     });
 }
+
+
+function beerStyling() {
+
+    let topFill = jsonData.taps.capacity;
+
+    let maxFill = topFill = '100%';
+
+    console.log("HANSEN", maxFill)
+
+    // document.querySelector(".app").style.height = `${tapData.level}0%`;
+}
+
 
 
 
@@ -505,7 +438,7 @@ function customerList() {
 
       // tilføj array til serving array med korresponderende ID
       queueId.push(elm.id);
-      //console.log("length", queueId)
+      console.log("length", queueId)
   
       // begræns array til length = 3
        if(queueId.length > 2) {
@@ -527,7 +460,7 @@ function customerList() {
     // output data i DOM'en
     document.querySelector(".orderAmount").textContent = customerAmount;
 
-    //console.log("Ny ID",newId)
+    //console.log("HEJSA",newId)
 
     // hvis ID'et er = 0 output --> 0
     if(queueId == 0){
@@ -540,5 +473,5 @@ function customerList() {
 
 //--------------------------------------------------------------------
 // sæt interval
-window.setInterval(hentData, 10000);
+window.setInterval(hentData, 2000);
 hentData();
