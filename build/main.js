@@ -1,6 +1,14 @@
 document.addEventListener("DOMContentLoaded", hentData);
 
+
+
+
 //--------------------------------------------------------------------
+
+
+
+
+
 // globale variabler
 
 let data;
@@ -18,7 +26,14 @@ let beerInfo;
 let i;
 
 
+
+
 //--------------------------------------------------------------------
+
+
+
+
+
 // FUNKTION til hent data
 function hentData() {
     // definér data / HENT Data
@@ -37,7 +52,15 @@ function hentData() {
 };
 
 
+
+
 //--------------------------------------------------------------------
+
+
+
+
+
+
 // FUNKTION til hent Data udenom setInterval
 function hentStaticData() {
     // definér data / HENT Data
@@ -48,7 +71,17 @@ function hentStaticData() {
 };
 
 
+
+
+
+
 //--------------------------------------------------------------------
+
+
+
+
+
+
 //FUNKTION til in service
 function servingOrders() {
 
@@ -65,6 +98,7 @@ function servingOrders() {
     servingDetails = jsonData.serving;
 
     //console.log("bliver serveret", servingDetails);
+    //opsæt forEach function for serving data
     servingDetails.forEach(servingTickets => {
         //definér klon til template
         let servingKlon = servingTemplate.cloneNode(true).content;
@@ -97,7 +131,17 @@ function servingOrders() {
 };
 
 
+
+
+
+
 //--------------------------------------------------------------------
+
+
+
+
+
+
 // FUNKTION til TICKETS eller ordrer
 function ticketOrders() {
 
@@ -112,7 +156,7 @@ function ticketOrders() {
 
     // find kø data
     queueDetails = jsonData.queue;
-
+ 
     queueDetails.slice(0, 4).forEach(tickets => {
 
         //  console.log("TICKETS ORDRER",tickets.order);
@@ -139,7 +183,16 @@ function ticketOrders() {
 
 
 
+
+
+
+
 //--------------------------------------------------------------------
+
+
+
+
+
 // FUNKTION til KEGS, LEVEL & Storage eller ordrer
 
 function tapInfo() {
@@ -200,7 +253,17 @@ function tapInfo() {
 
 
 
+
+
+
+
 //--------------------------------------------------------------------
+
+
+
+
+
+
 // EVENT til klik home knap
 let homeBtn = document.querySelector(".home-btn");
 
@@ -224,7 +287,17 @@ homeBtn.addEventListener("click", function(event){
 });
 
 
+
+
+
+
+
 //--------------------------------------------------------------------
+
+
+
+
+
 // EVENT til Keg Storage knap
 let storageBtn = document.querySelector(".storage-btn");
 
@@ -246,7 +319,17 @@ storageBtn.addEventListener("click", function(event){
 });
 
 
+
+
+
+
+
 //--------------------------------------------------------------------
+
+
+
+
+
 // EVENT til Beer Types knap
 let beersBtn = document.querySelector(".beers-btn");
 
@@ -271,7 +354,17 @@ let beersBtn = document.querySelector(".beers-btn");
 
 
 
+
+
+
+
 //--------------------------------------------------------------------
+
+
+
+
+
+
 // FUNKTION til Beer STORAGE
 function beerStorageData(){
 
@@ -305,7 +398,17 @@ function beerStorageData(){
 };
 
 
+
+
+
+
 //--------------------------------------------------------------------
+
+
+
+
+
+
 // FUNKTION til Beer TYPES
 function beerTypeData(){
 
@@ -403,7 +506,17 @@ function beerTypeData(){
 
 
 
+
+
+
+
 //--------------------------------------------------------------------
+
+
+
+
+
+
 // FUNKTION til Antal i KØ
 function queueList() {
 
@@ -430,7 +543,13 @@ function queueList() {
 
 
 
+
 //--------------------------------------------------------------------
+
+
+
+
+
 // FUNKTION til styling af cirkler
 function circleStyling() {
 
@@ -507,7 +626,15 @@ function circleStyling() {
 };
 
 
+
+
+
 //--------------------------------------------------------------------
+
+
+
+
+
 //FUNKTION til Orders Done!
 
 function customerList() {
@@ -551,7 +678,15 @@ function customerList() {
   };
 
 
+
+
+
 //--------------------------------------------------------------------
+
+
+
+
+
 // sæt interval
 window.setInterval(hentData, 5000);
 hentData();
