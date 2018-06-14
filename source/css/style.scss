@@ -470,6 +470,7 @@
         h1 {
             font-size: .8em;
         }
+    }
         .storage-section {
             margin-top: 20px;
             padding: 20px;
@@ -543,7 +544,8 @@
             grid-column: 10 / span 2;
             grid-row: 2 / auto;
         }
-    } // BEER TYPES
+    
+     // BEER TYPES
     #beertypecontainer {
         display: none;
         grid-template-columns: repeat(12, 1fr);
@@ -567,6 +569,7 @@
             margin-left: 20%;
             width: 50%;
         }
+    }
         .beertype-section {
             margin-top: 20px;
             padding: 20px;
@@ -673,6 +676,9 @@
                 letter-spacing: 1px;
             }
         }
+    
+
+
 
     }
 
@@ -731,7 +737,7 @@
         to {
             box-shadow: 0 0 5px $white, 0 0 10px $white, 0 0 15px $white, 0 0 20px $yellow, 0 0 35px $yellow, 0 0 40px $yellow, 0 0 50px $yellow, 0 0 75px $yellow;
         }
-    }
+    
     from {
         box-shadow: 0 0 10px $white, 0 0 20px $white, 0 0 30px $white, 0 0 40px $yellow, 0 0 70px $yellow, 0 0 80px $yellow, 0 0 100px $yellow, 0 0 150px $yellow;
     }
