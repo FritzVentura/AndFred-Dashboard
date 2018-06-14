@@ -541,5 +541,7 @@ function customerList() {
 
 //--------------------------------------------------------------------
 // sæt interval
-window.setInterval(hentData, 5000);
-hentData();
+/* window.setInterval(hentData, 5000);
+hentData(); */
+
+
