@@ -2,12 +2,12 @@
 @import "variables";
 @import "preset";
 //MEDIAQUERY FOR STOR SKÆRM
-@media only screen and (min-width: 75em) {
+
     html {
         font-size: calc(0.5em + 1vw)
     }
     body {
-        background: $bgColor1;
+        background: $bgColor0;
     } //CONTAINER
     #grid_container {
         display: grid;
@@ -16,18 +16,20 @@
         height: 100vh;
     }
     #sidebar {
+        z-index: 9;
         position: fixed;
-        background: $black;
+        background: $bgColor0;
         width: 8.5%;
         height: 100%;
+        border-right: solid 1px $black;
         :nth-child(2) {
-            background-image: url(../imgs/home_white.png);
+            background-image: url(../imgs/home.png);
             background-repeat: no-repeat;
             background-size: 40%;
             background-position-x: center;
             background-position-y: center;
             &:hover {
-                background-image: url(../imgs/home.png);
+                background-image: url(../imgs/home_white.png);
                 background-repeat: no-repeat;
                 background-size: 40%;
                 background-position-x: center;
@@ -35,27 +37,27 @@
             }
         }
         :nth-child(3) {
-            background-image: url(../imgs/beerTypes_white.png);
+            background-image: url(../imgs/beerTypes.png);
             background-repeat: no-repeat;
-            background-size: 40%;
+            background-size: 45%;
             background-position-x: center;
             background-position-y: center;
             &:hover {
-                background-image: url(../imgs/beerTypes.png);
+                background-image: url(../imgs/beerTypes_white.png);
                 background-repeat: no-repeat;
-                background-size: 40%;
+                background-size: 45%;
                 background-position-x: center;
                 background-position-y: center;
             }
         }
         :nth-child(4) {
-            background-image: url(../imgs/storage_white.png);
+            background-image: url(../imgs/storage.png);
             background-repeat: no-repeat;
             background-size: 40%;
             background-position-x: center;
             background-position-y: center;
             &:hover {
-                background-image: url(../imgs/storage.png);
+                background-image: url(../imgs/storage_white.png);
                 background-repeat: no-repeat;
                 background-size: 40%;
                 background-position-x: center;
@@ -65,14 +67,13 @@
         ul {
             margin: 0;
             padding: 20px;
-            color: $white;
-            border: solid $white 1px;
+            border: solid $black 1px;
             border-left: none;
             border-right: none;
             transition: all .6s;
             height: 60px;
             &:hover {
-                background: $white;
+                background: $bgColor2;
                 color: $black;
                 cursor: pointer;
             }
@@ -82,23 +83,32 @@
             padding-top: 10px;
             width: 85%;
         }
+        #copyright {
+            position: absolute;
+            bottom: 2%;
+            left: 5%;
+            p {
+                font-size: .5em;
+            }
+        }
     } //TOP BOKS TIL TICKETS
     #top {
         grid-row: 1 / span 5;
         grid-column: 2 / 13;
         display: grid;
         grid-template-columns: repeat(6, 1fr);
-        height: 350px;
+        height: 300px;
     }
     #servingcontainer {
-        grid-column: 1 / span 2;
+        grid-column: 1 / span 3;
         display: flex;
         flex-direction: row;
-        background: $green;
+        width: 100%;
         section {
-            border: 1px solid $bgColor1;
+            border: 1px solid $bgColor0;
             position: relative;
             padding: 17px 13px;
+            background: $ticketColor2;
         }
         section:after {
             content: "";
@@ -106,8 +116,8 @@
             z-index: 1;
             top: 0;
             left: 0;
-            border-right: $bgColor1 17px solid;
-            border-bottom: $bgColor1 17px solid;
+            border-right: $bgColor0 17px solid;
+            border-bottom: $bgColor0 17px solid;
             -moz-border-radius: 0 0 20px 0;
             -webkit-border-radius: 0 0 20px 0;
             border-radius: 0 0 20px 0;
@@ -118,8 +128,8 @@
             z-index: 1;
             top: 0;
             right: 0;
-            border-left: $bgColor1 17px solid;
-            border-bottom: $bgColor1 17px solid;
+            border-left: $bgColor0 17px solid;
+            border-bottom: $bgColor0 17px solid;
             -moz-border-radius: 0 0 0 20px;
             -webkit-border-radius: 0 0 0 20px;
             border-radius: 0 0 0 20px;
@@ -129,6 +139,7 @@
             text-align: center;
             color: $white;
             background: inherit !important;
+            font-family: 'Vidaloka', serif;
         }
         ul {
             list-style-type: decimal;
@@ -139,23 +150,12 @@
         }
     }
     #ticketcontainer {
-        grid-column: 3 / span 4;
+        grid-column: 4 / span 3;
         display: flex;
         flex-direction: row;
-        :nth-child(1) {
-            background: $yellow;
-        }
-        :nth-child(2) {
-            background: $yellow;
-        }
-        :nth-child(3) {
-            background: $yellow;
-        }
-        :nth-child(2n+4) {
-            background: $bgColor2;
-        }
+        background: $ticketColor;
         section {
-            border: 1px solid $bgColor1;
+            border: 1px solid $bgColor0;
             position: relative;
             padding: 17px 13px;
         }
@@ -165,8 +165,8 @@
             z-index: 1;
             top: 0;
             left: 0;
-            border-right: $bgColor1 17px solid;
-            border-bottom: $bgColor1 17px solid;
+            border-right: $bgColor0 17px solid;
+            border-bottom: $bgColor0 17px solid;
             -moz-border-radius: 0 0 20px 0;
             -webkit-border-radius: 0 0 20px 0;
             border-radius: 0 0 20px 0;
@@ -177,8 +177,8 @@
             z-index: 1;
             top: 0;
             right: 0;
-            border-left: $bgColor1 17px solid;
-            border-bottom: $bgColor1 17px solid;
+            border-left: $bgColor0 17px solid;
+            border-bottom: $bgColor0 17px solid;
             -moz-border-radius: 0 0 0 20px;
             -webkit-border-radius: 0 0 0 20px;
             border-radius: 0 0 0 20px;
@@ -186,12 +186,13 @@
         h1 {
             font-size: 1em;
             text-align: center;
-            color: $white;
+            color: $black;
             background: inherit !important;
+            font-family: 'Vidaloka', serif;
         }
         ul {
             font-size: .7em;
-            color: $white;
+            color: $black;
             list-style-type: decimal;
             background: inherit !important;
             h3 {
@@ -212,9 +213,11 @@
         background: inherit !important;
     }
     .section {
-        width: 200px;
+        width: 250px;
     } //MIDDLE BOKS TIL KØ/SERVING ANTAL
     #middle {
+        border-top: solid 5px black;
+        border-bottom: solid 5px black;
         background: $bgColor2;
         grid-row: 5 / span 5;
         grid-column: 2 / 13;
@@ -232,9 +235,10 @@
     #orders-heading {
         grid-column: 3 / span 2;
         grid-row: 1/ span 1;
-        margin-top: 30%;
+        margin-top: 20%;
         justify-self: center;
         color: $white;
+        font-size: 2em
     }
     #orders-done {
         grid-column: 3 / span 2;
@@ -243,7 +247,7 @@
         border: 10px solid $bgColor1;
         width: 150px;
         height: 150px;
-        background: $brown;
+        background: $bgColor0;
         align-self: center;
         justify-self: center;
         margin-top: 30%;
@@ -252,11 +256,11 @@
         justify-content: center;
     }
     .orderAmount {
-        color: $white;
+        color: $black;
         font-size: 2em;
     } // QUEUE
     .queue-heading {
-        grid-column: 2 / span 1;
+        grid-column: 5 / span 1;
         grid-row: 1 / span 1;
         margin-top: 15%;
         font-size: 1.2em;
@@ -264,7 +268,7 @@
         text-align: center;
     }
     .queue-circle {
-        grid-column: 2 / span 1;
+        grid-column: 5 / span 1;
         grid-row: 1 / span 1;
         background: $brown;
         border-radius: 50%;
@@ -272,7 +276,7 @@
         height: 200px;
         align-self: center;
         justify-self: center;
-        border: 10px solid $bgColor1;
+        border: 10px solid $bgColor0;
         transition: all .6s;
     }
     .queueAmount {
@@ -281,10 +285,10 @@
         font-size: 3em;
     }
     #queue-light {
-        background: none;
-        grid-column: 1 / span 1;
+        background: $black;
+        grid-column: 6 / span 1;
         grid-row: 1 / 1;
-        margin-left: 60%;
+        margin-left: 30%;
         border-radius: 20px;
         width: 100px;
         height: 200px;
@@ -292,9 +296,9 @@
     }
     #queue-light-fill {
         background: $green;
-        grid-column: 1 / span 1;
+        grid-column: 6 / span 1;
         grid-row: 1 / 1;
-        margin-left: 60%;
+        margin-left: 30%;
         border-radius: 20px;
         width: 100px;
         height: 0px;
@@ -305,7 +309,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        h1 {
+        h2 {
             transform: rotatex(180deg);
             color: $white;
             text-align: center;
@@ -322,7 +326,7 @@
         display: none;
     } //SERVING
     .serving-heading {
-        grid-column: 5 / span 1;
+        grid-column: 2 / span 1;
         grid-row: 1 / span 1;
         margin-top: 15%;
         font-size: 1.2em;
@@ -331,14 +335,14 @@
     }
     .serving-circle {
         grid-row: 1/ span 1;
-        grid-column: 5 / span 1;
-        background: $brown;
+        grid-column: 2 / span 1;
+        background: $black;
         border-radius: 50%;
         width: 200px;
         height: 200px;
         align-self: center;
         justify-self: center;
-        border: 10px solid $bgColor1;
+        border: 10px solid $bgColor0;
         transition: all .6s;
     }
     .servingAmount {
@@ -347,9 +351,10 @@
         font-size: 3em;
     }
     #serving-light {
-        grid-column: 6 / span 1;
+        grid-column: 1 / span 1;
         grid-row: 1 / 1;
-        background: none;
+        margin-left: 30%;
+        background: $black;
         border-radius: 20px;
         width: 100px;
         height: 200px;
@@ -359,8 +364,9 @@
     }
     #serving-light-fill {
         background: $green;
-        grid-column: 6 / span 1;
+        grid-column: 1 / span 1;
         grid-row: 1 / 1;
+        margin-left: 30%;
         border-radius: 20px;
         width: 100px;
         height: 0px;
@@ -371,7 +377,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        h1 {
+        h2 {
             transform: rotatex(180deg);
             color: $white;
             text-align: center;
@@ -388,12 +394,11 @@
         display: none;
     } //BOTTOM BOKS TIL ØLTYPER OG STORAGE
     #bottom {
-        background: $bgColor1;
+        background: $bgColor0;
         grid-row: 11 / span 5;
         grid-column: 2 / 13;
         display: grid;
         grid-template-columns: repeat(6, 1fr);
-
     }
     #tapinfocontainer {
         grid-column: 1 / span 6;
@@ -403,38 +408,52 @@
         width: 100%;
         section {
             border: 1px solid $black;
+            border-bottom: none;
             width: 200px;
             transition: all 1s;
         }
     }
-.beer-glass {
-    border: 8px solid white;
-    border-bottom-width: 8px * 2;
-    border-top: transparent;
-    border-radius: 0 0 8px/2 8px/2;
-    height: 240px;
-    width: 240px*0.6;
-    transform: perspective(240px) rotateX(-10deg);
-    position: absolute;
-   bottom: -60%;
-   margin-left: 20px;
-  
+    .tapsection {
+        h2 {
+            font-family: 'Vidaloka', serif;
+        text-align: center;
+        font-size: .9em;
+        position: relative;
+        top: 10%;
+    }
+    p {
+        text-align: center;
+        position: relative; 
+        top: 20%;
+    }
 }
 
-.liquid {
-    height: 20%;
-    width: 100%;
-    background-color: $yellow;
-    position: absolute;
-    bottom: 0;
-    transform: scaleY(1);
-    transform-origin: bottom;
-    transition: all 1s;
- 
-
-  }
- 
-    // BEER STORAGE
+    .tap-level {
+        color: white;
+        font-weight: 700;
+    }
+    .beer-glass {
+        border: 8px solid $white;
+        border-bottom-width: 8px * 2;
+        border-top: transparent;
+        border-radius: 0 0 8px/2 8px/2;
+        height: 240px;
+        width: 240px*0.6;
+        transform: perspective(240px) rotateX(-10deg);
+        position: absolute;
+        bottom: -60%;
+        margin-left: 20px;
+    }
+    .liquid {
+        height: 20%;
+        width: 100%;
+        background-color: $yellow;
+        position: absolute;
+        bottom: 0;
+        transform: scaleY(1);
+        transform-origin: bottom;
+        transition: all 1s;
+    } // BEER STORAGE
     #storagecontainer {
         display: none;
         grid-template-columns: repeat(12, 1fr);
@@ -447,197 +466,183 @@
         height: 110%;
         top: 0%;
         left: 8.5%;
-        z-index: 1000;
-        h1{
+        z-index: 3;
+        h1 {
             font-size: .8em;
         }
-        .storage-section{
+        .storage-section {
             margin-top: 20px;
             padding: 20px;
-            .font-size-sm{
+            .font-size-sm {
                 color: $white;
                 font-size: .8em;
                 letter-spacing: 3px;
             }
-            .font-size-tal{
-                background: black; 
+            .font-size-tal {
+                background: black;
                 padding: 10px;
                 border-radius: 10px;
                 color: $white;
                 font-size: 2.5em;
                 letter-spacing: 3px;
             }
-            .align-center{
+            .align-center {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
                 align-items: center;
             }
         }
-        .storage1{
+        .storage1 {
             background: $bgColor1;
             grid-column: 2 / span 2;
             grid-row: 1 / auto;
-
         }
-        .storage2{
+        .storage2 {
             background: $bgColor2;
             grid-column: 4 / span 2;
             grid-row: 1 / auto;
-            
-        } 
-        .storage3{
+        }
+        .storage3 {
             background: $bgColor1;
             grid-column: 6 / span 2;
             grid-row: 1 / auto;
-            
-        } 
-        .storage4{
+        }
+        .storage4 {
             background: $bgColor2;
             grid-column: 8 / span 2;
             grid-row: 1 / auto;
-            
-        } 
-        .storage5{
+        }
+        .storage5 {
             background: $bgColor1;
             grid-column: 10 / span 2;
             grid-row: 1 / auto;
-            
-        } 
-        .storage6{
+        }
+        .storage6 {
             background: $bgColor2;
             grid-column: 2 / span 2;
             grid-row: 2 / auto;
-            
-        } 
-        .storage7{
+        }
+        .storage7 {
             background: $bgColor1;
             grid-column: 4 / span 2;
             grid-row: 2 / auto;
-            
-        } 
-        .storage8{
+        }
+        .storage8 {
             background: $bgColor2;
             grid-column: 6 / span 2;
             grid-row: 2 / auto;
-            
-        } 
-        .storage9{
+        }
+        .storage9 {
             background: $bgColor1;
             grid-column: 8 / span 2;
             grid-row: 2 / auto;
-            
-        } 
-        .storage10{
+        }
+        .storage10 {
             background: $bgColor2;
             grid-column: 10 / span 2;
             grid-row: 2 / auto;
-            
-        } 
-    }
-
-     // BEER TYPES
-     #beertypecontainer {
+        }
+    } // BEER TYPES
+    #beertypecontainer {
         display: none;
         grid-template-columns: repeat(12, 1fr);
         grid-column-gap: 30px;
         grid-row-gap: 10px;
         position: absolute;
         background: $bgColor0;
-        width: 91.5%;
+        width: 92%;
         height: 100%;
         top: 0%;
-        left: 8.5%;
+        left: 8%;
         overflow-y: scroll;
-        z-index: 10;
-        h1{
-            color:$black;
+        z-index: 3;
+        h1 {
+            color: $black;
             font-size: .7em;
             letter-spacing: 2px;
         }
-        img{
+        img {
             align-self: center;
             margin-left: 20%;
             width: 50%;
         }
-        .beertype-section{
+        .beertype-section {
             margin-top: 20px;
             padding: 20px;
-            .font-size-sm{
+            .font-size-sm {
                 color: $white;
                 font-size: .8em;
                 letter-spacing: 3px;
             }
         }
-        .section1{
-            background: $bgColor1;
-            grid-column:  2 / span 3;
+        .section1 {
+            background: $bgColor2;
+            grid-column: 2 / span 3;
             grid-row: 1 / auto;
         }
-        .section2{
-            background:  $bgColor2;
+        .section2 {
+            background: $bgColor2;
             grid-column: 5 / span 3;
             grid-row: 1 / auto;
         }
-        .section3{
-            background: $bgColor1;
+        .section3 {
+            background: $bgColor2;
             grid-column: 8 / span 3;
             grid-row: 1 / auto;
         }
-        .section4{
+        .section4 {
             background: $bgColor2;
             grid-column: 2 / span 3;
             grid-row: 2 / auto;
         }
-        .section5{
+        .section5 {
             background: $bgColor1;
             grid-column: 5 / span 3;
             grid-row: 2 / auto;
         }
-        .section6{
+        .section6 {
             background: $bgColor2;
             grid-column: 8 / span 3;
             grid-row: 2 / auto;
         }
-        .section7{
+        .section7 {
             background: $bgColor1;
             grid-column: 2 / span 3;
             grid-row: 3 / auto;
         }
-        .section8{
+        .section8 {
             background: $bgColor2;
             grid-column: 5 / span 3;
             grid-row: 3 / auto;
         }
-        .section9{
+        .section9 {
             background: $bgColor1;
             grid-column: 8 / span 3;
             grid-row: 3 / auto;
         }
-        .section10{
+        .section10 {
             background: $bgColor2;
             grid-column: 2 / span 3;
             grid-row: 4 / auto;
         }
-        
-        .info-btn{
+        .info-btn {
             font-family: $myFont;
             background: $bgColor0;
             color: $white;
             border-style: none;
-            width: 200px;
-            height: 30px;
+            padding: 20px 50px;
             margin-top: 10%;
             margin-left: 20%;
-            border-radius: 50px;
+            border-radius: 2px;
             transition: all .6s;
             cursor: pointer;
-            &:hover{
+            &:hover {
                 background: white;
                 color: black;
             }
         }
-        .close-btn{
+        .close-btn {
             display: none;
             font-family: $myFont;
             background: $bgColor0;
@@ -650,25 +655,24 @@
             border-radius: 50px;
             transition: all .6s;
             cursor: pointer;
-            &:hover{
+            &:hover {
                 background: white;
                 color: black;
             }
         }
-        .description{
+        .description {
             border-radius: 5px;
             display: none;
             padding: 20px;
             background: $white;
             margin-top: 10%;
             transition: all .7s;
-            .font-size-sm2{
+            .font-size-sm2 {
                 font-size: .7em;
                 color: $bgColor0;
                 letter-spacing: 1px;
             }
         }
-    }
 
     //ANIMATIONER
     .neon-green {
@@ -688,26 +692,26 @@
     }
     @-webkit-keyframes neon-green {
         from {
-            box-shadow: 0 0 10px $white, 0 0 20px $white, 0 0 30px $white, 0 0 40px #87ab66, 0 0 70px #87ab66, 0 0 80px #87ab66, 0 0 100px #87ab66, 0 0 150px #87ab66;
+            box-shadow: 0 0 10px $white, 0 0 20px $white, 0 0 30px $white, 0 0 40px #87ab66, 0 0 50px #87ab66, 0 0 60px #87ab66, 0 0 80px #87ab66, 0 0 90px #87ab66;
         }
         to {
-            box-shadow: 0 0 5px $white, 0 0 10px $white, 0 0 15px $white, 0 0 20px #87ab66, 0 0 35px #87ab66, 0 0 40px #87ab66, 0 0 50px #87ab66, 0 0 75px #87ab66;
+            box-shadow: 0 0 5px $white, 0 0 10px $white, 0 0 15px $white, 0 0 10px #87ab66, 0 0 20px #87ab66, 0 0 30px #87ab66, 0 0 40px #87ab66, 0 0 50px #87ab66;
         }
     }
     @-moz-keyframes neon-green {
         from {
-            box-shadow: 0 0 10px $white, 0 0 20px $white, 0 0 30px $white, 0 0 40px #87ab66, 0 0 70px #87ab66, 0 0 80px #87ab66, 0 0 100px #87ab66, 0 0 150px #87ab66;
+            box-shadow: 0 0 10px $white, 0 0 20px $white, 0 0 30px $white, 0 0 40px #87ab66, 0 0 50px #87ab66, 0 0 60px #87ab66, 0 0 80px #87ab66, 0 0 90px #87ab66;
         }
         to {
-            box-shadow: 0 0 5px $white, 0 0 10px $white, 0 0 15px $white, 0 0 20px #87ab66, 0 0 35px #87ab66, 0 0 40px #87ab66, 0 0 50px #87ab66, 0 0 75px #87ab66;
+            box-shadow: 0 0 5px $white, 0 0 10px $white, 0 0 15px $white, 0 0 10px #87ab66, 0 0 20px #87ab66, 0 0 30px #87ab66, 0 0 40px #87ab66, 0 0 50px #87ab66;
         }
     }
     @keyframes neon-green {
         from {
-            box-shadow: 0 0 10px $white, 0 0 20px $white, 0 0 30px $white, 0 0 40px #87ab66, 0 0 70px #87ab66, 0 0 80px #87ab66, 0 0 100px #87ab66, 0 0 150px #87ab66;
+            box-shadow: 0 0 10px $white, 0 0 20px $white, 0 0 30px $white, 0 0 40px #87ab66, 0 0 50px #87ab66, 0 0 60px #87ab66, 0 0 80px #87ab66, 0 0 90px #87ab66;
         }
         to {
-            box-shadow: 0 0 5px $white, 0 0 10px $white, 0 0 15px $white, 0 0 20px #87ab66, 0 0 35px #87ab66, 0 0 40px #87ab66, 0 0 50px #87ab66, 0 0 75px #87ab66;
+            box-shadow: 0 0 5px $white, 0 0 10px $white, 0 0 15px $white, 0 0 10px #87ab66, 0 0 20px #87ab66, 0 0 30px #87ab66, 0 0 40px #87ab66, 0 0 50px #87ab66;
         }
     }
     @-webkit-keyframes neon-yellow {
