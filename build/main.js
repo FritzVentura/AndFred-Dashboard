@@ -107,7 +107,7 @@ function ticketOrders() {
 
     // find køen
     queueDetails = jsonData.queue;
-    queueDetails.slice(0, 5).forEach(tickets => {
+    queueDetails.slice(0, 4).forEach(tickets => {
 
         //  console.log("TICKETS ORDRER",tickets.order);
         // definér klon til tickets
@@ -150,7 +150,6 @@ function tapInfo() {
 
     //find arrays for taps og storage og gem data i variabler
     let tapData = jsonData.taps;
-    let tapStorage = jsonData.storage;
 
     //kombiner de to arrays med concat
    // let combiData = tapStorage.concat(tapData);
@@ -161,6 +160,9 @@ function tapInfo() {
         
         
         let tapKlon = tapInfoTemplate.cloneNode(true).content;
+        let tapLevel = element.level*0.01;
+        let tapCap = element.capacity*0.01;
+        let tapColor = tapKlon.querySelector(".tap-level");
 
         const newDiv = document.createElement("div");
 
@@ -169,17 +171,25 @@ function tapInfo() {
 
 
         tapKlon.querySelector(".tap-beer").textContent = element.beer;
-        tapKlon.querySelector(".tap-level").textContent = (element.level*0.01) + " L.";
-        tapKlon.querySelector(".tap-cap").textContent = (element.capacity*0.01) + " L.";
-/*         tapKlon.appendChild = newDiv;
+        tapKlon.querySelector(".tap-level").textContent = tapLevel + "L.";
+        tapKlon.querySelector(".tap-cap").textContent = tapCap + "L.";
+/*      tapKlon.appendChild = newDiv;
         tapKlon.appendChild = beerGlass; */
 
         newDiv.style.height = `${element.level*0.04}%` 
 
+        //console.log("taplevel", tapLevel)
 
-          tapKlon.querySelector(".beer-glass").appendChild(newDiv)   
-        tapInfoContainer.appendChild(tapKlon)
+        if ( tapLevel <= 25) {
+            tapColor.style.color = "#87ab66";
+        } if (tapLevel <= 15){
+            tapColor.style.color = "#e79d3f";
+        } if (tapLevel <= 10){
+            tapColor.style.color = "#d94d4d";
+        }
 
+    tapKlon.querySelector(".beer-glass").appendChild(newDiv)   
+    tapInfoContainer.appendChild(tapKlon)
 
     });
 
@@ -195,6 +205,7 @@ function tapInfo() {
             storageContainer.appendChild(tapKlon2);
         }); 
     */
+
 }
 
 
