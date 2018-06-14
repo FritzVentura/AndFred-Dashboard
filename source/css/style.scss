@@ -16,53 +16,52 @@
         height: 100vh;
     }
     #sidebar {
-        grid-column: 1 / 2;
-        grid-row: 1 / span 15;
+        position: fixed;
         background: $black;
-        width: 100%;
+        width: 8.5%;
         height: 100%;
-   :nth-child(2) {
-    background-image: url(../imgs/home_white.png); 
-    background-repeat: no-repeat;
-    background-size: 40%;
-    background-position-x: center;
-    background-position-y: center;
-    &:hover {
-        background-image: url(../imgs/home.png); 
-        background-repeat: no-repeat;
-        background-size: 40%;
-        background-position-x: center;
-        background-position-y: center;
-    }
-   }
-   :nth-child(3) {
-    background-image: url(../imgs/beerTypes_white.png); 
-    background-repeat: no-repeat;
-    background-size: 40%;
-    background-position-x: center;
-    background-position-y: center;
-    &:hover {
-        background-image: url(../imgs/beerTypes.png); 
-        background-repeat: no-repeat;
-        background-size: 40%;
-        background-position-x: center;
-        background-position-y: center;
-    }
-   }
-   :nth-child(4) {
-    background-image: url(../imgs/storage_white.png); 
-    background-repeat: no-repeat;
-    background-size: 40%;
-    background-position-x: center;
-    background-position-y: center;
-    &:hover {
-        background-image: url(../imgs/storage.png); 
-        background-repeat: no-repeat;
-        background-size: 40%;
-        background-position-x: center;
-        background-position-y: center;
-    }
-   }
+        :nth-child(2) {
+            background-image: url(../imgs/home_white.png);
+            background-repeat: no-repeat;
+            background-size: 40%;
+            background-position-x: center;
+            background-position-y: center;
+            &:hover {
+                background-image: url(../imgs/home.png);
+                background-repeat: no-repeat;
+                background-size: 40%;
+                background-position-x: center;
+                background-position-y: center;
+            }
+        }
+        :nth-child(3) {
+            background-image: url(../imgs/beerTypes_white.png);
+            background-repeat: no-repeat;
+            background-size: 40%;
+            background-position-x: center;
+            background-position-y: center;
+            &:hover {
+                background-image: url(../imgs/beerTypes.png);
+                background-repeat: no-repeat;
+                background-size: 40%;
+                background-position-x: center;
+                background-position-y: center;
+            }
+        }
+        :nth-child(4) {
+            background-image: url(../imgs/storage_white.png);
+            background-repeat: no-repeat;
+            background-size: 40%;
+            background-position-x: center;
+            background-position-y: center;
+            &:hover {
+                background-image: url(../imgs/storage.png);
+                background-repeat: no-repeat;
+                background-size: 40%;
+                background-position-x: center;
+                background-position-y: center;
+            }
+        }
         ul {
             margin: 0;
             padding: 20px;
@@ -83,9 +82,7 @@
             padding-top: 10px;
             width: 85%;
         }
-    } 
-    
-    //TOP BOKS TIL TICKETS
+    } //TOP BOKS TIL TICKETS
     #top {
         grid-row: 1 / span 5;
         grid-column: 2 / 13;
@@ -393,41 +390,48 @@
         grid-row: 11 / span 5;
         grid-column: 2 / 13;
         display: grid;
-        grid-template-columns: repeat(6, 1fr)
+        grid-template-columns: repeat(6, 1fr);
+
     }
     #tapinfocontainer {
         grid-column: 1 / span 6;
         display: flex;
         align-content: space-between;
         height: 500px;
-        transition: all 1s;
+        width: 100%;
         section {
             border: 1px solid $black;
-            width: 500px;
+            width: 200px;
             transition: all 1s;
         }
-
     }
-    .liquid {
-        width: 50px;
-        height: 0;
-        background: red;
-        z-index: 9;
-        position: relative;
-        transition: all 1s;
-    }
-    /*     .glass {
-        position: relative;           // Relative position
-        width: 180px;                 // Width of the glass
-        height: 245px;                 // Height of the glass
-        background-color: rgba(150,150,150,1); // Inner color of glass
-        border-radius: 5px;            // A round border
-        border: 10px solid lightgray;  // Lighter color for the outside
-        border-top: none ;             // Hide the top border
-        overflow: hidden; 
-    } */
+.beer-glass {
+    border: 8px solid white;
+    border-bottom-width: 8px * 2;
+    border-top: transparent;
+    border-radius: 0 0 8px/2 8px/2;
+    height: 240px;
+    width: 240px*0.6;
+    transform: perspective(240px) rotateX(-10deg);
+    position: absolute;
+   bottom: -60%;
+   margin-left: 20px;
+  
+}
 
+.liquid {
+    height: 20%;
+    width: 100%;
+    background-color: $yellow;
+    position: absolute;
+    bottom: 0;
+    transform: scaleY(1);
+    transform-origin: bottom;
+    transition: all 1s;
+ 
 
+  }
+ 
     // BEER STORAGE
     #storagecontainer {
         display: none;
@@ -443,11 +447,9 @@
         :nth-child(2n) {
             background: $bgColor2;
         }
-        .storage-section{
-        }
-    }
-     // BEER TYPES
-     #beertypecontainer {
+    
+    } // BEER TYPES
+    #beertypecontainer {
         display: none;
         justify-content: space-between;
         grid-template-columns: repeat(12, 1fr);
@@ -461,10 +463,8 @@
         :nth-child(2n) {
             background: $bgColor2;
         }
-        .storage-section{
-        }
-    }
-    //ANIMATIONER
+        .storage-section {}
+    } //ANIMATIONER
     .neon-green {
         -webkit-animation: neon-green 1.5s ease-in-out infinite alternate;
         -moz-animation: neon-green 1.5s ease-in-out infinite alternate;
