@@ -11,11 +11,14 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
 
     <!-- ANIMATE CSS LIBRARY v5.1 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
+        crossorigin="anonymous">
 
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arvo|IBM+Plex+Sans|Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Homemade+Apple|Lobster|Patua+One|Permanent+Marker|Vidaloka"
+        rel="stylesheet">
 
     <!-- FAVICON -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
@@ -33,13 +36,12 @@
     <template id="tickettemplate-container">
         <section class="section">
 
-            <h1>Ticket nr:
+            <h1>Ticket:
                 <span class="ticket-id"></span>
             </h1>
 
             <ul>
-                <h3>Order:</h3>
-                <br>
+
                 <li>
                     <span class="ticket-order"></span>
                 </li>
@@ -51,12 +53,11 @@
     <!-- TEMPLATE TIL IN SERVICE -->
     <template id="servingtemplate-container">
         <section class="section">
-            <h1>Ticket nr:
+            <h1>Ticket:
                 <span class="serving-id"></span>
             </h1>
             <ul>
-                <h3>Order:</h3>
-                <br>
+
                 <li>
                     <span class="serving-order"></span>
                 </li>
@@ -71,11 +72,13 @@
                 <span class="tap-beer"></span>
             </h2>
 
-            <p>Beer Left: <br>
-                <span class="tap-level"></span>
-            </p>
-            <p> /
+            <p>Beer Left: 
+                <br>
+                <span class="tap-level"></span> /
                 <span class="tap-cap"></span>
+            </p>
+            <p>
+
             </p>
             <span class="beer-glass">
             </span>
@@ -86,83 +89,98 @@
     <!-- TEMPLATE TIL KEG STORAGE -->
     <template id="storagetemplate-container">
         <section class="storage-section">
-            <h1>Beer: <br>
+            <h1>Beer:
+                <br>
                 <span class="font-size-sm tap-name"></span>
-            </h1> <br>
-            <h1 class="test">Kegs: <br> <br>
-                <div class="align-center"> <br>
+            </h1>
+            <br>
+            <h1 class="test">Kegs:
+                <br>
+                <br>
+                <div class="align-center">
+                    <br>
                     <span class="font-size-tal tap-storage"></span> In storage
                 </div>
             </h1>
         </section>
     </template>
 
-    <!-- MODTAGER TIL KEG STORAGE --> 
+    <!-- MODTAGER TIL KEG STORAGE -->
     <div id="storagecontainer" class="animated "></div>
 
 
     <!-- TEMPLATE TIL BEER TYPES -->
     <template id="beertypetemplate-container">
-            <section class="beertype-section">
-                <!-- <h1>Name:
+        <section class="beertype-section">
+            <!-- <h1>Name:
                     <span class="font-size-sm beer-name"></span>
                 </h1> -->
-                <img class="beer-label" src="imgs/" alt="beerlabel"> <br> <br>
-                <h1>Category:
-                    <span class="font-size-sm beer-cat"></span>
+            <img class="beer-label" src="imgs/" alt="beerlabel">
+            <br>
+            <br>
+            <h1>Category:
+                <span class="font-size-sm beer-cat"></span>
+            </h1>
+            <h1>Alcohol:
+                <span class="font-size-sm beer-alco"></span>
+            </h1>
+            <h1>Pouring Speed:
+                <span class="font-size-sm beer-speed"></span>
+            </h1>
+            <h1>Popularity:
+                <span class="font-size-sm beer-popul"></span>
+            </h1>
+            <div class="description animated">
+                <h1>Aroma:
+                    <span class="font-size-sm2 beer-aroma"></span>
                 </h1>
-                <h1>Alcohol:
-                    <span class="font-size-sm beer-alco"></span>
+                <br>
+                <h1>Appearance:
+                    <span class="font-size-sm2 beer-appea"></span>
                 </h1>
-                <h1>Pouring Speed:
-                    <span class="font-size-sm beer-speed"></span>
+                <br>
+                <h1>Flavour:
+                    <span class="font-size-sm2 beer-flavour"></span>
                 </h1>
-                <h1>Popularity:
-                    <span class="font-size-sm beer-popul"></span>
+                <br>
+                <h1>Mouthfeel:
+                    <span class="font-size-sm2 beer-mouth"></span>
                 </h1>
-                <div class="description animated">
-                        <h1>Aroma:
-                            <span class="font-size-sm2 beer-aroma"></span>
-                        </h1> <br>
-                        <h1>Appearance:
-                            <span class="font-size-sm2 beer-appea"></span>
-                        </h1><br>
-                        <h1>Flavour:
-                            <span class="font-size-sm2 beer-flavour"></span>
-                        </h1><br>
-                        <h1>Mouthfeel:
-                            <span class="font-size-sm2 beer-mouth"></span>
-                        </h1><br>
-                        <h1>Overall Impression:
-                            <span class="font-size-sm2 beer-impress"></span>
-                        </h1><br>
-                </div>
-                <button class="info-btn">Read more</button>
-                <button class="close-btn">Read less</button>
-                 <br>
-            </section>
+                <br>
+                <h1>Overall Impression:
+                    <span class="font-size-sm2 beer-impress"></span>
+                </h1>
+                <br>
+            </div>
+            <button class="info-btn">Read more</button>
+            <button class="close-btn">Read less</button>
+            <br>
+        </section>
     </template>
 
-        <!-- MODTAGER TIL BEER TYPES -->
-        <div id="beertypecontainer" class="animated ">
-        </div>
+    <!-- MODTAGER TIL BEER TYPES -->
+    <div id="beertypecontainer" class="animated ">
+    </div>
 
 
 
-<!-- GRID CONTAINER (MAIN PARENT) -->
+    <!-- GRID CONTAINER (MAIN PARENT) -->
     <div id="grid_container">
 
-<div id="sidebar">
+        <div id="sidebar">
 
-    <img src="imgs/Asset 8.png">
-  
-    <ul class="home-btn"></ul>
-    
-    <ul class="beers-btn"></ul>
-   
-    <ul class="storage-btn"></ul>
- 
-</div>
+            <img src="imgs/LOGO.png">
+
+            <ul class="home-btn"></ul>
+
+            <ul class="beers-btn"></ul>
+
+            <ul class="storage-btn"></ul>
+
+            <div id="copyright">
+                <p> &copy; AndFred Design</p>
+            </div>
+        </div>
 
 
         <!-- TOP CONTAINER / TICKETS + SERVING -->
@@ -181,32 +199,32 @@
             <!-- QUEUE LIGHT + FILL -->
             <div id="queue-light"></div>
             <div id="queue-light-fill">
-                <h1 class="busy">BUSY AF!</h1>
-                <h1 class="almost">ALMOST</h1>
-                <h1 class="good">GOOD</h1>
+                <h2 class="busy">Busy AF!</h2>
+                <h2 class="almost">Not So Busy</h2>
+                <h2 class="good">Quiet</h2>
             </div>
 
             <!-- QUEUE DATA / AMOUNT -->
             <h1 class="queue-heading">In Queue</h1>
             <div class="queue-circle flex_center">
                 <div id="queue">
-                    <h2 class="queueAmount"></h2>
+                    <h1 class="queueAmount"></h1>
                 </div>
             </div>
 
             <!-- SERVING LIGHT + FILL-->
             <div id="serving-light"></div>
             <div id="serving-light-fill">
-                <h1 class="eff1">33.33%</h1>
-                <h1 class="eff2">66.66%</h1>
-                <h1 class="eff3">100%</h1>
+                <h2 class="eff1">Effeciency: 33.33%</h2>
+                <h2 class="eff2"> Effeciency: 66.66%</h2>
+                <h2 class="eff3">Effeciency: 100%</h2>
             </div>
 
             <!-- SERVING DATA / AMOUNT -->
             <h1 class="serving-heading">Being Served</h1>
             <div class="serving-circle flex_center">
                 <div id="serving">
-                    <h2 class="servingAmount"></h2>
+                    <h1 class="servingAmount"></h1>
                 </div>
             </div>
         </div>
@@ -215,7 +233,7 @@
         <div id="bottom">
             <!-- TAP INFO -->
             <div id="tapinfocontainer"></div>
-         
+
             <!--     <div id="storagecontainer"></div> -->
         </div>
 
@@ -224,7 +242,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://petlatkea.dk/2018/front/foobar.js"></script>
     <script src="main.js"></script>
-<!--      <script src="../source/js/test2.js"></script> -->
+    <!--      <script src="../source/js/test2.js"></script> -->
 </body>
 
 </html>

@@ -165,49 +165,36 @@ function tapInfo() {
         let tapColor = tapKlon.querySelector(".tap-level");
 
         const newDiv = document.createElement("div");
-
+ 
        
         newDiv.setAttribute("class", "liquid");
 
 
         tapKlon.querySelector(".tap-beer").textContent = element.beer;
-        tapKlon.querySelector(".tap-level").textContent = tapLevel + "L.";
-        tapKlon.querySelector(".tap-cap").textContent = tapCap + "L.";
-/*      tapKlon.appendChild = newDiv;
+        tapKlon.querySelector(".tap-level").textContent = tapLevel + " L.";
+        tapKlon.querySelector(".tap-cap").textContent = tapCap + " L.";
+/*         tapKlon.appendChild = newDiv;
         tapKlon.appendChild = beerGlass; */
 
         newDiv.style.height = `${element.level*0.04}%` 
 
-        //console.log("taplevel", tapLevel)
+  
+        
 
         if ( tapLevel <= 25) {
             tapColor.style.color = "#87ab66";
-        } if (tapLevel <= 15){
+        }  if (tapLevel <= 15){
             tapColor.style.color = "#e79d3f";
-        } if (tapLevel <= 10){
-            tapColor.style.color = "#d94d4d";
-        }
+        }   if(tapLevel <= 10){
+            tapColor.style.color = "#d94d4d"
+        };
 
-    tapKlon.querySelector(".beer-glass").appendChild(newDiv)   
-    tapInfoContainer.appendChild(tapKlon)
+        tapKlon.querySelector(".beer-glass").appendChild(newDiv)   
+        tapInfoContainer.appendChild(tapKlon)
 
     });
 
-    //TIL BRUG SENERE
-    /* 
-        tapStorage.forEach(element2 => {
-
-            let tapKlon2 = storageTemplate.cloneNode(true).content;
-
-            tapKlon2.querySelector(".tap-name").textContent = element2.name;
-            tapKlon2.querySelector(".tap-storage").textContent = element2.amount;
-
-            storageContainer.appendChild(tapKlon2);
-        }); 
-    */
-
 }
-
 
 
 
