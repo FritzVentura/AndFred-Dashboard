@@ -8,3 +8,5 @@
  --> denne anvendes til at konvertere til en transpiled version 
  --> for derefter at blive ugly/minified.
  ----> Disse versioner af JS filerne finder du i `js` mappen under `build`
+
+* Til upload af den endelige version af JS - er det transpiled version, der er blevet anvendt.
