@@ -265,6 +265,7 @@ body {
 }
 
 .orderAmount {
+    font-family: "Roboto", sans-serif;
     color: $black;
     font-size: 2em;
 } // QUEUE
@@ -294,6 +295,7 @@ body {
     text-align: center;
     color: $white;
     font-size: 3em;
+    font-family: "Roboto", sans-serif;
 }
 
 #queue-light {
@@ -367,6 +369,7 @@ body {
     text-align: center;
     color: $white;
     font-size: 3em;
+    font-family: "Roboto", sans-serif;
 }
 
 #serving-light {
@@ -474,6 +477,7 @@ body {
     position: absolute;
     bottom: -60%;
     margin-left: 20px;
+
 }
 
 .liquid {
@@ -502,9 +506,12 @@ body {
     top: 0%;
     left: 8.5%;
     z-index: 3;
+
     h1 {
         font-size: .8em;
-        color: $white
+        color: $white;
+        font-family: "Vidaloka", sans-serif;
+        text-align: center;
     }
 }
 
@@ -610,7 +617,7 @@ body {
     overflow-y: scroll;
     z-index: 3;
     h1 {
-        color: $white;
+        color: $bgColor0;
         font-size: .7em;
         letter-spacing: 2px;
         text-align: center

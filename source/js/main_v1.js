@@ -4,9 +4,7 @@ document.addEventListener("DOMContentLoaded", hentData);
 // globale variabler
 
 let data;
-let staticData;
 let jsonData;
-let staticJsonData;
 let queueData;
 let servingData;
 let queueDetails;
@@ -33,17 +31,6 @@ function hentData() {
     queueList();
     customerList();
     beerStorageData()
-    //beerTypeData();
-};
-
-
-//--------------------------------------------------------------------
-// FUNKTION til hent Data udenom setInterval
-function hentStaticData() {
-    // definér data / HENT Data
-    staticData = FooBar.getData();
-    // omdan output/string om til JSON format
-    staticJsonData = JSON.parse(staticData);
     beerTypeData();
 };
 
@@ -314,7 +301,7 @@ function beerTypeData(){
     let beerTypeContainer = document.querySelector("#beertypecontainer");
 
     // find beertypes data
-    let beerTypes = staticJsonData.beertypes;
+    let beerTypes = jsonData.beertypes;
     let imgPath = "imgs/";
     i = 1;
     
@@ -555,5 +542,3 @@ function customerList() {
 // sæt interval
 window.setInterval(hentData, 5000);
 hentData();
-
-hentStaticData();
