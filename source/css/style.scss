@@ -610,7 +610,7 @@ body {
     overflow-y: scroll;
     z-index: 3;
     h1 {
-        color: $white;
+        color: $bgColor2;
         font-size: .7em;
         letter-spacing: 2px;
         text-align: center
@@ -624,7 +624,7 @@ body {
 }
 
 .beertype-section {
-    margin-top: 20px;
+    margin-top: 50px;
     padding: 10px;
     .font-size-sm {
         color: $white;
@@ -708,7 +708,7 @@ body {
     left: 45%;
     display: none;
     font-family: $myFont;
-    background: $red;
+    background: $bgColor0;
     color: $black;
     border: dotted 2px black;
     padding: 20px 50px;
