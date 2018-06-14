@@ -13,6 +13,7 @@ let sectionAnim;
 let queueId = [];
 let storageInfo;
 let beerInfo;
+let i;
 
 
 //--------------------------------------------------------------------
@@ -32,7 +33,6 @@ function hentData() {
     beerStorageData()
     beerTypeData();
 }
-
 
 
 //--------------------------------------------------------------------
@@ -156,7 +156,6 @@ function tapInfo() {
     let combiData = tapStorage.concat(tapData);
     /* 
        console.log("tap info", combiData)  */
-    let i = 1;
 
     tapData.forEach(element => {
    
@@ -212,6 +211,14 @@ homeBtn.addEventListener("click", function(event){
     beerInfo.classList.remove("bounceInRight");
     beerInfo.classList.add("bounceOutRight");
 
+    setTimeout(function(){ 
+        storageInfo.style.display = "none";
+    }, 800);
+
+    setTimeout(function(){ 
+        beerInfo.style.display = "none";
+    }, 800);
+
 });
 
 
@@ -225,11 +232,15 @@ storageBtn.addEventListener("click", function(event){
 
     storageInfo.style.display = "grid";
 
+    storageInfo.classList.remove("bounceOutRight");
+    storageInfo.classList.add("bounceInRight");
+
     beerInfo.classList.remove("bounceInRight");
     beerInfo.classList.add("bounceOutRight");
 
-    storageInfo.classList.remove("bounceOutRight");
-    storageInfo.classList.add("bounceInRight");
+    setTimeout(function(){ 
+        beerInfo.style.display = "none";
+    }, 800);
 
 });
 
@@ -241,15 +252,19 @@ let beersBtn = document.querySelector(".beers-btn");
     beersBtn.addEventListener("click", function(event){
     
     beerInfo = document.querySelector("#beertypecontainer");
-    storageInfo = document.querySelector("#storagecontainer");
+    //storageInfo = document.querySelector("#storagecontainer");
 
     beerInfo.style.display = "grid";
+
+    beerInfo.classList.remove("bounceOutRight");
+    beerInfo.classList.add("bounceInRight");
 
     storageInfo.classList.remove("bounceInRight");
     storageInfo.classList.add("bounceOutRight");
 
-    beerInfo.classList.remove("bounceOutRight");
-    beerInfo.classList.add("bounceInRight");
+    setTimeout(function(){ 
+        storageInfo.style.display = "none";
+    }, 800);
 
 });
 
@@ -266,10 +281,13 @@ function beerStorageData(){
     document.querySelector("#storagecontainer").innerHTML = "";
 
     let tapStorage = jsonData.storage;
+    i = 1;
 
     tapStorage.forEach(storage => {
 
         let storageKlon = storageTemplate.cloneNode(true).content;
+
+        storageKlon.querySelector(".storage-section").classList = "storage-section storage" + i++;
 
         storageKlon.querySelector(".tap-name").textContent = storage.name;
         storageKlon.querySelector(".tap-storage").textContent = storage.amount;
@@ -292,13 +310,14 @@ function beerTypeData(){
     document.querySelector("#beertypecontainer").innerHTML = "";
 
     let beerTypes = jsonData.beertypes;
-    let i = 1;
+    i = 1;
     let imgPath = "imgs/";
 
     beerTypes.forEach(type => {
 
         let typeKlon = beerTypeTemplate.cloneNode(true).content;
 
+        // tilføj unik class til hver section
         typeKlon.querySelector(".beertype-section").classList = "beertype-section section" + i++;
 
         //typeKlon.querySelector(".beer-name").textContent = type.name;
@@ -306,7 +325,7 @@ function beerTypeData(){
         typeKlon.querySelector(".beer-alco").textContent = type.alc + "%";
         typeKlon.querySelector(".beer-speed").textContent = type.pouringSpeed;
         typeKlon.querySelector(".beer-popul").textContent = type.popularity;
-        // Description
+        // Description box her
         typeKlon.querySelector(".beer-aroma").textContent = type.description.aroma;
         typeKlon.querySelector(".beer-appea").textContent = type.description.appearance;
         typeKlon.querySelector(".beer-flavour").textContent = type.description.flavor;
@@ -315,9 +334,9 @@ function beerTypeData(){
         typeKlon.querySelector(".beer-label").setAttribute("src", imgPath + type.label);
         
 
-    // SE MERE KNAP 
+    // Definér SE MERE KNAP 
     let btn1 = typeKlon.querySelector(".info-btn");
-
+    // Definér SE MINDRE KNAP 
     let btn2 = typeKlon.querySelector(".close-btn");
 
     btn1.addEventListener("click", function(event){

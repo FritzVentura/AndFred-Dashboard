@@ -16,10 +16,9 @@
         height: 100vh;
     }
     #sidebar {
-        grid-column: 1 / 2;
-        grid-row: 1 / span 15;
+        position: fixed;
         background: $black;
-        width: 100%;
+        width: 8.5%;
         height: 100%;
    :nth-child(2) {
     background-image: url(../imgs/home_white.png); 
@@ -260,6 +259,7 @@
     .queue-heading {
         grid-column: 2 / span 1;
         grid-row: 1 / span 1;
+        margin-top: 15%;
         font-size: 1.2em;
         color: $white;
         text-align: center;
@@ -325,6 +325,7 @@
     .serving-heading {
         grid-column: 5 / span 1;
         grid-row: 1 / span 1;
+        margin-top: 15%;
         font-size: 1.2em;
         color: $white;
         text-align: center;
@@ -430,19 +431,102 @@
     // BEER STORAGE
     #storagecontainer {
         display: none;
-        justify-content: space-between;
         grid-template-columns: repeat(12, 1fr);
+        grid-column-gap: 30px;
+        grid-row-gap: 10px;
+        padding-bottom: 20px;
         position: absolute;
-        background: grey;
-        width: 95%;
-        height: 100%;
+        background: $bgColor0;
+        width: 91.5%;
+        height: 110%;
         top: 0%;
         left: 8.5%;
         z-index: 1000;
-        :nth-child(2n) {
-            background: $bgColor2;
+        h1{
+            font-size: .8em;
         }
         .storage-section{
+            margin-top: 20px;
+            padding: 20px;
+            .font-size-sm{
+                color: $white;
+                font-size: .8em;
+                letter-spacing: 3px;
+            }
+            .font-size-tal{
+                background: black; 
+                padding: 10px;
+                border-radius: 10px;
+                color: $white;
+                font-size: 2.5em;
+                letter-spacing: 3px;
+            }
+            .align-center{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+        .storage1{
+            background: $bgColor1;
+            grid-column: 2 / span 2;
+            grid-row: 1 / auto;
+
+        }
+        .storage2{
+            background: $bgColor2;
+            grid-column: 4 / span 2;
+            grid-row: 1 / auto;
+            
+        } 
+        .storage3{
+            background: $bgColor1;
+            grid-column: 6 / span 2;
+            grid-row: 1 / auto;
+            
+        } 
+        .storage4{
+            background: $bgColor2;
+            grid-column: 8 / span 2;
+            grid-row: 1 / auto;
+            
+        } 
+        .storage5{
+            background: $bgColor1;
+            grid-column: 10 / span 2;
+            grid-row: 1 / auto;
+            
+        } 
+        .storage6{
+            background: $bgColor2;
+            grid-column: 2 / span 2;
+            grid-row: 2 / auto;
+            
+        } 
+        .storage7{
+            background: $bgColor1;
+            grid-column: 4 / span 2;
+            grid-row: 2 / auto;
+            
+        } 
+        .storage8{
+            background: $bgColor2;
+            grid-column: 6 / span 2;
+            grid-row: 2 / auto;
+            
+        } 
+        .storage9{
+            background: $bgColor1;
+            grid-column: 8 / span 2;
+            grid-row: 2 / auto;
+            
+        } 
+        .storage10{
+            background: $bgColor2;
+            grid-column: 10 / span 2;
+            grid-row: 2 / auto;
+            
         } 
     }
 
@@ -453,16 +537,17 @@
         grid-column-gap: 30px;
         grid-row-gap: 10px;
         position: absolute;
-        background: grey;
-        width: 100%;
+        background: $bgColor0;
+        width: 91.5%;
         height: 100%;
         top: 0%;
         left: 8.5%;
         overflow-y: scroll;
         z-index: 10;
         h1{
-            color:rgb(219, 219, 219);
+            color:$black;
             font-size: .7em;
+            letter-spacing: 2px;
         }
         img{
             align-self: center;
@@ -473,65 +558,66 @@
             margin-top: 20px;
             padding: 20px;
             .font-size-sm{
-                color: black;
+                color: $white;
                 font-size: .8em;
+                letter-spacing: 3px;
             }
         }
         .section1{
-            background: #87ab66;
+            background: $bgColor1;
             grid-column:  2 / span 3;
             grid-row: 1 / auto;
         }
         .section2{
-            background: red;
+            background:  $bgColor2;
             grid-column: 5 / span 3;
             grid-row: 1 / auto;
         }
         .section3{
-            background: pink;
+            background: $bgColor1;
             grid-column: 8 / span 3;
             grid-row: 1 / auto;
         }
         .section4{
-            background: yellow;
+            background: $bgColor2;
             grid-column: 2 / span 3;
             grid-row: 2 / auto;
         }
         .section5{
-            background: purple;
+            background: $bgColor1;
             grid-column: 5 / span 3;
             grid-row: 2 / auto;
         }
         .section6{
-            background: rgb(81, 247, 150);
+            background: $bgColor2;
             grid-column: 8 / span 3;
             grid-row: 2 / auto;
         }
         .section7{
-            background: blue;
+            background: $bgColor1;
             grid-column: 2 / span 3;
             grid-row: 3 / auto;
         }
         .section8{
-            background: lightsalmon;
+            background: $bgColor2;
             grid-column: 5 / span 3;
             grid-row: 3 / auto;
         }
         .section9{
-            background: lightseagreen;
+            background: $bgColor1;
             grid-column: 8 / span 3;
             grid-row: 3 / auto;
         }
         .section10{
-            background: wheat;
+            background: $bgColor2;
             grid-column: 2 / span 3;
             grid-row: 4 / auto;
         }
         
         .info-btn{
             font-family: $myFont;
-            background: grey;
-            color: white;
+            background: $bgColor0;
+            color: $white;
             border-style: none;
             width: 200px;
             height: 30px;
@@ -548,8 +634,8 @@
         .close-btn{
             display: none;
             font-family: $myFont;
-            background: grey;
-            color: white;
+            background: $bgColor0;
+            color: $white;
             border-style: none;
             width: 200px;
             height: 30px;
@@ -564,15 +650,16 @@
             }
         }
         .description{
-            border-radius: 20px;
+            border-radius: 5px;
             display: none;
             padding: 20px;
-            background: darkgrey;
+            background: $white;
             margin-top: 10%;
             transition: all .7s;
             .font-size-sm2{
                 font-size: .7em;
-                color: rgb(49, 49, 49);
+                color: $bgColor0;
+                letter-spacing: 1px;
             }
         }
     }
