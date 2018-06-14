@@ -153,7 +153,7 @@ function tapInfo() {
     let tapStorage = jsonData.storage;
 
     //kombiner de to arrays med concat
-    let combiData = tapStorage.concat(tapData);
+   // let combiData = tapStorage.concat(tapData);
     /* 
        console.log("tap info", combiData)  */
 
@@ -543,5 +543,5 @@ function customerList() {
 
 //--------------------------------------------------------------------
 // sæt interval
-window.setInterval(hentData, 10000);
+window.setInterval(hentData, 5000);
 hentData();
