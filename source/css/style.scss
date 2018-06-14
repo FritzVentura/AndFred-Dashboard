@@ -604,7 +604,7 @@ body {
     position: absolute;
     background: $black;
     width: 92%;
-    height: 100%;
+    height: 180%;
     top: 0%;
     left: 8%;
     overflow-y: scroll;
@@ -704,7 +704,7 @@ body {
 
 .close-btn {
     position: absolute;
-    top: 10%;
+    top: 15%;
     left: 45%;
     display: none;
     font-family: $myFont;
@@ -726,7 +726,7 @@ body {
     position: absolute;
     left: 20%;
     top: 20%;
-    bottom: -20%;
+    bottom: 20%;
     right: 20%;
     z-index: 9;
     border-radius: 5px;
