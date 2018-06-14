@@ -236,6 +236,7 @@ body {
   justify-content: center; }
 
 .orderAmount {
+  font-family: "Roboto", sans-serif;
   color: #000;
   font-size: 2em; }
 
@@ -262,7 +263,8 @@ body {
 .queueAmount {
   text-align: center;
   color: #fff;
-  font-size: 3em; }
+  font-size: 3em;
+  font-family: "Roboto", sans-serif; }
 
 #queue-light {
   background: #000;
@@ -327,7 +329,8 @@ body {
 .servingAmount {
   text-align: center;
   color: #fff;
-  font-size: 3em; }
+  font-size: 3em;
+  font-family: "Roboto", sans-serif; }
 
 #serving-light {
   grid-column: 1 / span 1;
@@ -448,7 +451,9 @@ body {
   z-index: 3; }
   #storagecontainer h1 {
     font-size: .8em;
-    color: #fff; }
+    color: #fff;
+    font-family: "Vidaloka", sans-serif;
+    text-align: center; }
 
 .storage-section {
   padding: 20px;
@@ -526,7 +531,7 @@ body {
   overflow-y: scroll;
   z-index: 3; }
   #beertypecontainer h1 {
-    color: #808080;
+    color: #c2c0c0;
     font-size: .7em;
     letter-spacing: 2px;
     text-align: center; }
